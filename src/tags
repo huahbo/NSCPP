@@ -1,0 +1,106 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+Alpha	Staggered.cpp	/^	Tprec Alpha;$/;"	m	class:Staggered	file:	access:private
+Array	Staggered.cpp	/^	inline void Init_Boundary(typeDim<Zone>(),Array<Tprec,2> );$/;"	m	class:Staggered	file:	access:public
+AxisXtoCell	MathCore.cpp	/^Array<real,2> AxisXtoCell(Array<real,2> &Field)$/;"	f	signature:(Array<real,2> &Field)
+Cell	Staggered.cpp	/^	inline Array<Tprec,2> Cell();$/;"	p	class:Staggered	file:	access:public	signature:()
+Cell	Staggered.cpp	/^inline Array<Tprec,2>Interpolation<Tprec,Zone>::Cell()$/;"	f	class:Interpolation	signature:()
+F	Staggered.cpp	/^	Array<Tprec,2> &F,F_P , F_IJ;$/;"	m	class:Staggered	file:	access:private
+F_IJ	Staggered.cpp	/^	Array<Tprec,2> &F,F_P , F_IJ;$/;"	m	class:Staggered	file:	access:private
+F_P	Staggered.cpp	/^	Array<Tprec,2> &F,F_P , F_IJ;$/;"	m	class:Staggered	file:	access:private
+I	Staggered.cpp	/^	inline Array<Tprec,2> I(Array<Tprec,2>& );$/;"	p	class:Staggered	file:	access:public	signature:(Array<Tprec,2>& )
+I	Staggered.cpp	/^inline Array<Tprec,2> Interpolation<Tprec,Zone>::I(Array<Tprec,2> &Base){$/;"	f	class:Interpolation	signature:(Array<Tprec,2> &Base)
+IJ	Staggered.cpp	/^	inline Array<Tprec,2> IJ();$/;"	p	class:Staggered	file:	access:public	signature:()
+IJ	Staggered.cpp	/^inline Array<Tprec,2>Interpolation<Tprec,Zone>::IJ(){$/;"	f	class:Interpolation	signature:()
+IJ_Ground	Staggered.cpp	/^	inline void IJ_Ground(typeDim<1>){$/;"	f	class:Staggered	file:	access:private	signature:(typeDim<1>)
+IJ_Ground	Staggered.cpp	/^	inline void IJ_Ground(typeDim<2>){$/;"	f	class:Staggered	file:	access:private	signature:(typeDim<2>)
+Init_Boundary	Staggered.cpp	/^	inline void Init_Boundary(typeDim<1>,Array<Tprec,2> Unk_Var){$/;"	f	class:Staggered	file:	access:private	signature:(typeDim<1>,Array<Tprec,2> Unk_Var)
+Init_Boundary	Staggered.cpp	/^	inline void Init_Boundary(typeDim<2>,Array<Tprec,2> Unk_Var){$/;"	f	class:Staggered	file:	access:private	signature:(typeDim<2>,Array<Tprec,2> Unk_Var)
+Interpolation	Staggered.cpp	/^	Interpolation(Array<Tprec,2> &Atemp, Array<Tprec,2> Unk_Var)$/;"	f	class:Staggered	access:public	signature:(Array<Tprec,2> &Atemp, Array<Tprec,2> Unk_Var)
+Interpolation::Cell	Staggered.cpp	/^inline Array<Tprec,2>Interpolation<Tprec,Zone>::Cell()$/;"	f	class:Interpolation	signature:()
+Interpolation::I	Staggered.cpp	/^inline Array<Tprec,2> Interpolation<Tprec,Zone>::I(Array<Tprec,2> &Base){$/;"	f	class:Interpolation	signature:(Array<Tprec,2> &Base)
+Interpolation::IJ	Staggered.cpp	/^inline Array<Tprec,2>Interpolation<Tprec,Zone>::IJ(){$/;"	f	class:Interpolation	signature:()
+Interpolation::J	Staggered.cpp	/^inline Array<Tprec,2> Interpolation<Tprec,Zone>::J(Array<Tprec,2> &Base){$/;"	f	class:Interpolation	signature:(Array<Tprec,2> &Base)
+Interpolation::P	Staggered.cpp	/^inline Array<Tprec,2>Interpolation<Tprec,Zone>::P(){$/;"	f	class:Interpolation	signature:()
+Interpolation::Resizes	Staggered.cpp	/^inline void Interpolation<Tprec,Zone>::Resizes(int N){$/;"	f	class:Interpolation	signature:(int N)
+Interpolation::computeInt	Staggered.cpp	/^inline void Interpolation<Tprec, Zone>::computeInt(Array<Tprec,1> &A ,Array<Tprec,1> &B){$/;"	f	class:Interpolation	signature:(Array<Tprec,1> &A ,Array<Tprec,1> &B)
+Interpolation::getIJ	Staggered.cpp	/^inline Array<Tprec,2>Interpolation<Tprec,Zone>::getIJ(){$/;"	f	class:Interpolation	signature:()
+Interpolation::getP	Staggered.cpp	/^inline Array<Tprec,2>Interpolation<Tprec,Zone>::getP(){$/;"	f	class:Interpolation	signature:()
+Interpolation::setValues	Staggered.cpp	/^inline void Interpolation<Tprec, Zone>::setValues(){$/;"	f	class:Interpolation	signature:()
+J	Staggered.cpp	/^	inline Array<Tprec,2> J(Array<Tprec,2>& );$/;"	p	class:Staggered	file:	access:public	signature:(Array<Tprec,2>& )
+J	Staggered.cpp	/^inline Array<Tprec,2> Interpolation<Tprec,Zone>::J(Array<Tprec,2> &Base){$/;"	f	class:Interpolation	signature:(Array<Tprec,2> &Base)
+Mesh	Mesh.cpp	/^Mesh::Mesh(real lAxisX, real lAxisY, int nodeX, int nodeY)$/;"	f	class:Mesh	signature:(real lAxisX, real lAxisY, int nodeX, int nodeY)
+Mesh::Mesh	Mesh.cpp	/^Mesh::Mesh(real lAxisX, real lAxisY, int nodeX, int nodeY)$/;"	f	class:Mesh	signature:(real lAxisX, real lAxisY, int nodeX, int nodeY)
+Mesh::cellDifference	Mesh.cpp	/^void Mesh::cellDifference()$/;"	f	class:Mesh	signature:()
+P	Staggered.cpp	/^	inline Array<Tprec,2> P();$/;"	p	class:Staggered	file:	access:public	signature:()
+P	Staggered.cpp	/^inline Array<Tprec,2>Interpolation<Tprec,Zone>::P(){$/;"	f	class:Interpolation	signature:()
+P_Ground	Staggered.cpp	/^	inline void P_Ground(typeDim<1>){$/;"	f	class:Staggered	file:	access:private	signature:(typeDim<1>)
+P_Ground	Staggered.cpp	/^	inline void P_Ground(typeDim<2>){$/;"	f	class:Staggered	file:	access:private	signature:(typeDim<2>)
+Resizes	Staggered.cpp	/^	inline void Resizes(int N);$/;"	p	class:Staggered	file:	access:public	signature:(int N)
+Resizes	Staggered.cpp	/^inline void Interpolation<Tprec,Zone>::Resizes(int N){$/;"	f	class:Interpolation	signature:(int N)
+Staggered	Staggered.cpp	/^class Staggered{$/;"	c	file:
+Staggered::Alpha	Staggered.cpp	/^	Tprec Alpha;$/;"	m	class:Staggered	file:	access:private
+Staggered::Array	Staggered.cpp	/^	inline void Init_Boundary(typeDim<Zone>(),Array<Tprec,2> );$/;"	m	class:Staggered	file:	access:public
+Staggered::Cell	Staggered.cpp	/^	inline Array<Tprec,2> Cell();$/;"	p	class:Staggered	file:	access:public	signature:()
+Staggered::F	Staggered.cpp	/^	Array<Tprec,2> &F,F_P , F_IJ;$/;"	m	class:Staggered	file:	access:private
+Staggered::F_IJ	Staggered.cpp	/^	Array<Tprec,2> &F,F_P , F_IJ;$/;"	m	class:Staggered	file:	access:private
+Staggered::F_P	Staggered.cpp	/^	Array<Tprec,2> &F,F_P , F_IJ;$/;"	m	class:Staggered	file:	access:private
+Staggered::I	Staggered.cpp	/^	inline Array<Tprec,2> I(Array<Tprec,2>& );$/;"	p	class:Staggered	file:	access:public	signature:(Array<Tprec,2>& )
+Staggered::IJ	Staggered.cpp	/^	inline Array<Tprec,2> IJ();$/;"	p	class:Staggered	file:	access:public	signature:()
+Staggered::IJ_Ground	Staggered.cpp	/^	inline void IJ_Ground(typeDim<1>){$/;"	f	class:Staggered	file:	access:private	signature:(typeDim<1>)
+Staggered::IJ_Ground	Staggered.cpp	/^	inline void IJ_Ground(typeDim<2>){$/;"	f	class:Staggered	file:	access:private	signature:(typeDim<2>)
+Staggered::Init_Boundary	Staggered.cpp	/^	inline void Init_Boundary(typeDim<1>,Array<Tprec,2> Unk_Var){$/;"	f	class:Staggered	file:	access:private	signature:(typeDim<1>,Array<Tprec,2> Unk_Var)
+Staggered::Init_Boundary	Staggered.cpp	/^	inline void Init_Boundary(typeDim<2>,Array<Tprec,2> Unk_Var){$/;"	f	class:Staggered	file:	access:private	signature:(typeDim<2>,Array<Tprec,2> Unk_Var)
+Staggered::Interpolation	Staggered.cpp	/^	Interpolation(Array<Tprec,2> &Atemp, Array<Tprec,2> Unk_Var)$/;"	f	class:Staggered	access:public	signature:(Array<Tprec,2> &Atemp, Array<Tprec,2> Unk_Var)
+Staggered::J	Staggered.cpp	/^	inline Array<Tprec,2> J(Array<Tprec,2>& );$/;"	p	class:Staggered	file:	access:public	signature:(Array<Tprec,2>& )
+Staggered::P	Staggered.cpp	/^	inline Array<Tprec,2> P();$/;"	p	class:Staggered	file:	access:public	signature:()
+Staggered::P_Ground	Staggered.cpp	/^	inline void P_Ground(typeDim<1>){$/;"	f	class:Staggered	file:	access:private	signature:(typeDim<1>)
+Staggered::P_Ground	Staggered.cpp	/^	inline void P_Ground(typeDim<2>){$/;"	f	class:Staggered	file:	access:private	signature:(typeDim<2>)
+Staggered::Resizes	Staggered.cpp	/^	inline void Resizes(int N);$/;"	p	class:Staggered	file:	access:public	signature:(int N)
+Staggered::UnkBound	Staggered.cpp	/^	Array<Tprec,2> UnkBound;$/;"	m	class:Staggered	file:	access:private
+Staggered::a	Staggered.cpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Staggered	file:	access:private
+Staggered::alphaBound	Staggered.cpp	/^	Tprec alphaBound;$/;"	m	class:Staggered	file:	access:private
+Staggered::b	Staggered.cpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Staggered	file:	access:private
+Staggered::bandA	Staggered.cpp	/^	Array<Tprec,1> mainBand, bandA, bandC;$/;"	m	class:Staggered	file:	access:private
+Staggered::bandC	Staggered.cpp	/^	Array<Tprec,1> mainBand, bandA, bandC;$/;"	m	class:Staggered	file:	access:private
+Staggered::computeInt	Staggered.cpp	/^	inline void computeInt(Array<Tprec,1> & ,Array<Tprec,1> &);$/;"	p	class:Staggered	file:	access:public	signature:(Array<Tprec,1> & ,Array<Tprec,1> &)
+Staggered::e1	Staggered.cpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Staggered	file:	access:private
+Staggered::e2	Staggered.cpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Staggered	file:	access:private
+Staggered::e3	Staggered.cpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Staggered	file:	access:private
+Staggered::e4	Staggered.cpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Staggered	file:	access:private
+Staggered::getIJ	Staggered.cpp	/^	inline Array<Tprec,2> getIJ();$/;"	p	class:Staggered	file:	access:public	signature:()
+Staggered::getP	Staggered.cpp	/^	inline Array<Tprec,2> getP();$/;"	p	class:Staggered	file:	access:public	signature:()
+Staggered::mainBand	Staggered.cpp	/^	Array<Tprec,1> mainBand, bandA, bandC;$/;"	m	class:Staggered	file:	access:private
+Staggered::setField	Staggered.cpp	/^	inline void setField(Array<Tprec,2> &A)$/;"	f	class:Staggered	access:public	signature:(Array<Tprec,2> &A)
+Staggered::setValues	Staggered.cpp	/^	inline void setValues();$/;"	p	class:Staggered	file:	access:public	signature:()
+Staggered::typeDim	Staggered.cpp	/^	inline void IJ_Ground(typeDim<Zone>());$/;"	p	class:Staggered	file:	access:public	signature:()
+Staggered::typeDim	Staggered.cpp	/^	inline void Init_Boundary(typeDim<Zone>(),Array<Tprec,2> );$/;"	p	class:Staggered	file:	access:public	signature:()
+Staggered::typeDim	Staggered.cpp	/^	inline void P_Ground(typeDim<Zone>());$/;"	p	class:Staggered	file:	access:public	signature:()
+UnkBound	Staggered.cpp	/^	Array<Tprec,2> UnkBound;$/;"	m	class:Staggered	file:	access:private
+a	Staggered.cpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Staggered	file:	access:private
+alphaBound	Staggered.cpp	/^	Tprec alphaBound;$/;"	m	class:Staggered	file:	access:private
+b	Staggered.cpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Staggered	file:	access:private
+bandA	Staggered.cpp	/^	Array<Tprec,1> mainBand, bandA, bandC;$/;"	m	class:Staggered	file:	access:private
+bandC	Staggered.cpp	/^	Array<Tprec,1> mainBand, bandA, bandC;$/;"	m	class:Staggered	file:	access:private
+cellDifference	Mesh.cpp	/^void Mesh::cellDifference()$/;"	f	class:Mesh	signature:()
+computeInt	Staggered.cpp	/^	inline void computeInt(Array<Tprec,1> & ,Array<Tprec,1> &);$/;"	p	class:Staggered	file:	access:public	signature:(Array<Tprec,1> & ,Array<Tprec,1> &)
+computeInt	Staggered.cpp	/^inline void Interpolation<Tprec, Zone>::computeInt(Array<Tprec,1> &A ,Array<Tprec,1> &B){$/;"	f	class:Interpolation	signature:(Array<Tprec,1> &A ,Array<Tprec,1> &B)
+e1	Staggered.cpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Staggered	file:	access:private
+e2	Staggered.cpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Staggered	file:	access:private
+e3	Staggered.cpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Staggered	file:	access:private
+e4	Staggered.cpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Staggered	file:	access:private
+getIJ	Staggered.cpp	/^	inline Array<Tprec,2> getIJ();$/;"	p	class:Staggered	file:	access:public	signature:()
+getIJ	Staggered.cpp	/^inline Array<Tprec,2>Interpolation<Tprec,Zone>::getIJ(){$/;"	f	class:Interpolation	signature:()
+getP	Staggered.cpp	/^	inline Array<Tprec,2> getP();$/;"	p	class:Staggered	file:	access:public	signature:()
+getP	Staggered.cpp	/^inline Array<Tprec,2>Interpolation<Tprec,Zone>::getP(){$/;"	f	class:Interpolation	signature:()
+mainBand	Staggered.cpp	/^	Array<Tprec,1> mainBand, bandA, bandC;$/;"	m	class:Staggered	file:	access:private
+setField	Staggered.cpp	/^	inline void setField(Array<Tprec,2> &A)$/;"	f	class:Staggered	access:public	signature:(Array<Tprec,2> &A)
+setValues	Staggered.cpp	/^	inline void setValues();$/;"	p	class:Staggered	file:	access:public	signature:()
+setValues	Staggered.cpp	/^inline void Interpolation<Tprec, Zone>::setValues(){$/;"	f	class:Interpolation	signature:()
+typeDim	Staggered.cpp	/^	inline void IJ_Ground(typeDim<Zone>());$/;"	p	class:Staggered	file:	access:public	signature:()
+typeDim	Staggered.cpp	/^	inline void Init_Boundary(typeDim<Zone>(),Array<Tprec,2> );$/;"	p	class:Staggered	file:	access:public	signature:()
+typeDim	Staggered.cpp	/^	inline void P_Ground(typeDim<Zone>());$/;"	p	class:Staggered	file:	access:public	signature:()

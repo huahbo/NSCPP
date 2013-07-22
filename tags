@@ -1,0 +1,507 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ASM_SRCS	Debug/sources.mk	/^ASM_SRCS := $/;"	m
+Alpha	CompactSchemes.hpp	/^	Tprec Alpha;$/;"	m	class:Compact	access:protected
+Alpha	Derivatives.hpp	/^	Tprec Alpha;$/;"	m	class:Compact	access:private
+Alpha	Interpol.hpp	/^	Tprec Alpha;$/;"	m	class:Interpolation	access:private
+AlphaMean	CompactSchemes.hpp	/^	Tprec AlphaMean;$/;"	m	class:Centered	access:private
+Array	Interpol.hpp	/^	inline void Init_Boundary(typeDim<Zone>(),Array<Tprec,2> );$/;"	m	class:Interpolation	access:public
+CC_DEPS	Debug/sources.mk	/^CC_DEPS := $/;"	m
+CC_SRCS	Debug/sources.mk	/^CC_SRCS := $/;"	m
+COMPACTSCHEMES_HPP_	CompactSchemes.hpp	21;"	d
+CPP_DEPS	Debug/sources.mk	/^CPP_DEPS := $/;"	m
+CPP_SRCS	Debug/sources.mk	/^CPP_SRCS := $/;"	m
+CU_DEPS	Debug/sources.mk	/^CU_DEPS := $/;"	m
+CU_SRCS	Debug/sources.mk	/^CU_SRCS := $/;"	m
+CXX_DEPS	Debug/sources.mk	/^CXX_DEPS := $/;"	m
+CXX_SRCS	Debug/sources.mk	/^CXX_SRCS := $/;"	m
+C_DEPS	Debug/sources.mk	/^C_DEPS := $/;"	m
+C_SRCS	Debug/sources.mk	/^C_SRCS := $/;"	m
+C_UPPER_DEPS	Debug/sources.mk	/^C_UPPER_DEPS := $/;"	m
+C_UPPER_SRCS	Debug/sources.mk	/^C_UPPER_SRCS := $/;"	m
+Cell	Interpol.hpp	/^	inline Array<Tprec,2> Cell();$/;"	p	class:Interpolation	access:public	signature:()
+Cell	Interpol.hpp	/^inline Array<Tprec,2>Interpolation<Tprec,Zone>::Cell()$/;"	f	class:Interpolation	signature:()
+Center	CompactSchemes.hpp	/^	inline void Center();$/;"	p	class:Centered	access:public	signature:()
+Center	CompactSchemes.hpp	/^inline void Centered<Tprec>::Center(){$/;"	f	class:Centered	signature:()
+CenterVal	Derivatives.hpp	/^	inline void CenterVal();$/;"	p	class:Compact	access:public	signature:()
+CenterVal	Derivatives.hpp	/^ inline void Compact<Tprec>::CenterVal(){$/;"	f	class:Compact	signature:()
+Centered	CompactSchemes.hpp	/^	Centered(Array<Tprec,3> &P, Array<Tprec,1> &Ds, Tprec Aph, Tprec AphMean)$/;"	f	class:Centered	access:public	signature:(Array<Tprec,3> &P, Array<Tprec,1> &Ds, Tprec Aph, Tprec AphMean)
+Centered	CompactSchemes.hpp	/^	inline void Centered();$/;"	p	class:Compact	access:public	signature:()
+Centered	CompactSchemes.hpp	/^ inline void Compact<Tprec>::Centered(){$/;"	f	class:Compact	signature:()
+Centered	CompactSchemes.hpp	/^class Centered: public Compact<Tprec>{$/;"	c	inherits:Compact
+Centered::AlphaMean	CompactSchemes.hpp	/^	Tprec AlphaMean;$/;"	m	class:Centered	access:private
+Centered::Center	CompactSchemes.hpp	/^	inline void Center();$/;"	p	class:Centered	access:public	signature:()
+Centered::Center	CompactSchemes.hpp	/^inline void Centered<Tprec>::Center(){$/;"	f	class:Centered	signature:()
+Centered::Centered	CompactSchemes.hpp	/^	Centered(Array<Tprec,3> &P, Array<Tprec,1> &Ds, Tprec Aph, Tprec AphMean)$/;"	f	class:Centered	access:public	signature:(Array<Tprec,3> &P, Array<Tprec,1> &Ds, Tprec Aph, Tprec AphMean)
+Centered::CenteredMean	CompactSchemes.hpp	/^	inline void CenteredMean(Array<Tprec,1> & ,Array<Tprec,1> &);$/;"	p	class:Centered	access:public	signature:(Array<Tprec,1> & ,Array<Tprec,1> &)
+Centered::CenteredMean	CompactSchemes.hpp	/^inline void Centered<Tprec>::CenteredMean(Array<Tprec,1> &A ,Array<Tprec,1> &B){$/;"	f	class:Centered	signature:(Array<Tprec,1> &A ,Array<Tprec,1> &B)
+Centered::Dx	CompactSchemes.hpp	/^	Centered &Dx();$/;"	p	class:Centered	access:public	signature:()
+Centered::Dx	CompactSchemes.hpp	/^Centered<Tprec> &Centered<Tprec>::Dx(){$/;"	f	class:Centered	signature:()
+Centered::Mean	CompactSchemes.hpp	/^	inline void Mean();$/;"	p	class:Centered	access:public	signature:()
+Centered::Mean	CompactSchemes.hpp	/^inline void Centered<Tprec>::Mean(){$/;"	f	class:Centered	signature:()
+Centered::ResizesMean	CompactSchemes.hpp	/^	inline void ResizesMean(int);$/;"	p	class:Centered	access:public	signature:(int)
+Centered::ResizesMean	CompactSchemes.hpp	/^inline void Centered<Tprec>::ResizesMean(int N){$/;"	f	class:Centered	signature:(int N)
+Centered::aMean	CompactSchemes.hpp	/^	Tprec aMean, bMean, e1Mean, e2Mean, e3Mean, e4Mean;$/;"	m	class:Centered	access:private
+Centered::alphaBoundMean	CompactSchemes.hpp	/^	Tprec alphaBoundMean;$/;"	m	class:Centered	access:private
+Centered::bMean	CompactSchemes.hpp	/^	Tprec aMean, bMean, e1Mean, e2Mean, e3Mean, e4Mean;$/;"	m	class:Centered	access:private
+Centered::bandAMean	CompactSchemes.hpp	/^	Array<Tprec,1> mainBandMean, bandAMean, bandCMean;$/;"	m	class:Centered	access:private
+Centered::bandCMean	CompactSchemes.hpp	/^	Array<Tprec,1> mainBandMean, bandAMean, bandCMean;$/;"	m	class:Centered	access:private
+Centered::e1Mean	CompactSchemes.hpp	/^	Tprec aMean, bMean, e1Mean, e2Mean, e3Mean, e4Mean;$/;"	m	class:Centered	access:private
+Centered::e2Mean	CompactSchemes.hpp	/^	Tprec aMean, bMean, e1Mean, e2Mean, e3Mean, e4Mean;$/;"	m	class:Centered	access:private
+Centered::e3Mean	CompactSchemes.hpp	/^	Tprec aMean, bMean, e1Mean, e2Mean, e3Mean, e4Mean;$/;"	m	class:Centered	access:private
+Centered::e4Mean	CompactSchemes.hpp	/^	Tprec aMean, bMean, e1Mean, e2Mean, e3Mean, e4Mean;$/;"	m	class:Centered	access:private
+Centered::mainBandMean	CompactSchemes.hpp	/^	Array<Tprec,1> mainBandMean, bandAMean, bandCMean;$/;"	m	class:Centered	access:private
+CenteredInside	CompactSchemes.hpp	/^	inline void CenteredInside(Array<Tprec,1> & ,Array<Tprec,1> &, Tprec);  \/\/Base$/;"	p	class:Compact	access:public	signature:(Array<Tprec,1> & ,Array<Tprec,1> &, Tprec)
+CenteredInside	CompactSchemes.hpp	/^inline void Compact<Tprec>::CenteredInside(Array<Tprec,1> &A ,Array<Tprec,1> &B, Tprec dh){$/;"	f	class:Compact	signature:(Array<Tprec,1> &A ,Array<Tprec,1> &B, Tprec dh)
+CenteredInside	Derivatives.hpp	/^	inline void CenteredInside(Array<Tprec,1> & ,Array<Tprec,1> &, Tprec);$/;"	p	class:Compact	access:public	signature:(Array<Tprec,1> & ,Array<Tprec,1> &, Tprec)
+CenteredInside	Derivatives.hpp	/^inline void Compact<Tprec>::CenteredInside(Array<Tprec,1> &A ,Array<Tprec,1> &B, Tprec dh){$/;"	f	class:Compact	signature:(Array<Tprec,1> &A ,Array<Tprec,1> &B, Tprec dh)
+CenteredMean	CompactSchemes.hpp	/^	inline void CenteredMean(Array<Tprec,1> & ,Array<Tprec,1> &);$/;"	p	class:Centered	access:public	signature:(Array<Tprec,1> & ,Array<Tprec,1> &)
+CenteredMean	CompactSchemes.hpp	/^inline void Centered<Tprec>::CenteredMean(Array<Tprec,1> &A ,Array<Tprec,1> &B){$/;"	f	class:Centered	signature:(Array<Tprec,1> &A ,Array<Tprec,1> &B)
+Compact	CompactSchemes.hpp	/^	Compact(Array<Tprec, 3> &, Array<Tprec, 1> &,Tprec);$/;"	p	class:Compact	access:public	signature:(Array<Tprec, 3> &, Array<Tprec, 1> &,Tprec)
+Compact	CompactSchemes.hpp	/^Compact<Tprec>::Compact(Array<Tprec, 3> &P, Array<Tprec, 1> &Ds,$/;"	f	class:Compact	signature:(Array<Tprec, 3> &P, Array<Tprec, 1> &Ds, Tprec Aph)
+Compact	CompactSchemes.hpp	/^class Compact {$/;"	c
+Compact	Derivatives.hpp	/^	Compact(Array<Tprec,1> &Tdelta)$/;"	f	class:Compact	access:public	signature:(Array<Tprec,1> &Tdelta)
+Compact	Derivatives.hpp	/^class Compact {$/;"	c
+Compact::Alpha	CompactSchemes.hpp	/^	Tprec Alpha;$/;"	m	class:Compact	access:protected
+Compact::Alpha	Derivatives.hpp	/^	Tprec Alpha;$/;"	m	class:Compact	access:private
+Compact::CenterVal	Derivatives.hpp	/^	inline void CenterVal();$/;"	p	class:Compact	access:public	signature:()
+Compact::CenterVal	Derivatives.hpp	/^ inline void Compact<Tprec>::CenterVal(){$/;"	f	class:Compact	signature:()
+Compact::Centered	CompactSchemes.hpp	/^	inline void Centered();$/;"	p	class:Compact	access:public	signature:()
+Compact::Centered	CompactSchemes.hpp	/^ inline void Compact<Tprec>::Centered(){$/;"	f	class:Compact	signature:()
+Compact::CenteredInside	CompactSchemes.hpp	/^	inline void CenteredInside(Array<Tprec,1> & ,Array<Tprec,1> &, Tprec);  \/\/Base$/;"	p	class:Compact	access:public	signature:(Array<Tprec,1> & ,Array<Tprec,1> &, Tprec)
+Compact::CenteredInside	CompactSchemes.hpp	/^inline void Compact<Tprec>::CenteredInside(Array<Tprec,1> &A ,Array<Tprec,1> &B, Tprec dh){$/;"	f	class:Compact	signature:(Array<Tprec,1> &A ,Array<Tprec,1> &B, Tprec dh)
+Compact::CenteredInside	Derivatives.hpp	/^	inline void CenteredInside(Array<Tprec,1> & ,Array<Tprec,1> &, Tprec);$/;"	p	class:Compact	access:public	signature:(Array<Tprec,1> & ,Array<Tprec,1> &, Tprec)
+Compact::CenteredInside	Derivatives.hpp	/^inline void Compact<Tprec>::CenteredInside(Array<Tprec,1> &A ,Array<Tprec,1> &B, Tprec dh){$/;"	f	class:Compact	signature:(Array<Tprec,1> &A ,Array<Tprec,1> &B, Tprec dh)
+Compact::Compact	CompactSchemes.hpp	/^	Compact(Array<Tprec, 3> &, Array<Tprec, 1> &,Tprec);$/;"	p	class:Compact	access:public	signature:(Array<Tprec, 3> &, Array<Tprec, 1> &,Tprec)
+Compact::Compact	CompactSchemes.hpp	/^Compact<Tprec>::Compact(Array<Tprec, 3> &P, Array<Tprec, 1> &Ds,$/;"	f	class:Compact	signature:(Array<Tprec, 3> &P, Array<Tprec, 1> &Ds, Tprec Aph)
+Compact::Compact	Derivatives.hpp	/^	Compact(Array<Tprec,1> &Tdelta)$/;"	f	class:Compact	access:public	signature:(Array<Tprec,1> &Tdelta)
+Compact::Field	CompactSchemes.hpp	/^	Array<Tprec, 3> Field, dX, dY, dZ;$/;"	m	class:Compact	access:protected
+Compact::MidPoints	Derivatives.hpp	/^	inline void MidPoints(Array<Tprec,1> & ,Array<Tprec,1> &, Tprec);$/;"	p	class:Compact	access:public	signature:(Array<Tprec,1> & ,Array<Tprec,1> &, Tprec)
+Compact::MidPoints	Derivatives.hpp	/^inline void Compact<Tprec>::MidPoints(Array<Tprec,1> &A ,Array<Tprec,1> &B, Tprec dh){$/;"	f	class:Compact	signature:(Array<Tprec,1> &A ,Array<Tprec,1> &B, Tprec dh)
+Compact::MidPoints_2	Derivatives.hpp	/^	inline void MidPoints_2(Array<Tprec,1> & ,Array<Tprec,1> &, Tprec);$/;"	p	class:Compact	access:public	signature:(Array<Tprec,1> & ,Array<Tprec,1> &, Tprec)
+Compact::MidVal	Derivatives.hpp	/^	inline void MidVal();$/;"	p	class:Compact	access:public	signature:()
+Compact::MidVal	Derivatives.hpp	/^ inline void Compact<Tprec>::MidVal(){$/;"	f	class:Compact	signature:()
+Compact::Nx	CompactSchemes.hpp	/^	int Nx, Ny, Nz;$/;"	m	class:Compact	access:protected
+Compact::Ny	CompactSchemes.hpp	/^	int Nx, Ny, Nz;$/;"	m	class:Compact	access:protected
+Compact::Nz	CompactSchemes.hpp	/^	int Nx, Ny, Nz;$/;"	m	class:Compact	access:protected
+Compact::Resizes	CompactSchemes.hpp	/^	inline void Resizes(int );                                              \/\/Base$/;"	p	class:Compact	access:public	signature:(int )
+Compact::Resizes	CompactSchemes.hpp	/^ inline void Compact<Tprec>::Resizes(int N){$/;"	f	class:Compact	signature:(int N)
+Compact::Resizes	Derivatives.hpp	/^	inline void Resizes(int );$/;"	p	class:Compact	access:public	signature:(int )
+Compact::Resizes	Derivatives.hpp	/^ inline void Compact<Tprec>::Resizes(int N){$/;"	f	class:Compact	signature:(int N)
+Compact::Resizes_2	Derivatives.hpp	/^	inline void Resizes_2(int );$/;"	p	class:Compact	access:public	signature:(int )
+Compact::Resizes_2	Derivatives.hpp	/^  inline void Compact<Tprec>::Resizes_2(int N){$/;"	f	class:Compact	signature:(int N)
+Compact::a	CompactSchemes.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Compact	access:protected
+Compact::a	Derivatives.hpp	/^	Tprec a, b, e1, e2, e3, e4, e5;$/;"	m	class:Compact	access:private
+Compact::alpha1	Derivatives.hpp	/^	Tprec alphaBound, alpha1, alphaN;$/;"	m	class:Compact	access:private
+Compact::alpha4	Derivatives.hpp	/^	Tprec alpha4, b4;$/;"	m	class:Compact	access:private
+Compact::alphaBound	CompactSchemes.hpp	/^	Tprec alphaBound;$/;"	m	class:Compact	access:protected
+Compact::alphaBound	Derivatives.hpp	/^	Tprec alphaBound, alpha1, alphaN;$/;"	m	class:Compact	access:private
+Compact::alphaN	Derivatives.hpp	/^	Tprec alphaBound, alpha1, alphaN;$/;"	m	class:Compact	access:private
+Compact::b	CompactSchemes.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Compact	access:protected
+Compact::b	Derivatives.hpp	/^	Tprec a, b, e1, e2, e3, e4, e5;$/;"	m	class:Compact	access:private
+Compact::b4	Derivatives.hpp	/^	Tprec alpha4, b4;$/;"	m	class:Compact	access:private
+Compact::bandA	CompactSchemes.hpp	/^	Array<Tprec,1> mainBand, bandA,bandC;$/;"	m	class:Compact	access:protected
+Compact::bandA	Derivatives.hpp	/^	Array<Tprec,1> mainBand, bandA,bandC;$/;"	m	class:Compact	access:private
+Compact::bandC	CompactSchemes.hpp	/^	Array<Tprec,1> mainBand, bandA,bandC;$/;"	m	class:Compact	access:protected
+Compact::bandC	Derivatives.hpp	/^	Array<Tprec,1> mainBand, bandA,bandC;$/;"	m	class:Compact	access:private
+Compact::dX	CompactSchemes.hpp	/^	Array<Tprec, 3> Field, dX, dY, dZ;$/;"	m	class:Compact	access:protected
+Compact::dY	CompactSchemes.hpp	/^	Array<Tprec, 3> Field, dX, dY, dZ;$/;"	m	class:Compact	access:protected
+Compact::dZ	CompactSchemes.hpp	/^	Array<Tprec, 3> Field, dX, dY, dZ;$/;"	m	class:Compact	access:protected
+Compact::delta	Derivatives.hpp	/^	Array<Tprec,1> &delta;$/;"	m	class:Compact	access:private
+Compact::deltas	CompactSchemes.hpp	/^	Array<Tprec, 1> deltas;$/;"	m	class:Compact	access:protected
+Compact::e1	CompactSchemes.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Compact	access:protected
+Compact::e1	Derivatives.hpp	/^	Tprec a, b, e1, e2, e3, e4, e5;$/;"	m	class:Compact	access:private
+Compact::e2	CompactSchemes.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Compact	access:protected
+Compact::e2	Derivatives.hpp	/^	Tprec a, b, e1, e2, e3, e4, e5;$/;"	m	class:Compact	access:private
+Compact::e3	CompactSchemes.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Compact	access:protected
+Compact::e3	Derivatives.hpp	/^	Tprec a, b, e1, e2, e3, e4, e5;$/;"	m	class:Compact	access:private
+Compact::e4	CompactSchemes.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Compact	access:protected
+Compact::e4	Derivatives.hpp	/^	Tprec a, b, e1, e2, e3, e4, e5;$/;"	m	class:Compact	access:private
+Compact::e5	Derivatives.hpp	/^	Tprec a, b, e1, e2, e3, e4, e5;$/;"	m	class:Compact	access:private
+Compact::getDx	CompactSchemes.hpp	/^	const Array<Tprec,3> getDx(){return dX;}\/\/Base $/;"	f	class:Compact	access:public	signature:()
+Compact::getDy	CompactSchemes.hpp	/^	const Array<Tprec,3> getDy(){return dY;}\/\/Base$/;"	f	class:Compact	access:public	signature:()
+Compact::getDz	CompactSchemes.hpp	/^	const Array<Tprec,3> getDz(){return dZ;}\/\/Base$/;"	f	class:Compact	access:public	signature:()
+Compact::mainBand	CompactSchemes.hpp	/^	Array<Tprec,1> mainBand, bandA,bandC;$/;"	m	class:Compact	access:protected
+Compact::mainBand	Derivatives.hpp	/^	Array<Tprec,1> mainBand, bandA,bandC;$/;"	m	class:Compact	access:private
+Compact::xM	Derivatives.hpp	/^	inline Array<Tprec,2> xM(const Array<Tprec,2> &); \/\/Derivatives at the middle points$/;"	p	class:Compact	access:public	signature:(const Array<Tprec,2> &)
+Compact::xM	Derivatives.hpp	/^ Array<Tprec,2> Compact<Tprec>::xM(const Array<Tprec,2> &Field){$/;"	f	class:Compact	signature:(const Array<Tprec,2> &Field)
+Compact::xS	Derivatives.hpp	/^	inline Array<Tprec,2> xS(const Array<Tprec,2> &); \/\/Derivatives at the Integer points$/;"	p	class:Compact	access:public	signature:(const Array<Tprec,2> &)
+Compact::xS	Derivatives.hpp	/^ Array<Tprec,2> Compact<Tprec>::xS(const Array<Tprec,2> &Field){$/;"	f	class:Compact	signature:(const Array<Tprec,2> &Field)
+Compact::yM	Derivatives.hpp	/^	inline Array<Tprec,2> yM(const Array<Tprec,2> &);$/;"	p	class:Compact	access:public	signature:(const Array<Tprec,2> &)
+Compact::yM	Derivatives.hpp	/^ Array<Tprec,2> Compact<Tprec>::yM(const Array<Tprec,2> &Field){$/;"	f	class:Compact	signature:(const Array<Tprec,2> &Field)
+Compact::yS	Derivatives.hpp	/^	inline Array<Tprec,2> yS(const Array<Tprec,2> &);$/;"	p	class:Compact	access:public	signature:(const Array<Tprec,2> &)
+Compact::yS	Derivatives.hpp	/^Array<Tprec,2> Compact<Tprec>::yS(const Array<Tprec,2> &Field){$/;"	f	class:Compact	signature:(const Array<Tprec,2> &Field)
+DERIVATIVES_HPP_	Derivatives.hpp	9;"	d
+DivFluxF	Momentum.hpp	/^	inline Array<Tprec,2> DivFluxF();$/;"	p	class:Momentum	access:public	signature:()
+DivFluxF	Momentum.hpp	/^inline Array<Tprec,2> Momentum<Tprec, Axis>::DivFluxF()$/;"	f	class:Momentum	signature:()
+DivFluxF_Ground	Momentum.hpp	/^		inline void DivFluxF_Ground(typeAxis<2>){$/;"	f	class:Momentum	access:private	signature:(typeAxis<2>)
+DivFluxF_Ground	Momentum.hpp	/^	inline void DivFluxF_Ground(typeAxis<1>){$/;"	f	class:Momentum	access:private	signature:(typeAxis<1>)
+DivFluxFv	Momentum.hpp	/^	inline Array<Tprec,2> DivFluxFv();$/;"	p	class:Momentum	access:public	signature:()
+DivFluxFv	Momentum.hpp	/^inline Array<Tprec,2> Momentum<Tprec, Axis>::DivFluxFv()$/;"	f	class:Momentum	signature:()
+DivFluxFv_Ground	Momentum.hpp	/^	    inline void DivFluxFv_Ground(typeAxis<2>)$/;"	f	class:Momentum	access:private	signature:(typeAxis<2>)
+DivFluxFv_Ground	Momentum.hpp	/^    inline void DivFluxFv_Ground(typeAxis<1>)$/;"	f	class:Momentum	access:private	signature:(typeAxis<1>)
+DivFluxG	Momentum.hpp	/^	inline Array<Tprec,2> DivFluxG();$/;"	p	class:Momentum	access:public	signature:()
+DivFluxG	Momentum.hpp	/^inline Array<Tprec,2> Momentum<Tprec, Axis>::DivFluxG()$/;"	f	class:Momentum	signature:()
+DivFluxG_Ground	Momentum.hpp	/^		inline void DivFluxG_Ground(typeAxis<2>)$/;"	f	class:Momentum	access:private	signature:(typeAxis<2>)
+DivFluxG_Ground	Momentum.hpp	/^	inline void DivFluxG_Ground(typeAxis<1>){$/;"	f	class:Momentum	access:private	signature:(typeAxis<1>)
+DivFluxGv	Momentum.hpp	/^	inline Array<Tprec,2> DivFluxGv();$/;"	p	class:Momentum	access:public	signature:()
+DivFluxGv	Momentum.hpp	/^inline Array<Tprec,2> Momentum<Tprec, Axis>::DivFluxGv()$/;"	f	class:Momentum	signature:()
+DivFluxGv_Ground	Momentum.hpp	/^	    inline void DivFluxGv_Ground(typeAxis<2>)$/;"	f	class:Momentum	access:private	signature:(typeAxis<2>)
+DivFluxGv_Ground	Momentum.hpp	/^    inline void DivFluxGv_Ground(typeAxis<1>)$/;"	f	class:Momentum	access:private	signature:(typeAxis<1>)
+DivPress_Ground	Momentum.hpp	/^	    inline void DivPress_Ground(typeAxis<2>)$/;"	f	class:Momentum	access:private	signature:(typeAxis<2>)
+DivPress_Ground	Momentum.hpp	/^    inline void DivPress_Ground(typeAxis<1>)$/;"	f	class:Momentum	access:private	signature:(typeAxis<1>)
+DivPressure	Momentum.hpp	/^	inline Array<Tprec,2> DivPressure();$/;"	p	class:Momentum	access:public	signature:()
+DivPressure	Momentum.hpp	/^inline Array<Tprec,2> Momentum<Tprec,Axis>::DivPressure()$/;"	f	class:Momentum	signature:()
+Dx	CompactSchemes.hpp	/^	Centered &Dx();$/;"	p	class:Centered	access:public	signature:()
+Dx	CompactSchemes.hpp	/^	Staggered &Dx();$/;"	p	class:Staggered	access:public	signature:()
+Dx	CompactSchemes.hpp	/^Centered<Tprec> &Centered<Tprec>::Dx(){$/;"	f	class:Centered	signature:()
+Dx	CompactSchemes.hpp	/^Staggered<Tprec> &Staggered<Tprec>::Dx(){$/;"	f	class:Staggered	signature:()
+Dy	CompactSchemes.hpp	/^	Staggered &Dy();$/;"	p	class:Staggered	access:public	signature:()
+Dy	CompactSchemes.hpp	/^Staggered<Tprec> &Staggered<Tprec>::Dy(){$/;"	f	class:Staggered	signature:()
+Dz	CompactSchemes.hpp	/^	Staggered &Dz();$/;"	p	class:Staggered	access:public	signature:()
+Dz	CompactSchemes.hpp	/^Staggered<Tprec> &Staggered<Tprec>::Dz(){$/;"	f	class:Staggered	signature:()
+EXECUTABLES	Debug/sources.mk	/^EXECUTABLES := $/;"	m
+ExplicitDeriv	include/explicitDeriv.h	/^	ExplicitDeriv(const Array<real,2>& vel_u, $/;"	f	class:ExplicitDeriv	access:public	signature:(const Array<real,2>& vel_u, const Array<real,2>& vel_v, const Array<real,2>& press_p)
+ExplicitDeriv	include/explicitDeriv.h	/^class ExplicitDeriv$/;"	c
+ExplicitDeriv::ExplicitDeriv	include/explicitDeriv.h	/^	ExplicitDeriv(const Array<real,2>& vel_u, $/;"	f	class:ExplicitDeriv	access:public	signature:(const Array<real,2>& vel_u, const Array<real,2>& vel_v, const Array<real,2>& press_p)
+ExplicitDeriv::Pressure	include/explicitDeriv.h	/^	const Array<real,2>& Pressure;    $/;"	m	class:ExplicitDeriv	access:private
+ExplicitDeriv::u_Velocity	include/explicitDeriv.h	/^	const Array<real,2>& u_Velocity;$/;"	m	class:ExplicitDeriv	access:private
+ExplicitDeriv::v_Velocity	include/explicitDeriv.h	/^	const Array<real,2>& v_Velocity;$/;"	m	class:ExplicitDeriv	access:private
+F	Interpol.hpp	/^	Array<Tprec,2> &F,F_P , F_IJ;$/;"	m	class:Interpolation	access:private
+F	Momentum.hpp	/^	Array<Tprec,2> F, G, Fv, Gv;$/;"	m	class:Momentum	access:private
+FLUID_HPP_	Fluid.hpp	9;"	d
+F_IJ	Interpol.hpp	/^	Array<Tprec,2> &F,F_P , F_IJ;$/;"	m	class:Interpolation	access:private
+F_P	Interpol.hpp	/^	Array<Tprec,2> &F,F_P , F_IJ;$/;"	m	class:Interpolation	access:private
+Field	CompactSchemes.hpp	/^	Array<Tprec, 3> Field, dX, dY, dZ;$/;"	m	class:Compact	access:protected
+Fluid	Fluid.hpp	/^	Fluid(Array<Tprec,2> &, \/\/1.-Velocity X-Axis$/;"	p	class:Fluid	access:public	signature:(Array<Tprec,2> &, Array<Tprec,2> &, Array<Tprec,2> &)
+Fluid	Fluid.hpp	/^	Fluid<Tprec>::Fluid(Array<Tprec,2> &A, Array<Tprec,2> &B, Array<Tprec,2> &C){$/;"	f	class:Fluid	signature:(Array<Tprec,2> &A, Array<Tprec,2> &B, Array<Tprec,2> &C)
+Fluid	Fluid.hpp	/^class Fluid{$/;"	c
+Fluid::Fluid	Fluid.hpp	/^	Fluid(Array<Tprec,2> &, \/\/1.-Velocity X-Axis$/;"	p	class:Fluid	access:public	signature:(Array<Tprec,2> &, Array<Tprec,2> &, Array<Tprec,2> &)
+Fluid::Fluid	Fluid.hpp	/^	Fluid<Tprec>::Fluid(Array<Tprec,2> &A, Array<Tprec,2> &B, Array<Tprec,2> &C){$/;"	f	class:Fluid	signature:(Array<Tprec,2> &A, Array<Tprec,2> &B, Array<Tprec,2> &C)
+Fluid::p	Fluid.hpp	/^	Array<Tprec,2> u, v, p;$/;"	m	class:Fluid	access:private
+Fluid::u	Fluid.hpp	/^	Array<Tprec,2> u, v, p;$/;"	m	class:Fluid	access:private
+Fluid::v	Fluid.hpp	/^	Array<Tprec,2> u, v, p;$/;"	m	class:Fluid	access:private
+FluxF	Momentum.hpp	/^	inline Array<Tprec,2> FluxF();$/;"	p	class:Momentum	access:public	signature:()
+FluxF	Momentum.hpp	/^inline Array<Tprec,2> Momentum<Tprec, Axis>::FluxF()$/;"	f	class:Momentum	signature:()
+FluxF_Ground	Momentum.hpp	/^	inline void FluxF_Ground(typeAxis<1>){$/;"	f	class:Momentum	access:private	signature:(typeAxis<1>)
+FluxF_Ground	Momentum.hpp	/^	inline void FluxF_Ground(typeAxis<2>){$/;"	f	class:Momentum	access:private	signature:(typeAxis<2>)
+FluxFv	Momentum.hpp	/^	inline Array<Tprec,2> FluxFv();$/;"	p	class:Momentum	access:public	signature:()
+FluxFv	Momentum.hpp	/^inline Array<Tprec,2> Momentum<Tprec, Axis>::FluxFv(){$/;"	f	class:Momentum	signature:()
+FluxFv_Ground	Momentum.hpp	/^		inline void FluxFv_Ground(typeAxis<2>)$/;"	f	class:Momentum	access:private	signature:(typeAxis<2>)
+FluxFv_Ground	Momentum.hpp	/^	inline void FluxFv_Ground(typeAxis<1>)$/;"	f	class:Momentum	access:private	signature:(typeAxis<1>)
+FluxG	Momentum.hpp	/^	inline Array<Tprec,2> FluxG();$/;"	p	class:Momentum	access:public	signature:()
+FluxG	Momentum.hpp	/^inline Array<Tprec,2> Momentum<Tprec, Axis>::FluxG()$/;"	f	class:Momentum	signature:()
+FluxG_Ground	Momentum.hpp	/^		inline void FluxG_Ground(typeAxis<2>){$/;"	f	class:Momentum	access:private	signature:(typeAxis<2>)
+FluxG_Ground	Momentum.hpp	/^	inline void FluxG_Ground(typeAxis<1>){$/;"	f	class:Momentum	access:private	signature:(typeAxis<1>)
+FluxGv	Momentum.hpp	/^	inline Array<Tprec,2> FluxGv();$/;"	p	class:Momentum	access:public	signature:()
+FluxGv	Momentum.hpp	/^inline Array<Tprec,2> Momentum<Tprec, Axis>::FluxGv(){$/;"	f	class:Momentum	signature:()
+FluxGv_Ground	Momentum.hpp	/^		inline void FluxGv_Ground(typeAxis<2>)$/;"	f	class:Momentum	access:private	signature:(typeAxis<2>)
+FluxGv_Ground	Momentum.hpp	/^	inline void FluxGv_Ground(typeAxis<1>)$/;"	f	class:Momentum	access:private	signature:(typeAxis<1>)
+Fv	Momentum.hpp	/^	Array<Tprec,2> F, G, Fv, Gv;$/;"	m	class:Momentum	access:private
+G	Momentum.hpp	/^	Array<Tprec,2> F, G, Fv, Gv;$/;"	m	class:Momentum	access:private
+GENERALEQUATION_CPP_	GeneralEquation.hpp	9;"	d
+GeneralEquation	GeneralEquation.hpp	/^	GeneralEquation(Array<Tprec, 2> &, Array<Tprec,2> &, Array<Tprec,2> &);$/;"	p	class:GeneralEquation	access:public	signature:(Array<Tprec, 2> &, Array<Tprec,2> &, Array<Tprec,2> &)
+GeneralEquation	GeneralEquation.hpp	/^GeneralEquation<Tprec>::GeneralEquation(Array<Tprec, 2> &A, Array<Tprec,2> &B, Array<Tprec,2> &C)$/;"	f	class:GeneralEquation	signature:(Array<Tprec, 2> &A, Array<Tprec,2> &B, Array<Tprec,2> &C)
+GeneralEquation	GeneralEquation.hpp	/^class GeneralEquation{$/;"	c
+GeneralEquation::GeneralEquation	GeneralEquation.hpp	/^	GeneralEquation(Array<Tprec, 2> &, Array<Tprec,2> &, Array<Tprec,2> &);$/;"	p	class:GeneralEquation	access:public	signature:(Array<Tprec, 2> &, Array<Tprec,2> &, Array<Tprec,2> &)
+GeneralEquation::GeneralEquation	GeneralEquation.hpp	/^GeneralEquation<Tprec>::GeneralEquation(Array<Tprec, 2> &A, Array<Tprec,2> &B, Array<Tprec,2> &C)$/;"	f	class:GeneralEquation	signature:(Array<Tprec, 2> &A, Array<Tprec,2> &B, Array<Tprec,2> &C)
+GeneralEquation::convectiveTerm	GeneralEquation.hpp	/^	Array<Tprec,2> temporalTerm, convectiveTerm, diffusiveTerm, pressureTerm;$/;"	m	class:GeneralEquation	access:private
+GeneralEquation::diffusiveTerm	GeneralEquation.hpp	/^	Array<Tprec,2> temporalTerm, convectiveTerm, diffusiveTerm, pressureTerm;$/;"	m	class:GeneralEquation	access:private
+GeneralEquation::p	GeneralEquation.hpp	/^	Array<Tprec,2> &u,&v,&p;$/;"	m	class:GeneralEquation	access:protected
+GeneralEquation::pressureTerm	GeneralEquation.hpp	/^	Array<Tprec,2> temporalTerm, convectiveTerm, diffusiveTerm, pressureTerm;$/;"	m	class:GeneralEquation	access:private
+GeneralEquation::temporalTerm	GeneralEquation.hpp	/^	Array<Tprec,2> temporalTerm, convectiveTerm, diffusiveTerm, pressureTerm;$/;"	m	class:GeneralEquation	access:private
+GeneralEquation::u	GeneralEquation.hpp	/^	Array<Tprec,2> &u,&v,&p;$/;"	m	class:GeneralEquation	access:protected
+GeneralEquation::v	GeneralEquation.hpp	/^	Array<Tprec,2> &u,&v,&p;$/;"	m	class:GeneralEquation	access:protected
+Gv	Momentum.hpp	/^	Array<Tprec,2> F, G, Fv, Gv;$/;"	m	class:Momentum	access:private
+I	Interpol.hpp	/^	inline Array<Tprec,2> I(Array<Tprec,2>& );$/;"	p	class:Interpolation	access:public	signature:(Array<Tprec,2>& )
+I	Interpol.hpp	/^inline Array<Tprec,2> Interpolation<Tprec,Zone>::I(Array<Tprec,2> &Base){$/;"	f	class:Interpolation	signature:(Array<Tprec,2> &Base)
+IJ	Interpol.hpp	/^	inline Array<Tprec,2> IJ();$/;"	p	class:Interpolation	access:public	signature:()
+IJ	Interpol.hpp	/^inline Array<Tprec,2>Interpolation<Tprec,Zone>::IJ(){$/;"	f	class:Interpolation	signature:()
+IJ_Ground	Interpol.hpp	/^	inline void IJ_Ground(typeDim<1>){$/;"	f	class:Interpolation	access:private	signature:(typeDim<1>)
+IJ_Ground	Interpol.hpp	/^	inline void IJ_Ground(typeDim<2>){$/;"	f	class:Interpolation	access:private	signature:(typeDim<2>)
+INTERPOL_HPP_	Interpol.hpp	9;"	d
+Init_Boundary	Interpol.hpp	/^	inline void Init_Boundary(typeDim<1>,Array<Tprec,2> Unk_Var){$/;"	f	class:Interpolation	access:private	signature:(typeDim<1>,Array<Tprec,2> Unk_Var)
+Init_Boundary	Interpol.hpp	/^	inline void Init_Boundary(typeDim<2>,Array<Tprec,2> Unk_Var){$/;"	f	class:Interpolation	access:private	signature:(typeDim<2>,Array<Tprec,2> Unk_Var)
+Interpolation	Interpol.hpp	/^	Interpolation(Array<Tprec,2> &Atemp, Array<Tprec,2> Unk_Var)$/;"	f	class:Interpolation	access:public	signature:(Array<Tprec,2> &Atemp, Array<Tprec,2> Unk_Var)
+Interpolation	Interpol.hpp	/^class Interpolation{$/;"	c
+Interpolation::Alpha	Interpol.hpp	/^	Tprec Alpha;$/;"	m	class:Interpolation	access:private
+Interpolation::Array	Interpol.hpp	/^	inline void Init_Boundary(typeDim<Zone>(),Array<Tprec,2> );$/;"	m	class:Interpolation	access:public
+Interpolation::Cell	Interpol.hpp	/^	inline Array<Tprec,2> Cell();$/;"	p	class:Interpolation	access:public	signature:()
+Interpolation::Cell	Interpol.hpp	/^inline Array<Tprec,2>Interpolation<Tprec,Zone>::Cell()$/;"	f	class:Interpolation	signature:()
+Interpolation::F	Interpol.hpp	/^	Array<Tprec,2> &F,F_P , F_IJ;$/;"	m	class:Interpolation	access:private
+Interpolation::F_IJ	Interpol.hpp	/^	Array<Tprec,2> &F,F_P , F_IJ;$/;"	m	class:Interpolation	access:private
+Interpolation::F_P	Interpol.hpp	/^	Array<Tprec,2> &F,F_P , F_IJ;$/;"	m	class:Interpolation	access:private
+Interpolation::I	Interpol.hpp	/^	inline Array<Tprec,2> I(Array<Tprec,2>& );$/;"	p	class:Interpolation	access:public	signature:(Array<Tprec,2>& )
+Interpolation::I	Interpol.hpp	/^inline Array<Tprec,2> Interpolation<Tprec,Zone>::I(Array<Tprec,2> &Base){$/;"	f	class:Interpolation	signature:(Array<Tprec,2> &Base)
+Interpolation::IJ	Interpol.hpp	/^	inline Array<Tprec,2> IJ();$/;"	p	class:Interpolation	access:public	signature:()
+Interpolation::IJ	Interpol.hpp	/^inline Array<Tprec,2>Interpolation<Tprec,Zone>::IJ(){$/;"	f	class:Interpolation	signature:()
+Interpolation::IJ_Ground	Interpol.hpp	/^	inline void IJ_Ground(typeDim<1>){$/;"	f	class:Interpolation	access:private	signature:(typeDim<1>)
+Interpolation::IJ_Ground	Interpol.hpp	/^	inline void IJ_Ground(typeDim<2>){$/;"	f	class:Interpolation	access:private	signature:(typeDim<2>)
+Interpolation::Init_Boundary	Interpol.hpp	/^	inline void Init_Boundary(typeDim<1>,Array<Tprec,2> Unk_Var){$/;"	f	class:Interpolation	access:private	signature:(typeDim<1>,Array<Tprec,2> Unk_Var)
+Interpolation::Init_Boundary	Interpol.hpp	/^	inline void Init_Boundary(typeDim<2>,Array<Tprec,2> Unk_Var){$/;"	f	class:Interpolation	access:private	signature:(typeDim<2>,Array<Tprec,2> Unk_Var)
+Interpolation::Interpolation	Interpol.hpp	/^	Interpolation(Array<Tprec,2> &Atemp, Array<Tprec,2> Unk_Var)$/;"	f	class:Interpolation	access:public	signature:(Array<Tprec,2> &Atemp, Array<Tprec,2> Unk_Var)
+Interpolation::J	Interpol.hpp	/^	inline Array<Tprec,2> J(Array<Tprec,2>& );$/;"	p	class:Interpolation	access:public	signature:(Array<Tprec,2>& )
+Interpolation::J	Interpol.hpp	/^inline Array<Tprec,2> Interpolation<Tprec,Zone>::J(Array<Tprec,2> &Base){$/;"	f	class:Interpolation	signature:(Array<Tprec,2> &Base)
+Interpolation::P	Interpol.hpp	/^	inline Array<Tprec,2> P();$/;"	p	class:Interpolation	access:public	signature:()
+Interpolation::P	Interpol.hpp	/^inline Array<Tprec,2>Interpolation<Tprec,Zone>::P(){$/;"	f	class:Interpolation	signature:()
+Interpolation::P_Ground	Interpol.hpp	/^	inline void P_Ground(typeDim<1>){$/;"	f	class:Interpolation	access:private	signature:(typeDim<1>)
+Interpolation::P_Ground	Interpol.hpp	/^	inline void P_Ground(typeDim<2>){$/;"	f	class:Interpolation	access:private	signature:(typeDim<2>)
+Interpolation::Resizes	Interpol.hpp	/^	inline void Resizes(int N);$/;"	p	class:Interpolation	access:public	signature:(int N)
+Interpolation::Resizes	Interpol.hpp	/^inline void Interpolation<Tprec,Zone>::Resizes(int N){$/;"	f	class:Interpolation	signature:(int N)
+Interpolation::UnkBound	Interpol.hpp	/^	Array<Tprec,2> UnkBound;$/;"	m	class:Interpolation	access:private
+Interpolation::a	Interpol.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Interpolation	access:private
+Interpolation::alphaBound	Interpol.hpp	/^	Tprec alphaBound;$/;"	m	class:Interpolation	access:private
+Interpolation::b	Interpol.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Interpolation	access:private
+Interpolation::bandA	Interpol.hpp	/^	Array<Tprec,1> mainBand, bandA, bandC;$/;"	m	class:Interpolation	access:private
+Interpolation::bandC	Interpol.hpp	/^	Array<Tprec,1> mainBand, bandA, bandC;$/;"	m	class:Interpolation	access:private
+Interpolation::computeInt	Interpol.hpp	/^	inline void computeInt(Array<Tprec,1> & ,Array<Tprec,1> &);$/;"	p	class:Interpolation	access:public	signature:(Array<Tprec,1> & ,Array<Tprec,1> &)
+Interpolation::computeInt	Interpol.hpp	/^inline void Interpolation<Tprec, Zone>::computeInt(Array<Tprec,1> &A ,Array<Tprec,1> &B){$/;"	f	class:Interpolation	signature:(Array<Tprec,1> &A ,Array<Tprec,1> &B)
+Interpolation::e1	Interpol.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Interpolation	access:private
+Interpolation::e2	Interpol.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Interpolation	access:private
+Interpolation::e3	Interpol.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Interpolation	access:private
+Interpolation::e4	Interpol.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Interpolation	access:private
+Interpolation::getIJ	Interpol.hpp	/^	inline Array<Tprec,2> getIJ();$/;"	p	class:Interpolation	access:public	signature:()
+Interpolation::getIJ	Interpol.hpp	/^inline Array<Tprec,2>Interpolation<Tprec,Zone>::getIJ(){$/;"	f	class:Interpolation	signature:()
+Interpolation::getP	Interpol.hpp	/^	inline Array<Tprec,2> getP();$/;"	p	class:Interpolation	access:public	signature:()
+Interpolation::getP	Interpol.hpp	/^inline Array<Tprec,2>Interpolation<Tprec,Zone>::getP(){$/;"	f	class:Interpolation	signature:()
+Interpolation::mainBand	Interpol.hpp	/^	Array<Tprec,1> mainBand, bandA, bandC;$/;"	m	class:Interpolation	access:private
+Interpolation::setField	Interpol.hpp	/^	inline void setField(Array<Tprec,2> &A)$/;"	f	class:Interpolation	access:public	signature:(Array<Tprec,2> &A)
+Interpolation::setValues	Interpol.hpp	/^	inline void setValues();$/;"	p	class:Interpolation	access:public	signature:()
+Interpolation::setValues	Interpol.hpp	/^inline void Interpolation<Tprec, Zone>::setValues(){$/;"	f	class:Interpolation	signature:()
+Interpolation::typeDim	Interpol.hpp	/^	inline void IJ_Ground(typeDim<Zone>());$/;"	p	class:Interpolation	access:public	signature:()
+Interpolation::typeDim	Interpol.hpp	/^	inline void Init_Boundary(typeDim<Zone>(),Array<Tprec,2> );$/;"	p	class:Interpolation	access:public	signature:()
+Interpolation::typeDim	Interpol.hpp	/^	inline void P_Ground(typeDim<Zone>());$/;"	p	class:Interpolation	access:public	signature:()
+J	Interpol.hpp	/^	inline Array<Tprec,2> J(Array<Tprec,2>& );$/;"	p	class:Interpolation	access:public	signature:(Array<Tprec,2>& )
+J	Interpol.hpp	/^inline Array<Tprec,2> Interpolation<Tprec,Zone>::J(Array<Tprec,2> &Base){$/;"	f	class:Interpolation	signature:(Array<Tprec,2> &Base)
+LIBS	Debug/objects.mk	/^LIBS :=$/;"	m
+MOMENTUM_HPP_	Momentum.hpp	9;"	d
+Matrix	NS_Array.hpp	/^	typedef Array<Tprec, Dim> Matrix;$/;"	t	struct:NS_Solver::NS_Array	access:public
+Mean	CompactSchemes.hpp	/^	inline void Mean();$/;"	p	class:Centered	access:public	signature:()
+Mean	CompactSchemes.hpp	/^inline void Centered<Tprec>::Mean(){$/;"	f	class:Centered	signature:()
+MidPoints	Derivatives.hpp	/^	inline void MidPoints(Array<Tprec,1> & ,Array<Tprec,1> &, Tprec);$/;"	p	class:Compact	access:public	signature:(Array<Tprec,1> & ,Array<Tprec,1> &, Tprec)
+MidPoints	Derivatives.hpp	/^inline void Compact<Tprec>::MidPoints(Array<Tprec,1> &A ,Array<Tprec,1> &B, Tprec dh){$/;"	f	class:Compact	signature:(Array<Tprec,1> &A ,Array<Tprec,1> &B, Tprec dh)
+MidPoints_2	Derivatives.hpp	/^	inline void MidPoints_2(Array<Tprec,1> & ,Array<Tprec,1> &, Tprec);$/;"	p	class:Compact	access:public	signature:(Array<Tprec,1> & ,Array<Tprec,1> &, Tprec)
+MidVal	Derivatives.hpp	/^	inline void MidVal();$/;"	p	class:Compact	access:public	signature:()
+MidVal	Derivatives.hpp	/^ inline void Compact<Tprec>::MidVal(){$/;"	f	class:Compact	signature:()
+Momentum	Momentum.hpp	/^	Momentum(Array<Tprec, 2> &,$/;"	p	class:Momentum	access:public	signature:(Array<Tprec, 2> &, Array<Tprec, 2> &, Array<Tprec, 2> &, Interpolation<Tprec,1> &, Interpolation<Tprec,2> &, Array<Tprec,1> &)
+Momentum	Momentum.hpp	/^Momentum<Tprec, Axis>::Momentum(Array<Tprec, 2> &A,$/;"	f	class:Momentum	signature:(Array<Tprec, 2> &A, Array<Tprec, 2> &B, Array<Tprec, 2> &C, Interpolation<Tprec,1> &UT, Interpolation<Tprec,2> &VT, Array<Tprec,1> &delta)
+Momentum	Momentum.hpp	/^class Momentum$/;"	c	inherits:GeneralEquation
+Momentum::DivFluxF	Momentum.hpp	/^	inline Array<Tprec,2> DivFluxF();$/;"	p	class:Momentum	access:public	signature:()
+Momentum::DivFluxF	Momentum.hpp	/^inline Array<Tprec,2> Momentum<Tprec, Axis>::DivFluxF()$/;"	f	class:Momentum	signature:()
+Momentum::DivFluxF_Ground	Momentum.hpp	/^		inline void DivFluxF_Ground(typeAxis<2>){$/;"	f	class:Momentum	access:private	signature:(typeAxis<2>)
+Momentum::DivFluxF_Ground	Momentum.hpp	/^	inline void DivFluxF_Ground(typeAxis<1>){$/;"	f	class:Momentum	access:private	signature:(typeAxis<1>)
+Momentum::DivFluxFv	Momentum.hpp	/^	inline Array<Tprec,2> DivFluxFv();$/;"	p	class:Momentum	access:public	signature:()
+Momentum::DivFluxFv	Momentum.hpp	/^inline Array<Tprec,2> Momentum<Tprec, Axis>::DivFluxFv()$/;"	f	class:Momentum	signature:()
+Momentum::DivFluxFv_Ground	Momentum.hpp	/^	    inline void DivFluxFv_Ground(typeAxis<2>)$/;"	f	class:Momentum	access:private	signature:(typeAxis<2>)
+Momentum::DivFluxFv_Ground	Momentum.hpp	/^    inline void DivFluxFv_Ground(typeAxis<1>)$/;"	f	class:Momentum	access:private	signature:(typeAxis<1>)
+Momentum::DivFluxG	Momentum.hpp	/^	inline Array<Tprec,2> DivFluxG();$/;"	p	class:Momentum	access:public	signature:()
+Momentum::DivFluxG	Momentum.hpp	/^inline Array<Tprec,2> Momentum<Tprec, Axis>::DivFluxG()$/;"	f	class:Momentum	signature:()
+Momentum::DivFluxG_Ground	Momentum.hpp	/^		inline void DivFluxG_Ground(typeAxis<2>)$/;"	f	class:Momentum	access:private	signature:(typeAxis<2>)
+Momentum::DivFluxG_Ground	Momentum.hpp	/^	inline void DivFluxG_Ground(typeAxis<1>){$/;"	f	class:Momentum	access:private	signature:(typeAxis<1>)
+Momentum::DivFluxGv	Momentum.hpp	/^	inline Array<Tprec,2> DivFluxGv();$/;"	p	class:Momentum	access:public	signature:()
+Momentum::DivFluxGv	Momentum.hpp	/^inline Array<Tprec,2> Momentum<Tprec, Axis>::DivFluxGv()$/;"	f	class:Momentum	signature:()
+Momentum::DivFluxGv_Ground	Momentum.hpp	/^	    inline void DivFluxGv_Ground(typeAxis<2>)$/;"	f	class:Momentum	access:private	signature:(typeAxis<2>)
+Momentum::DivFluxGv_Ground	Momentum.hpp	/^    inline void DivFluxGv_Ground(typeAxis<1>)$/;"	f	class:Momentum	access:private	signature:(typeAxis<1>)
+Momentum::DivPress_Ground	Momentum.hpp	/^	    inline void DivPress_Ground(typeAxis<2>)$/;"	f	class:Momentum	access:private	signature:(typeAxis<2>)
+Momentum::DivPress_Ground	Momentum.hpp	/^    inline void DivPress_Ground(typeAxis<1>)$/;"	f	class:Momentum	access:private	signature:(typeAxis<1>)
+Momentum::DivPressure	Momentum.hpp	/^	inline Array<Tprec,2> DivPressure();$/;"	p	class:Momentum	access:public	signature:()
+Momentum::DivPressure	Momentum.hpp	/^inline Array<Tprec,2> Momentum<Tprec,Axis>::DivPressure()$/;"	f	class:Momentum	signature:()
+Momentum::F	Momentum.hpp	/^	Array<Tprec,2> F, G, Fv, Gv;$/;"	m	class:Momentum	access:private
+Momentum::FluxF	Momentum.hpp	/^	inline Array<Tprec,2> FluxF();$/;"	p	class:Momentum	access:public	signature:()
+Momentum::FluxF	Momentum.hpp	/^inline Array<Tprec,2> Momentum<Tprec, Axis>::FluxF()$/;"	f	class:Momentum	signature:()
+Momentum::FluxF_Ground	Momentum.hpp	/^	inline void FluxF_Ground(typeAxis<1>){$/;"	f	class:Momentum	access:private	signature:(typeAxis<1>)
+Momentum::FluxF_Ground	Momentum.hpp	/^	inline void FluxF_Ground(typeAxis<2>){$/;"	f	class:Momentum	access:private	signature:(typeAxis<2>)
+Momentum::FluxFv	Momentum.hpp	/^	inline Array<Tprec,2> FluxFv();$/;"	p	class:Momentum	access:public	signature:()
+Momentum::FluxFv	Momentum.hpp	/^inline Array<Tprec,2> Momentum<Tprec, Axis>::FluxFv(){$/;"	f	class:Momentum	signature:()
+Momentum::FluxFv_Ground	Momentum.hpp	/^		inline void FluxFv_Ground(typeAxis<2>)$/;"	f	class:Momentum	access:private	signature:(typeAxis<2>)
+Momentum::FluxFv_Ground	Momentum.hpp	/^	inline void FluxFv_Ground(typeAxis<1>)$/;"	f	class:Momentum	access:private	signature:(typeAxis<1>)
+Momentum::FluxG	Momentum.hpp	/^	inline Array<Tprec,2> FluxG();$/;"	p	class:Momentum	access:public	signature:()
+Momentum::FluxG	Momentum.hpp	/^inline Array<Tprec,2> Momentum<Tprec, Axis>::FluxG()$/;"	f	class:Momentum	signature:()
+Momentum::FluxG_Ground	Momentum.hpp	/^		inline void FluxG_Ground(typeAxis<2>){$/;"	f	class:Momentum	access:private	signature:(typeAxis<2>)
+Momentum::FluxG_Ground	Momentum.hpp	/^	inline void FluxG_Ground(typeAxis<1>){$/;"	f	class:Momentum	access:private	signature:(typeAxis<1>)
+Momentum::FluxGv	Momentum.hpp	/^	inline Array<Tprec,2> FluxGv();$/;"	p	class:Momentum	access:public	signature:()
+Momentum::FluxGv	Momentum.hpp	/^inline Array<Tprec,2> Momentum<Tprec, Axis>::FluxGv(){$/;"	f	class:Momentum	signature:()
+Momentum::FluxGv_Ground	Momentum.hpp	/^		inline void FluxGv_Ground(typeAxis<2>)$/;"	f	class:Momentum	access:private	signature:(typeAxis<2>)
+Momentum::FluxGv_Ground	Momentum.hpp	/^	inline void FluxGv_Ground(typeAxis<1>)$/;"	f	class:Momentum	access:private	signature:(typeAxis<1>)
+Momentum::Fv	Momentum.hpp	/^	Array<Tprec,2> F, G, Fv, Gv;$/;"	m	class:Momentum	access:private
+Momentum::G	Momentum.hpp	/^	Array<Tprec,2> F, G, Fv, Gv;$/;"	m	class:Momentum	access:private
+Momentum::Gv	Momentum.hpp	/^	Array<Tprec,2> F, G, Fv, Gv;$/;"	m	class:Momentum	access:private
+Momentum::Momentum	Momentum.hpp	/^	Momentum(Array<Tprec, 2> &,$/;"	p	class:Momentum	access:public	signature:(Array<Tprec, 2> &, Array<Tprec, 2> &, Array<Tprec, 2> &, Interpolation<Tprec,1> &, Interpolation<Tprec,2> &, Array<Tprec,1> &)
+Momentum::Momentum	Momentum.hpp	/^Momentum<Tprec, Axis>::Momentum(Array<Tprec, 2> &A,$/;"	f	class:Momentum	signature:(Array<Tprec, 2> &A, Array<Tprec, 2> &B, Array<Tprec, 2> &C, Interpolation<Tprec,1> &UT, Interpolation<Tprec,2> &VT, Array<Tprec,1> &delta)
+Momentum::d	Momentum.hpp	/^	Compact<Tprec> d;$/;"	m	class:Momentum	access:private
+Momentum::dF	Momentum.hpp	/^	Array<Tprec,2> dF, dG, dFv, dGv, dPress;$/;"	m	class:Momentum	access:private
+Momentum::dFv	Momentum.hpp	/^	Array<Tprec,2> dF, dG, dFv, dGv, dPress;$/;"	m	class:Momentum	access:private
+Momentum::dG	Momentum.hpp	/^	Array<Tprec,2> dF, dG, dFv, dGv, dPress;$/;"	m	class:Momentum	access:private
+Momentum::dGv	Momentum.hpp	/^	Array<Tprec,2> dF, dG, dFv, dGv, dPress;$/;"	m	class:Momentum	access:private
+Momentum::dPress	Momentum.hpp	/^	Array<Tprec,2> dF, dG, dFv, dGv, dPress;$/;"	m	class:Momentum	access:private
+Momentum::typeAxis	Momentum.hpp	/^	inline void DivFluxF_Ground(typeAxis<Axis>());$/;"	p	class:Momentum	access:public	signature:()
+Momentum::typeAxis	Momentum.hpp	/^	inline void DivFluxFv_Ground(typeAxis<Axis>());$/;"	p	class:Momentum	access:public	signature:()
+Momentum::typeAxis	Momentum.hpp	/^	inline void DivFluxG_Ground(typeAxis<Axis>());$/;"	p	class:Momentum	access:public	signature:()
+Momentum::typeAxis	Momentum.hpp	/^	inline void DivFluxGv_Ground(typeAxis<Axis>());$/;"	p	class:Momentum	access:public	signature:()
+Momentum::typeAxis	Momentum.hpp	/^	inline void DivPress_Ground(typeAxis<Axis>());$/;"	p	class:Momentum	access:public	signature:()
+Momentum::typeAxis	Momentum.hpp	/^	inline void FluxF_Ground(typeAxis<Axis>());$/;"	p	class:Momentum	access:public	signature:()
+Momentum::typeAxis	Momentum.hpp	/^	inline void FluxFv_Ground(typeAxis<Axis>());$/;"	p	class:Momentum	access:public	signature:()
+Momentum::typeAxis	Momentum.hpp	/^	inline void FluxG_Ground(typeAxis<Axis>());$/;"	p	class:Momentum	access:public	signature:()
+Momentum::typeAxis	Momentum.hpp	/^	inline void FluxGv_Ground(typeAxis<Axis>());$/;"	p	class:Momentum	access:public	signature:()
+Momentum::u	Momentum.hpp	/^	Interpolation<Tprec, 1> &u;$/;"	m	class:Momentum	access:private
+Momentum::v	Momentum.hpp	/^	Interpolation<Tprec, 2> &v;$/;"	m	class:Momentum	access:private
+NS_ARRAY_HPP_	NS_Array.hpp	13;"	d
+NS_Array	NS_Array.hpp	/^struct NS_Array$/;"	s	namespace:NS_Solver
+NS_Solver	NS_Array.hpp	/^namespace NS_Solver$/;"	n
+NS_Solver::NS_Array	NS_Array.hpp	/^struct NS_Array$/;"	s	namespace:NS_Solver
+NS_Solver::NS_Array::Matrix	NS_Array.hpp	/^	typedef Array<Tprec, Dim> Matrix;$/;"	t	struct:NS_Solver::NS_Array	access:public
+Nx	CompactSchemes.hpp	/^	int Nx, Ny, Nz;$/;"	m	class:Compact	access:protected
+Ny	CompactSchemes.hpp	/^	int Nx, Ny, Nz;$/;"	m	class:Compact	access:protected
+Nz	CompactSchemes.hpp	/^	int Nx, Ny, Nz;$/;"	m	class:Compact	access:protected
+OBJS	Debug/sources.mk	/^OBJS := $/;"	m
+OBJ_SRCS	Debug/sources.mk	/^OBJ_SRCS := $/;"	m
+O_SRCS	Debug/sources.mk	/^O_SRCS := $/;"	m
+P	Interpol.hpp	/^	inline Array<Tprec,2> P();$/;"	p	class:Interpolation	access:public	signature:()
+P	Interpol.hpp	/^inline Array<Tprec,2>Interpolation<Tprec,Zone>::P(){$/;"	f	class:Interpolation	signature:()
+P_Ground	Interpol.hpp	/^	inline void P_Ground(typeDim<1>){$/;"	f	class:Interpolation	access:private	signature:(typeDim<1>)
+P_Ground	Interpol.hpp	/^	inline void P_Ground(typeDim<2>){$/;"	f	class:Interpolation	access:private	signature:(typeDim<2>)
+Pressure	include/explicitDeriv.h	/^	const Array<real,2>& Pressure;    $/;"	m	class:ExplicitDeriv	access:private
+RM	Debug/makefile	/^RM := rm -rf$/;"	m
+Resizes	CompactSchemes.hpp	/^	inline void Resizes(int );                                              \/\/Base$/;"	p	class:Compact	access:public	signature:(int )
+Resizes	CompactSchemes.hpp	/^ inline void Compact<Tprec>::Resizes(int N){$/;"	f	class:Compact	signature:(int N)
+Resizes	Derivatives.hpp	/^	inline void Resizes(int );$/;"	p	class:Compact	access:public	signature:(int )
+Resizes	Derivatives.hpp	/^ inline void Compact<Tprec>::Resizes(int N){$/;"	f	class:Compact	signature:(int N)
+Resizes	Interpol.hpp	/^	inline void Resizes(int N);$/;"	p	class:Interpolation	access:public	signature:(int N)
+Resizes	Interpol.hpp	/^inline void Interpolation<Tprec,Zone>::Resizes(int N){$/;"	f	class:Interpolation	signature:(int N)
+ResizesMean	CompactSchemes.hpp	/^	inline void ResizesMean(int);$/;"	p	class:Centered	access:public	signature:(int)
+ResizesMean	CompactSchemes.hpp	/^inline void Centered<Tprec>::ResizesMean(int N){$/;"	f	class:Centered	signature:(int N)
+Resizes_2	Derivatives.hpp	/^	inline void Resizes_2(int );$/;"	p	class:Compact	access:public	signature:(int )
+Resizes_2	Derivatives.hpp	/^  inline void Compact<Tprec>::Resizes_2(int N){$/;"	f	class:Compact	signature:(int N)
+SUBDIRS	Debug/sources.mk	/^SUBDIRS := \\$/;"	m
+S_UPPER_SRCS	Debug/sources.mk	/^S_UPPER_SRCS := $/;"	m
+Staggered	CompactSchemes.hpp	/^	Staggered(Array<Tprec, 3> &P, Array<Tprec, 1> &Ds, Tprec Aph)$/;"	f	class:Staggered	access:public	signature:(Array<Tprec, 3> &P, Array<Tprec, 1> &Ds, Tprec Aph)
+Staggered	CompactSchemes.hpp	/^class Staggered:$/;"	c	inherits:Compact
+Staggered::Dx	CompactSchemes.hpp	/^	Staggered &Dx();$/;"	p	class:Staggered	access:public	signature:()
+Staggered::Dx	CompactSchemes.hpp	/^Staggered<Tprec> &Staggered<Tprec>::Dx(){$/;"	f	class:Staggered	signature:()
+Staggered::Dy	CompactSchemes.hpp	/^	Staggered &Dy();$/;"	p	class:Staggered	access:public	signature:()
+Staggered::Dy	CompactSchemes.hpp	/^Staggered<Tprec> &Staggered<Tprec>::Dy(){$/;"	f	class:Staggered	signature:()
+Staggered::Dz	CompactSchemes.hpp	/^	Staggered &Dz();$/;"	p	class:Staggered	access:public	signature:()
+Staggered::Dz	CompactSchemes.hpp	/^Staggered<Tprec> &Staggered<Tprec>::Dz(){$/;"	f	class:Staggered	signature:()
+Staggered::Staggered	CompactSchemes.hpp	/^	Staggered(Array<Tprec, 3> &P, Array<Tprec, 1> &Ds, Tprec Aph)$/;"	f	class:Staggered	access:public	signature:(Array<Tprec, 3> &P, Array<Tprec, 1> &Ds, Tprec Aph)
+StaggeredAxis	Momentum.hpp	/^	enum{StaggeredAxis = Axis};$/;"	e	enum:typeAxis::__anon2
+THOMAS_TEM_HPP_	thomas_tem.hpp	9;"	d
+USER_OBJS	Debug/objects.mk	/^USER_OBJS :=$/;"	m
+UnkBound	Interpol.hpp	/^	Array<Tprec,2> UnkBound;$/;"	m	class:Interpolation	access:private
+_EXPLICIT_DER_HPP	include/explicitDeriv.h	2;"	d
+_PRESICION_H	presicion.h	2;"	d
+a	CompactSchemes.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Compact	access:protected
+a	Derivatives.hpp	/^	Tprec a, b, e1, e2, e3, e4, e5;$/;"	m	class:Compact	access:private
+a	Interpol.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Interpolation	access:private
+aMean	CompactSchemes.hpp	/^	Tprec aMean, bMean, e1Mean, e2Mean, e3Mean, e4Mean;$/;"	m	class:Centered	access:private
+alpha1	Derivatives.hpp	/^	Tprec alphaBound, alpha1, alphaN;$/;"	m	class:Compact	access:private
+alpha4	Derivatives.hpp	/^	Tprec alpha4, b4;$/;"	m	class:Compact	access:private
+alphaBound	CompactSchemes.hpp	/^	Tprec alphaBound;$/;"	m	class:Compact	access:protected
+alphaBound	Derivatives.hpp	/^	Tprec alphaBound, alpha1, alphaN;$/;"	m	class:Compact	access:private
+alphaBound	Interpol.hpp	/^	Tprec alphaBound;$/;"	m	class:Interpolation	access:private
+alphaBoundMean	CompactSchemes.hpp	/^	Tprec alphaBoundMean;$/;"	m	class:Centered	access:private
+alphaN	Derivatives.hpp	/^	Tprec alphaBound, alpha1, alphaN;$/;"	m	class:Compact	access:private
+b	CompactSchemes.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Compact	access:protected
+b	Derivatives.hpp	/^	Tprec a, b, e1, e2, e3, e4, e5;$/;"	m	class:Compact	access:private
+b	Interpol.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Interpolation	access:private
+b4	Derivatives.hpp	/^	Tprec alpha4, b4;$/;"	m	class:Compact	access:private
+bMean	CompactSchemes.hpp	/^	Tprec aMean, bMean, e1Mean, e2Mean, e3Mean, e4Mean;$/;"	m	class:Centered	access:private
+bandA	CompactSchemes.hpp	/^	Array<Tprec,1> mainBand, bandA,bandC;$/;"	m	class:Compact	access:protected
+bandA	Derivatives.hpp	/^	Array<Tprec,1> mainBand, bandA,bandC;$/;"	m	class:Compact	access:private
+bandA	Interpol.hpp	/^	Array<Tprec,1> mainBand, bandA, bandC;$/;"	m	class:Interpolation	access:private
+bandAMean	CompactSchemes.hpp	/^	Array<Tprec,1> mainBandMean, bandAMean, bandCMean;$/;"	m	class:Centered	access:private
+bandC	CompactSchemes.hpp	/^	Array<Tprec,1> mainBand, bandA,bandC;$/;"	m	class:Compact	access:protected
+bandC	Derivatives.hpp	/^	Array<Tprec,1> mainBand, bandA,bandC;$/;"	m	class:Compact	access:private
+bandC	Interpol.hpp	/^	Array<Tprec,1> mainBand, bandA, bandC;$/;"	m	class:Interpolation	access:private
+bandCMean	CompactSchemes.hpp	/^	Array<Tprec,1> mainBandMean, bandAMean, bandCMean;$/;"	m	class:Centered	access:private
+computeInt	Interpol.hpp	/^	inline void computeInt(Array<Tprec,1> & ,Array<Tprec,1> &);$/;"	p	class:Interpolation	access:public	signature:(Array<Tprec,1> & ,Array<Tprec,1> &)
+computeInt	Interpol.hpp	/^inline void Interpolation<Tprec, Zone>::computeInt(Array<Tprec,1> &A ,Array<Tprec,1> &B){$/;"	f	class:Interpolation	signature:(Array<Tprec,1> &A ,Array<Tprec,1> &B)
+convectiveTerm	GeneralEquation.hpp	/^	Array<Tprec,2> temporalTerm, convectiveTerm, diffusiveTerm, pressureTerm;$/;"	m	class:GeneralEquation	access:private
+d	Momentum.hpp	/^	Compact<Tprec> d;$/;"	m	class:Momentum	access:private
+dF	Momentum.hpp	/^	Array<Tprec,2> dF, dG, dFv, dGv, dPress;$/;"	m	class:Momentum	access:private
+dFv	Momentum.hpp	/^	Array<Tprec,2> dF, dG, dFv, dGv, dPress;$/;"	m	class:Momentum	access:private
+dG	Momentum.hpp	/^	Array<Tprec,2> dF, dG, dFv, dGv, dPress;$/;"	m	class:Momentum	access:private
+dGv	Momentum.hpp	/^	Array<Tprec,2> dF, dG, dFv, dGv, dPress;$/;"	m	class:Momentum	access:private
+dPress	Momentum.hpp	/^	Array<Tprec,2> dF, dG, dFv, dGv, dPress;$/;"	m	class:Momentum	access:private
+dX	CompactSchemes.hpp	/^	Array<Tprec, 3> Field, dX, dY, dZ;$/;"	m	class:Compact	access:protected
+dY	CompactSchemes.hpp	/^	Array<Tprec, 3> Field, dX, dY, dZ;$/;"	m	class:Compact	access:protected
+dZ	CompactSchemes.hpp	/^	Array<Tprec, 3> Field, dX, dY, dZ;$/;"	m	class:Compact	access:protected
+delta	Derivatives.hpp	/^	Array<Tprec,1> &delta;$/;"	m	class:Compact	access:private
+deltas	CompactSchemes.hpp	/^	Array<Tprec, 1> deltas;$/;"	m	class:Compact	access:protected
+diffusiveTerm	GeneralEquation.hpp	/^	Array<Tprec,2> temporalTerm, convectiveTerm, diffusiveTerm, pressureTerm;$/;"	m	class:GeneralEquation	access:private
+e1	CompactSchemes.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Compact	access:protected
+e1	Derivatives.hpp	/^	Tprec a, b, e1, e2, e3, e4, e5;$/;"	m	class:Compact	access:private
+e1	Interpol.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Interpolation	access:private
+e1Mean	CompactSchemes.hpp	/^	Tprec aMean, bMean, e1Mean, e2Mean, e3Mean, e4Mean;$/;"	m	class:Centered	access:private
+e2	CompactSchemes.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Compact	access:protected
+e2	Derivatives.hpp	/^	Tprec a, b, e1, e2, e3, e4, e5;$/;"	m	class:Compact	access:private
+e2	Interpol.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Interpolation	access:private
+e2Mean	CompactSchemes.hpp	/^	Tprec aMean, bMean, e1Mean, e2Mean, e3Mean, e4Mean;$/;"	m	class:Centered	access:private
+e3	CompactSchemes.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Compact	access:protected
+e3	Derivatives.hpp	/^	Tprec a, b, e1, e2, e3, e4, e5;$/;"	m	class:Compact	access:private
+e3	Interpol.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Interpolation	access:private
+e3Mean	CompactSchemes.hpp	/^	Tprec aMean, bMean, e1Mean, e2Mean, e3Mean, e4Mean;$/;"	m	class:Centered	access:private
+e4	CompactSchemes.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Compact	access:protected
+e4	Derivatives.hpp	/^	Tprec a, b, e1, e2, e3, e4, e5;$/;"	m	class:Compact	access:private
+e4	Interpol.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Interpolation	access:private
+e4Mean	CompactSchemes.hpp	/^	Tprec aMean, bMean, e1Mean, e2Mean, e3Mean, e4Mean;$/;"	m	class:Centered	access:private
+e5	Derivatives.hpp	/^	Tprec a, b, e1, e2, e3, e4, e5;$/;"	m	class:Compact	access:private
+getDx	CompactSchemes.hpp	/^	const Array<Tprec,3> getDx(){return dX;}\/\/Base $/;"	f	class:Compact	access:public	signature:()
+getDy	CompactSchemes.hpp	/^	const Array<Tprec,3> getDy(){return dY;}\/\/Base$/;"	f	class:Compact	access:public	signature:()
+getDz	CompactSchemes.hpp	/^	const Array<Tprec,3> getDz(){return dZ;}\/\/Base$/;"	f	class:Compact	access:public	signature:()
+getIJ	Interpol.hpp	/^	inline Array<Tprec,2> getIJ();$/;"	p	class:Interpolation	access:public	signature:()
+getIJ	Interpol.hpp	/^inline Array<Tprec,2>Interpolation<Tprec,Zone>::getIJ(){$/;"	f	class:Interpolation	signature:()
+getP	Interpol.hpp	/^	inline Array<Tprec,2> getP();$/;"	p	class:Interpolation	access:public	signature:()
+getP	Interpol.hpp	/^inline Array<Tprec,2>Interpolation<Tprec,Zone>::getP(){$/;"	f	class:Interpolation	signature:()
+imprimo	prueba.cpp	/^   void imprimo(Array<Tprec,1>& Bobo)$/;"	f	signature:(Array<Tprec,1>& Bobo)
+main	prueba.cpp	/^int main(){$/;"	f	signature:()
+mainBand	CompactSchemes.hpp	/^	Array<Tprec,1> mainBand, bandA,bandC;$/;"	m	class:Compact	access:protected
+mainBand	Derivatives.hpp	/^	Array<Tprec,1> mainBand, bandA,bandC;$/;"	m	class:Compact	access:private
+mainBand	Interpol.hpp	/^	Array<Tprec,1> mainBand, bandA, bandC;$/;"	m	class:Interpolation	access:private
+mainBandMean	CompactSchemes.hpp	/^	Array<Tprec,1> mainBandMean, bandAMean, bandCMean;$/;"	m	class:Centered	access:private
+p	Fluid.hpp	/^	Array<Tprec,2> u, v, p;$/;"	m	class:Fluid	access:private
+p	GeneralEquation.hpp	/^	Array<Tprec,2> &u,&v,&p;$/;"	m	class:GeneralEquation	access:protected
+pressureTerm	GeneralEquation.hpp	/^	Array<Tprec,2> temporalTerm, convectiveTerm, diffusiveTerm, pressureTerm;$/;"	m	class:GeneralEquation	access:private
+real	presicion.h	4;"	d
+setField	Interpol.hpp	/^	inline void setField(Array<Tprec,2> &A)$/;"	f	class:Interpolation	access:public	signature:(Array<Tprec,2> &A)
+setValues	Interpol.hpp	/^	inline void setValues();$/;"	p	class:Interpolation	access:public	signature:()
+setValues	Interpol.hpp	/^inline void Interpolation<Tprec, Zone>::setValues(){$/;"	f	class:Interpolation	signature:()
+staggeredZone	Interpol.hpp	/^	enum{staggeredZone = Zone};$/;"	e	enum:typeDim::__anon1
+temporalTerm	GeneralEquation.hpp	/^	Array<Tprec,2> temporalTerm, convectiveTerm, diffusiveTerm, pressureTerm;$/;"	m	class:GeneralEquation	access:private
+thomas	thomas_tem.hpp	/^void thomas( Array<Tprec,1> &a,  \/\/1-Band$/;"	f	signature:( Array<Tprec,1> &a, Array<Tprec,1> &b, Array<Tprec,1> &c, Array<Tprec,1> &r, Array<Tprec,1> &u )
+thomasCyclic	thomas_tem.hpp	/^void thomasCyclic(Array<Tprec,1> &a,  \/\/1-Band$/;"	f	signature:(Array<Tprec,1> &a, Array<Tprec,1> &b, Array<Tprec,1> &c, Tprec alpha, Tprec beta , Array<Tprec,1> &r, Array<Tprec,1> &x )
+typeAxis	Momentum.hpp	/^	inline void DivFluxF_Ground(typeAxis<Axis>());$/;"	p	class:Momentum	access:public	signature:()
+typeAxis	Momentum.hpp	/^	inline void DivFluxFv_Ground(typeAxis<Axis>());$/;"	p	class:Momentum	access:public	signature:()
+typeAxis	Momentum.hpp	/^	inline void DivFluxG_Ground(typeAxis<Axis>());$/;"	p	class:Momentum	access:public	signature:()
+typeAxis	Momentum.hpp	/^	inline void DivFluxGv_Ground(typeAxis<Axis>());$/;"	p	class:Momentum	access:public	signature:()
+typeAxis	Momentum.hpp	/^	inline void DivPress_Ground(typeAxis<Axis>());$/;"	p	class:Momentum	access:public	signature:()
+typeAxis	Momentum.hpp	/^	inline void FluxF_Ground(typeAxis<Axis>());$/;"	p	class:Momentum	access:public	signature:()
+typeAxis	Momentum.hpp	/^	inline void FluxFv_Ground(typeAxis<Axis>());$/;"	p	class:Momentum	access:public	signature:()
+typeAxis	Momentum.hpp	/^	inline void FluxG_Ground(typeAxis<Axis>());$/;"	p	class:Momentum	access:public	signature:()
+typeAxis	Momentum.hpp	/^	inline void FluxGv_Ground(typeAxis<Axis>());$/;"	p	class:Momentum	access:public	signature:()
+typeAxis	Momentum.hpp	/^struct typeAxis{$/;"	s
+typeAxis::StaggeredAxis	Momentum.hpp	/^	enum{StaggeredAxis = Axis};$/;"	e	enum:typeAxis::__anon2
+typeDim	Interpol.hpp	/^	inline void IJ_Ground(typeDim<Zone>());$/;"	p	class:Interpolation	access:public	signature:()
+typeDim	Interpol.hpp	/^	inline void Init_Boundary(typeDim<Zone>(),Array<Tprec,2> );$/;"	p	class:Interpolation	access:public	signature:()
+typeDim	Interpol.hpp	/^	inline void P_Ground(typeDim<Zone>());$/;"	p	class:Interpolation	access:public	signature:()
+typeDim	Interpol.hpp	/^struct typeDim$/;"	s
+typeDim::staggeredZone	Interpol.hpp	/^	enum{staggeredZone = Zone};$/;"	e	enum:typeDim::__anon1
+u	Fluid.hpp	/^	Array<Tprec,2> u, v, p;$/;"	m	class:Fluid	access:private
+u	GeneralEquation.hpp	/^	Array<Tprec,2> &u,&v,&p;$/;"	m	class:GeneralEquation	access:protected
+u	Momentum.hpp	/^	Interpolation<Tprec, 1> &u;$/;"	m	class:Momentum	access:private
+u_Velocity	include/explicitDeriv.h	/^	const Array<real,2>& u_Velocity;$/;"	m	class:ExplicitDeriv	access:private
+v	Fluid.hpp	/^	Array<Tprec,2> u, v, p;$/;"	m	class:Fluid	access:private
+v	GeneralEquation.hpp	/^	Array<Tprec,2> &u,&v,&p;$/;"	m	class:GeneralEquation	access:protected
+v	Momentum.hpp	/^	Interpolation<Tprec, 2> &v;$/;"	m	class:Momentum	access:private
+v_Velocity	include/explicitDeriv.h	/^	const Array<real,2>& v_Velocity;$/;"	m	class:ExplicitDeriv	access:private
+xM	Derivatives.hpp	/^	inline Array<Tprec,2> xM(const Array<Tprec,2> &); \/\/Derivatives at the middle points$/;"	p	class:Compact	access:public	signature:(const Array<Tprec,2> &)
+xM	Derivatives.hpp	/^ Array<Tprec,2> Compact<Tprec>::xM(const Array<Tprec,2> &Field){$/;"	f	class:Compact	signature:(const Array<Tprec,2> &Field)
+xS	Derivatives.hpp	/^	inline Array<Tprec,2> xS(const Array<Tprec,2> &); \/\/Derivatives at the Integer points$/;"	p	class:Compact	access:public	signature:(const Array<Tprec,2> &)
+xS	Derivatives.hpp	/^ Array<Tprec,2> Compact<Tprec>::xS(const Array<Tprec,2> &Field){$/;"	f	class:Compact	signature:(const Array<Tprec,2> &Field)
+yM	Derivatives.hpp	/^	inline Array<Tprec,2> yM(const Array<Tprec,2> &);$/;"	p	class:Compact	access:public	signature:(const Array<Tprec,2> &)
+yM	Derivatives.hpp	/^ Array<Tprec,2> Compact<Tprec>::yM(const Array<Tprec,2> &Field){$/;"	f	class:Compact	signature:(const Array<Tprec,2> &Field)
+yS	Derivatives.hpp	/^	inline Array<Tprec,2> yS(const Array<Tprec,2> &);$/;"	p	class:Compact	access:public	signature:(const Array<Tprec,2> &)
+yS	Derivatives.hpp	/^Array<Tprec,2> Compact<Tprec>::yS(const Array<Tprec,2> &Field){$/;"	f	class:Compact	signature:(const Array<Tprec,2> &Field)
