@@ -33,8 +33,13 @@ public:
      all this equation is discretized in the Cell place.
     **/
 
-
         D.resize(pressure.shape()); 
+        elements = 13*Grid.cNx*Grid.cNy - 12*(Grid.cNx+Grid.cNy);
+
+        val = new real[elements];
+        row = new real[elements];
+        col = new real[elements];
+
     }
 
 
@@ -51,6 +56,13 @@ private:
     const Array<real,2>& uBoundary;    
     const Array<real,2>& vBoundary;    
     const MeshTool::MeshBlock & Grid; 
+    unsigned long int elements; 
+    
+    //Poisson equation Matrix definition
+    real *val;
+    real *row;
+    real *col;
+
 
     //Divergence Array
     Array<real,2> D;

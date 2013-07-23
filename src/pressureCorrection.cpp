@@ -58,7 +58,7 @@ void PressureCorrect::Div()
          D(i,0) += (1.0*vS(i,2) + 27.0*vS(i,1) - 27.0*vS(i,0) + vBoundary(i,0))
                  *inverseConst*Grid.inverseDy;
   
-         D(i,Grid.cNy-1) += (-1.0*vBoundary(i,3) + 27.0*vS(i,Grid.Ny-1) - 27.0*vS(i,Grid.Ny-2)+ vS(i,Grid.Ny-3))
+         D(i,Grid.cNy-1) +=(-1.0*vBoundary(i,3) + 27.0*vS(i,Grid.Ny-1) - 27.0*vS(i,Grid.Ny-2)+ vS(i,Grid.Ny-3))
                       *inverseConst*Grid.inverseDy;
   
      }

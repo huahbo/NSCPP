@@ -1,169 +1,544 @@
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*             ********   ***                                 SparseLib++    */
+/*          *******  **  ***       ***      ***               v. 1.5c        */
+/*           *****      ***     ******** ********                            */
+/*            *****    ***     ******** ********              R. Pozo        */
+/*       **  *******  ***   **   ***      ***                 K. Remington   */
+/*        ********   ********                                 A. Lumsdaine   */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*                                                                           */
+/*                                                                           */
+/*                     SparseLib++ : Sparse Matrix Library                   */
+/*                                                                           */
+/*               National Institute of Standards and Technology              */
+/*                        University of Notre Dame                           */
+/*              Authors: R. Pozo, K. Remington, A. Lumsdaine                 */
+/*                                                                           */
+/*                                 NOTICE                                    */
+/*                                                                           */
+/* Permission to use, copy, modify, and distribute this software and         */
+/* its documentation for any purpose and without fee is hereby granted       */
+/* provided that the above notice appear in all copies and supporting        */
+/* documentation.                                                            */
+/*                                                                           */
+/* Neither the Institutions (National Institute of Standards and Technology, */
+/* University of Notre Dame) nor the Authors make any representations about  */
+/* the suitability of this software for any purpose.  This software is       */
+/* provided ``as is'' without expressed or implied warranty.                 */
+/*                                                                           */
 /*
- * prueba.cpp
- *
- *  Created on: 20/03/2013
- *      Author: cipia
- */
-
-
-   #include<iostream>
-   #include<stdlib.h>
-   #include<stdio.h>
-   #include<math.h>
-
-   #include "thomas_tem.hpp"
-   #include<blitz/array.h>
-   #include "NS_Array.hpp"
-   #include "NS_Array.hpp"
-
-
-
-
-
-//#include"CompactSchemes.hpp"
-#include"Interpol.hpp"
-#include"Fluid.hpp"
-#include"Momentum.hpp"
-#include"Derivatives.hpp"
-#include"explicitDeriv.hpp"
-
-
-   using namespace std;
-   using namespace blitz;
-   using namespace NS_Solver;
-
-   template<typename Tprec>
-   void imprimo(Array<Tprec,1>& Bobo)
-   {
-   	cout<< Bobo;
-   }
-
-
-
-int main(){
-
-
-
-
-
-	  int nx = 100;
-	  int ny = 6;
-
-	//Array<double,3> A(nx,1,1),dek(nx,1,1);
-
-	Array<double,1> B(2);
-
-	Array<double,2> C(nx,ny-1);
-	Array<double,2> D(nx-1,ny);
-	Array<double,2> Dedo(nx-1,ny);
-	Array<double,2> F(nx-1,ny-1);
-	Array<double,2> V_X_Bound(2,nx), U_Y_Bound(2,ny);
-
-
-
-
-	Array<double,1> deltas(2);
-
-//    NS_Array<double,1>::Matrix x(nx), wsen(nx),wcos(nx),a(nx),b(nx),c(nx),r(nx);
-
-    double Lx = 2.0*3.1415926;
-    double deltaX, deltaY;
-
-    deltas(0) = Lx / (double)(nx-1);
-    deltas(1) = Lx / (double)(ny-1);
-
-
-     for(int i = 0; i <= C.ubound(firstDim); i++){
-    	 for(int j= 0; j <= C.ubound(secondDim); j++){
-    		 C(i,j) = sin(deltas(0)*(double)i);
-    	 }
-    	 V_X_Bound(0,i) = sin(deltas(0)*(double)i);
-    	 V_X_Bound(1,i) = sin(deltas(0)*(double)i);
-
-     }
-
-     for(int j= 0; j <= D.ubound(secondDim); j++){
-         for(int i = 0; i <= D.ubound(firstDim); i++){
-    		 D(i,j) = sin(deltas(1)*(double)j);
-    		 Dedo(i,j) =2.0* sin(deltas(1)*(double)j) + cos(deltas(1)*(double)j);
-    	 }
-    	 U_Y_Bound(0,j) = sin(deltas(1)*(double)j);
-    	 U_Y_Bound(1,j) = sin(deltas(1)*(double)j);
-
-     }
-
-     for(int j= 0; j <= F.ubound(secondDim); j++){
-         for(int i = 0; i <= F.ubound(firstDim); i++){
-    		 F(i,j) = sin(deltas(0)*(double)i);
-    	 }
-     }
-
-
-
-     Interpolation<double,1> uCell(C,V_X_Bound);
-     Interpolation<double,2> vCell(D,U_Y_Bound);
-     Fluid<double> weight(C,C,C);
-     //uCell.EW();
-     Momentum<double,1> X(C,D,F,uCell,vCell,deltas);
-     Momentum<double,2> Y(C,D,F,uCell,vCell,deltas);
-
-     Compact<double> d(deltas);
-
-
-
-        //uCell.C();
-
-
-    // cout << C;
-
-     //cout << D;
-       //cout << uCell.P();
-     //cout << uCell.IJ();
-     //cout << vCell.IJ();
-     /*
-       cout << uCell.IJ();
-
-
-      //cout << vCell.IJ();
-      //cout << X.FluxF();
-      //cout << X.FluxG();
-
-      //cout << Y.FluxF();
-      //cout << Y.FluxG();
-
-
-
-
-       cout << X.DivFluxG();
-      //cout << d.xS(C);
-
-      //cout << X.DivFluxG();
-     //cout << D;
-     //cout << d.yM(vCell.Cell());
-
-      //cout << X.DivFluxFv();
-     //cout << Y.DivFluxGv();
-     //cout << Y.DivPressure();
 */
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+#include "gmres.h"
+#include <iostream>
+#include <stdlib.h>
+
+#include "coord_double.h"
+#include "ilupre_double.h"
+
+#include "iotext_double.h"
 
 
-    // cout << uCell.P();
+#include MATRIX_H //Para la matriz de Heissenberg
+#define SIZE 6
+using namespace std;
 
-     //uCell.P()*uCell.P();
-     cout << X.DivFluxF();
-     cout << X.DivPressure();
+int main(int argc, char * argv[])
+{
 
-     cout << Y.DivFluxG();
+    VECTOR_double x(SIZE), b(SIZE);
 
-     //cout << d.xS(C);
+    double tol = 1.e-6;
+    int maxit = 1   ,
+        restart = 32;
+    int result;
+
+    
+   int Nx = 9,
+       Ny = 9; 
+
+   int elements = 13*Nx*Ny - 12*(Nx+Ny);
+   
+ //   double val2[elements],
+  //        row2[elements],
+    //      column2[elements];
+
+   double *val2;
+   int *row2, *col2;
+
+   val2 = (double*)malloc(sizeof(double)*(elements));
+   row2 = (int*)malloc(sizeof(int)*(elements));
+   col2 = (int*)malloc(sizeof(int)*(elements));
+
+    
+
+    double val[] = {2.0,-1.0,-1.0,2.0,-1.0,-1.0,2.0,-1.0,-1.0,2.0,-1.0,-1.0,2.0,
+                   -1.0,-1.0,2.0};
+    int row[] = {0,1,0,1,2,1,2,3,2,3,4,3,4,5,4,5};
+ int column[] = {0,0,1,1,1,2,2,2,3,3,3,4,4,4,5,5};
 
 
 
-     return 0;
+    for(int i = 0; i < SIZE ; i++)
+    {
+        b(i) = (double)i;
+    }
+    
+    Coord_Mat_double A(6,6,16,val,row,column);
 
+
+    CompRow_ILUPreconditioner_double Mr(A);
+
+    MATRIX_double H(restart+1,restart, 0.0); //Matrix de Hessenberg 
+    MATRIX_double PP(Nx*Ny,Nx*Ny, 0.0); //Matrix de Hessenberg 
+    MATRIX_double TT(Nx*Ny,Nx*Ny, 0.0); //Matrix de Hessenberg 
+
+    GMRES(A,x,b,Mr,H,restart,maxit,tol);
+  
+
+    int memplace = 0;
+
+    for(int i = 0; i < Nx; i++){
+       for(int j =  0; j < Ny; j++){
+          int k = i + j*Nx;
+          
+          PP(k,k) = 7.0; //main banded
+
+          val2[memplace] = 7.0;
+          row2[memplace] = k;
+          col2[memplace] = k;
+          memplace++;
+
+       }
+    }   
+
+
+
+    for(int i = 3; i < Nx - 3; i++){
+       for(int j =  0; j < Ny; j++){
+          int k = i + j*Nx;
+          
+           
+          PP(k,k+1) = 1.0; //RS-C1
+
+          val2[memplace] = 1.0;
+          row2[memplace] = k;
+          col2[memplace] = k+1;
+          memplace++;
+
+          PP(k,k-1) = 1.0; //LS-C1
+
+          val2[memplace] = 1.0;
+          row2[memplace] = k;
+          col2[memplace] = k-1;
+          memplace++;
+
+          PP(k,k+2) = 2.0; //RS-C2
+	
+          val2[memplace] = 2.0;
+          row2[memplace] = k;
+          col2[memplace] = k+2;
+          memplace++;
+
+          PP(k,k-2) = 2.0; //LS-C2
+
+          val2[memplace] = 2.0;
+          row2[memplace] = k;
+          col2[memplace] = k-2;
+          memplace++;
+
+
+          PP(k,k+3) = 3.0; //RS-C3
+
+          val2[memplace] = 3.0;
+          row2[memplace] = k;
+          col2[memplace] = k+3;
+          memplace++;
+
+          PP(k,k-3) = 3.0; //LS-C3
+
+          val2[memplace] = 3.0;
+          row2[memplace] = k;
+          col2[memplace] = k-3;
+          memplace++;
+
+       }
+    }
+
+    for(int j =  0; j < Ny; j++){
+       int k = j*Nx;
+       PP(k,k+1) = 1.0;
+
+       val2[memplace] = 1.0;
+       row2[memplace] = k;
+       col2[memplace] = k+1;
+       memplace++;
+
+
+       PP(k,k+2) = 2.0;
+
+        val2[memplace] = 2.0;
+        row2[memplace] = k;
+        col2[memplace] = k+2;
+        memplace++;
+
+
+       PP(k,k+3) = 3.0;
+
+       val2[memplace] = 3.0;
+       row2[memplace] = k;
+       col2[memplace] = k+3;
+       memplace++;
+
+        
+       k = 1 + j*Nx;
+       PP(k,k+1) = 1.0;
+
+       val2[memplace] = 1.0;
+       row2[memplace] = k;
+       col2[memplace] = k+1;
+       memplace++;
+
+       PP(k,k-1) = 1.0;
+
+       val2[memplace] = 1.0;
+       row2[memplace] = k;
+       col2[memplace] = k-1;
+       memplace++;
+
+       PP(k,k+2) = 2.0;
+
+       val2[memplace] = 2.0;
+       row2[memplace] = k;
+       col2[memplace] = k+2;
+       memplace++;
+
+       PP(k,k+3) = 3.0;
+
+       val2[memplace] = 3.0;
+       row2[memplace] = k;
+       col2[memplace] = k+3;
+       memplace++;
+       
+       k = 2 + j*Nx;
+       PP(k,k+1) = 1.0;
+
+       val2[memplace] = 1.0;
+       row2[memplace] = k;
+       col2[memplace] = k+1;
+       memplace++;
+
+       PP(k,k-1) = 1.0;
+
+       val2[memplace] = 1.0;
+       row2[memplace] = k;
+       col2[memplace] = k-1;
+       memplace++;
+
+       PP(k,k+2) = 2.0;
+
+       val2[memplace] = 2.0;
+       row2[memplace] = k;
+       col2[memplace] = k+2;
+       memplace++;
+
+       PP(k,k-2) = 2.0;
+
+       val2[memplace] = 2.0;
+       row2[memplace] = k;
+       col2[memplace] = k-2;
+       memplace++;
+
+
+       PP(k,k+3) = 3.0;
+
+       val2[memplace] = 3.0;
+       row2[memplace] = k;
+       col2[memplace] = k+3;
+       memplace++;
+
+       k = (Nx-1) + j*Nx;
+       PP(k,k-1) = 1.0;
+
+       val2[memplace] = 1.0;
+       row2[memplace] = k;
+       col2[memplace] = k-1;
+       memplace++;
+
+
+       PP(k,k-2) = 2.0;
+
+       val2[memplace] = 2.0;
+       row2[memplace] = k;
+       col2[memplace] = k-2;
+       memplace++;
+
+       PP(k,k-3) = 3.0;
+
+       val2[memplace] = 3.0;
+       row2[memplace] = k;
+       col2[memplace] = k-3;
+       memplace++;
+        
+       k = (Nx -2)  + j*Nx;
+       PP(k,k+1) = 1.0;
+
+       val2[memplace] = 1.0;
+       row2[memplace] = k;
+       col2[memplace] = k+1;
+       memplace++;
+
+       PP(k,k-1) = 1.0;
+
+       val2[memplace] = 1.0;
+       row2[memplace] = k;
+       col2[memplace] = k-1;
+       memplace++;
+
+       PP(k,k-2) = 2.0;
+
+       val2[memplace] = 2.0;
+       row2[memplace] = k;
+       col2[memplace] = k-2;
+       memplace++;
+
+       PP(k,k-3) = 3.0;
+
+       val2[memplace] = 3.0;
+       row2[memplace] = k;
+       col2[memplace] = k-3;
+       memplace++;
+       
+       k = (Nx - 3) + j*Nx;
+       PP(k,k+1) = 1.0;
+
+       val2[memplace] = 1.0;
+       row2[memplace] = k;
+       col2[memplace] = k+1;
+       memplace++;
+
+       PP(k,k-1) = 1.0;
+
+       val2[memplace] = 1.0;
+       row2[memplace] = k;
+       col2[memplace] = k-1;
+       memplace++;
+
+       PP(k,k+2) = 2.0;
+
+       val2[memplace] = 2.0;
+       row2[memplace] = k;
+       col2[memplace] = k+2;
+       memplace++;
+
+       PP(k,k-2) = 2.0;
+
+       val2[memplace] = 2.0;
+       row2[memplace] = k;
+       col2[memplace] = k-2;
+       memplace++;
+
+       PP(k,k-3) = 3.0;
+
+       val2[memplace] = 3.0;
+       row2[memplace] = k;
+       col2[memplace] = k-3;
+       memplace++;
+
+    }
+
+
+
+    // Y Axis Values
+    for(int i = 0; i < Nx; i++)
+    {
+       for(int j =  3; j < Ny - 3; j++)
+       {
+
+          int k = i + j*Nx;
+          PP(k,k+1*Nx) = 4.0; //DS-C1
+
+          val2[memplace] = 4.0;
+          row2[memplace] = k;
+          col2[memplace] = k+1*Nx;
+          memplace++;
+
+          PP(k,k-1*Nx) = 4.0; //US-C1
+
+          val2[memplace] = 4.0;
+          row2[memplace] = k;
+          col2[memplace] = k-1*Nx;
+          memplace++;
+
+          PP(k,k+2*Nx) = 5.0; //DS-C2
+
+          val2[memplace] = 5.0;
+          row2[memplace] = k;
+          col2[memplace] = k+2*Nx;
+          memplace++;
+
+          PP(k,k-2*Nx) = 5.0; //US-C2
+
+          val2[memplace] = 5.0;
+          row2[memplace] = k;
+          col2[memplace] = k-2*Nx;
+          memplace++;
+
+          PP(k,k+3*Nx) = 6.0; //DS-C3
+
+          val2[memplace] = 6.0;
+          row2[memplace] = k;
+          col2[memplace] = k+3*Nx;
+          memplace++;
+
+          PP(k,k-3*Nx) = 6.0; //US-C3
+
+          val2[memplace] = 6.0;
+          row2[memplace] = k;
+          col2[memplace] = k-3*Nx;
+          memplace++;
+
+       }
+   }         
+
+
+
+    //  Y Boundary Values 
+    for(int i = 0; i < Nx; i++){
+       for(int j =  0; j < 3; j++){
+
+          int k = i + j*Nx;
+          PP(k,k+1*Nx) = 4.0; //DS-C1
+
+          val2[memplace] = 4.0;
+          row2[memplace] = k;
+          col2[memplace] = k+1*Nx;
+          memplace++;
+
+          PP(k,k+2*Nx) = 5.0; //DS-C2
+
+          val2[memplace] = 5.0;
+          row2[memplace] = k;
+          col2[memplace] = k+2*Nx;
+          memplace++;
+
+
+          PP(k,k+3*Nx) = 6.0; //DS-C3
+
+          val2[memplace] = 6.0;
+          row2[memplace] = k;
+          col2[memplace] = k+3*Nx;
+          memplace++;
+      }
+
+
+      {
+          int k = i + 1*Nx;
+          PP(k,k-1*Nx) = 4.0; //DS-C1
+
+          val2[memplace] = 4.0;
+          row2[memplace] = k;
+          col2[memplace] = k-1*Nx;
+          memplace++;
+
+      }  
+
+
+      {
+          int k = i + 2*Nx;
+          PP(k,k-1*Nx) = 4.0; //DS-C1
+
+          val2[memplace] = 4.0;
+          row2[memplace] = k;
+          col2[memplace] = k-1*Nx;
+          memplace++;
+
+          PP(k,k-2*Nx) = 5.0; //DS-C2
+
+          val2[memplace] = 5.0;
+          row2[memplace] = k;
+          col2[memplace] = k-2*Nx;
+          memplace++;
+      }  
+
+      
+   }         
+
+
+    //  Y Boundary Values 
+    for(int i = 0; i < Nx; i++){
+       for(int j =  Ny-3 ; j < Ny; j++){
+
+          int k = i + j*Nx;
+          PP(k,k-1*Nx) = 4.0; //DS-C1
+
+          val2[memplace] = 4.0;
+          row2[memplace] = k;
+          col2[memplace] = k-1*Nx;
+          memplace++;
+
+
+          PP(k,k-2*Nx) = 5.0; //DS-C2
+
+          val2[memplace] = 5.0;
+          row2[memplace] = k;
+          col2[memplace] = k-2*Nx;
+          memplace++;
+
+          PP(k,k-3*Nx) = 6.0; //DS-C3
+
+          val2[memplace] = 6.0;
+          row2[memplace] = k;
+          col2[memplace] = k-3*Nx;
+          memplace++;
+       }
+
+
+      {
+          int k = i + (Ny-2)*Nx;
+          PP(k,k+1*Nx) = 4.0; //DS-C1
+
+          val2[memplace] = 4.0;
+          row2[memplace] = k;
+          col2[memplace] = k+1*Nx;
+          memplace++;
+      }  
+
+
+      {
+          int k = i + (Ny-3)*Nx;
+          PP(k,k+1*Nx) = 4.0; //DS-C1
+
+          val2[memplace] = 4.0;
+          row2[memplace] = k;
+          col2[memplace] = k+1*Nx;
+          memplace++;
+
+          PP(k,k+2*Nx) = 5.0; //DS-C2
+
+          val2[memplace] = 5.0;
+          row2[memplace] = k;
+          col2[memplace] = k+2*Nx;
+          memplace++;
+      }  
+   }    
+
+
+   for(int i = 0; i < elements; i++){
+      TT(row2[i] , col2[i]) = val2[i];       
    }
 
+    Coord_Mat_double SPARS(Nx,Ny,elements,val2,row2,col2);
 
+    cout << A << H << endl << endl;
+    cout << tol << "   "<< maxit << endl;
+    cout << b << endl << endl;
+    cout << x << endl << endl;
+    cout << PP << endl << endl;
+    cout << SPARS << endl << endl;
+    cout << elements << memplace << endl;
+    cout << TT << endl;
 
-
-
+  return 0;
+}
