@@ -1,0 +1,20 @@
+##########################################################################
+#EXTERNAL MATH LIBRARY DEFINITIONS        IML++          SparseLib++
+#WORKS WITH g++ v. 4.0.1
+
+CFMATH = -ansi -g -Wall -pedantic -O3 '-DCOMPLEX=std::complex<double>'
+
+INCLUDEMATH =\
+-I/home/cipia/NSCPP/include/IML++/ \
+-I/home/cipia/NSCPP/include/Mv++/ \
+-I/home/cipia/NSCPP/include/SparseLib++/ \
+-I/home/cipia/NSCPP/include/SpBlas++/
+
+LIBMATH = \
+/home/cipia/NSCPP/lib/libsparse.a \
+/home/cipia/NSCPP/lib/libspblas.a \
+/home/cipia/NSCPP/lib/libmv.a 
+
+
+##########################################################################
+
