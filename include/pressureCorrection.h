@@ -1,10 +1,18 @@
 #ifndef _PRESSURE_HPP
 #define _PRESSURE_HPP
 
+#include<iostream>
 #include <blitz/array.h>
 
-#include "../include/Mesh.h"
-#include       "presicion.h"
+//Poisson Equation IML++
+#include "gmres.h"
+#include "coord_double.h"
+#include "iotext_double.h"
+#include MATRIX_H
+
+//NS++ 
+#include "Mesh.h"
+#include "presicion.h"
 
 using blitz::Array;
 
@@ -28,6 +36,7 @@ public:
       Grid(Grid_set)
     { 
 
+    std::cout << "Building Pressure Equation " << std::endl;
     /**
      Gives the Pressure size to the Divergence
      all this equation is discretized in the Cell place.
@@ -36,14 +45,18 @@ public:
         D.resize(pressure.shape()); 
         elements = 13*Grid.cNx*Grid.cNy - 12*(Grid.cNx+Grid.cNy);
 
-        val = new real[elements];
-        row = new real[elements];
-        col = new real[elements];
+
+        val2 = new real[elements];
+        row2 = new int[elements];
+        col2 = new int[elements];
+
+        std::cout << "elements: "<< elements << std::endl;
 
     }
 
-
     void Div();
+    void Update();
+    void FillPoisson();
 
 private:
     //Velocities located in the staggered place.
@@ -56,12 +69,14 @@ private:
     const Array<real,2>& uBoundary;    
     const Array<real,2>& vBoundary;    
     const MeshTool::MeshBlock & Grid; 
-    unsigned long int elements; 
+    int elements; 
     
     //Poisson equation Matrix definition
-    real *val;
-    real *row;
-    real *col;
+    real *val2;
+    int *row2;
+    int *col2;
+
+    Coord_Mat_double A; 
 
 
     //Divergence Array

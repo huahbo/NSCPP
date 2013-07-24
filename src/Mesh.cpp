@@ -1,4 +1,4 @@
-#include "../include/Mesh.h"
+#include "Mesh.h"
 
 using namespace MeshTool;
 
@@ -34,8 +34,8 @@ void MeshBlock::cellDifference()
 {
 	Dx_ = lx  /  (float)(Nx_ - 1);
 	Dy_ = ly /  (float)(Ny_ - 1);	
-    inverseDx_ = Dx_;
-    inverseDy_ = Dy_;
+    inverseDx_ = 1.0 / Dx_;
+    inverseDy_ = 1.0 / Dy_;
 }
 
 

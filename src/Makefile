@@ -1,14 +1,22 @@
 include ../make.math
 
 CCC = g++
-EXECS = run
+EXECS = tester
 
 #INTERNAL DEFINITIONS
-INCLUDES = -I /home/cipia/NSCPP/include $(INCLUDEMATH) 
+INCLUDES = /home/cipia/NSCPP/include $(INCLUDEMATH) 
 CCFLAGS =  $(CFMATH) -lm
 
-#$(EXECS): prueba.o
-#	$(CCC) $(CCFLAGS) $(INCLUDES) -o $@ $< $ $(LIBMATH)
-pressureCorrection.o: pressureCorrection.cpp
-	$(CCC) $(CCFLAGS) $(INCLUDES) -c $<
+OBJS = \
+prueba.o \
+pressureCorrection.o \
+Mesh.o
 
+$(EXECS): $(OBJS) /home/cipia/NSCPP/include/*.h
+	$(CCC) $(CCFLAGS) -I$(INCLUDES) -o $@ $(OBJS) $(LIBMATH)
+prueba.o: prueba.cpp /home/cipia/NSCPP/include/*.h
+	$(CCC) $(CCFLAGS) -I$(INCLUDES) -c $*.cpp
+pressureCorrection.o: pressureCorrection.cpp ../include/pressureCorrection.h
+	$(CCC) $(CCFLAGS) -I$(INCLUDES) -c $*.cpp
+Mesh.o: Mesh.cpp ../include/Mesh.h
+	$(CCC) $(CCFLAGS) -I$(INCLUDES) -c $*.cpp

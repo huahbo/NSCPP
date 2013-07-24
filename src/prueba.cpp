@@ -1,7 +1,7 @@
 
 #include <iostream>
-#include "../include/pressureCorrection.h"
-#include "../include/Mesh.h"
+#include "pressureCorrection.h"
+#include "Mesh.h"
 
 
 using namespace blitz;
@@ -28,6 +28,7 @@ int main(){
      PressureCorrect PressureEq(U, V, Pressure, uBoundary, vBoundary, Grid);
 
      PressureEq.Div();
+     PressureEq.Update();
 
 return 0;
 }
