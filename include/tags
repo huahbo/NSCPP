@@ -194,9 +194,11 @@ FMV_Vector::operator =	Mv++/mvvtp.h	/^FMV_Vector<TYPE>& FMV_Vector<TYPE>::operat
 FMV_Vector::operator =	Mv++/mvvtp.h	/^FMV_Vector<TYPE>& FMV_Vector<TYPE>::operator=(const TYPE & m) $/;"	f	class:FMV_Vector	signature:(const TYPE & m)
 F_IJ	Staggered.h	/^	Array<Tprec,2> &F,F_P , F_IJ;$/;"	m	class:Staggered	access:private
 F_P	Staggered.h	/^	Array<Tprec,2> &F,F_P , F_IJ;$/;"	m	class:Staggered	access:private
+FillPoisson	pressureCorrection.h	/^    void FillPoisson();$/;"	p	class:PressureCorrect	access:public	signature:()
 GMRES	IML++/gmres.h	/^GMRES(const Operator &A, Vector &x, const Vector &b,$/;"	f	signature:(const Operator &A, Vector &x, const Vector &b, const Preconditioner &M, Matrix &H, int &m, int &max_iter, Real &tol)
 GeneratePlaneRotation	IML++/gmres.h	/^void GeneratePlaneRotation(Real &dx, Real &dy, Real &cs, Real &sn)$/;"	f	signature:(Real &dx, Real &dy, Real &cs, Real &sn)
 Grid	pressureCorrection.h	/^    const MeshTool::MeshBlock & Grid; $/;"	m	class:PressureCorrect	access:private
+H	pressureCorrection.h	/^    MATRIX_double H;$/;"	m	class:PressureCorrect	access:private
 I	Staggered.h	/^	inline Array<Tprec,2> I(Array<Tprec,2>& );$/;"	p	class:Staggered	access:public	signature:(Array<Tprec,2>& )
 I	Staggered.h	/^inline Array<Tprec,2> Interpolation<Tprec,Zone>::I(Array<Tprec,2> &Base){$/;"	f	class:Interpolation	signature:(Array<Tprec,2> &Base)
 ICPRE_H	SparseLib++/icpre_double.h	32;"	d
@@ -902,6 +904,7 @@ MV_Vector_int::ref	Mv++/mvvi.h	/^    inline int                      ref() const
 MV_Vector_int::ref_	Mv++/mvvi.h	/^           int ref_;  \/\/ 0 or 1; does this own its own memory space?$/;"	m	class:MV_Vector_int	access:protected
 MV_Vector_int::size	Mv++/mvvi.h	/^    inline  int             size() const { return dim_;}$/;"	f	class:MV_Vector_int	access:public	signature:() const
 MV_Vector_int::~MV_Vector_int	Mv++/mvvi.h	/^    ~MV_Vector_int();                              $/;"	p	class:MV_Vector_int	access:public	signature:()
+Make	pressureCorrection.h	/^    void Make();$/;"	p	class:PressureCorrect	access:public	signature:()
 Matrix_	Mv++/mvmtp.h	/^struct Matrix_ $/;"	s
 Matrix_::ref	Mv++/mvmtp.h	/^    enum ref_type {  ref = 1 };$/;"	e	enum:Matrix_::ref_type
 Matrix_::ref_type	Mv++/mvmtp.h	/^    enum ref_type {  ref = 1 };$/;"	g	struct:Matrix_	access:public
@@ -949,18 +952,26 @@ PressureCorrect	pressureCorrection.h	/^class PressureCorrect$/;"	c
 PressureCorrect::A	pressureCorrection.h	/^    Coord_Mat_double A; $/;"	m	class:PressureCorrect	access:private
 PressureCorrect::D	pressureCorrection.h	/^    Array<real,2> D;$/;"	m	class:PressureCorrect	access:private
 PressureCorrect::Div	pressureCorrection.h	/^    void Div();$/;"	p	class:PressureCorrect	access:public	signature:()
+PressureCorrect::FillPoisson	pressureCorrection.h	/^    void FillPoisson();$/;"	p	class:PressureCorrect	access:public	signature:()
 PressureCorrect::Grid	pressureCorrection.h	/^    const MeshTool::MeshBlock & Grid; $/;"	m	class:PressureCorrect	access:private
+PressureCorrect::H	pressureCorrection.h	/^    MATRIX_double H;$/;"	m	class:PressureCorrect	access:private
+PressureCorrect::Make	pressureCorrection.h	/^    void Make();$/;"	p	class:PressureCorrect	access:public	signature:()
 PressureCorrect::PressureCorrect	pressureCorrection.h	/^    PressureCorrect($/;"	f	class:PressureCorrect	access:public	signature:( Array<real,2>& vel_u, Array<real,2>& vel_v, Array<real,2>& press_p, Array<real,2>& Bound_u, Array<real,2>& Bound_v, MeshTool::MeshBlock &Grid_set )
-PressureCorrect::Update	pressureCorrection.h	/^    void Update();$/;"	p	class:PressureCorrect	access:public	signature:()
-PressureCorrect::col	pressureCorrection.h	/^    real *col;$/;"	m	class:PressureCorrect	access:private
-PressureCorrect::elements	pressureCorrection.h	/^    unsigned long int elements; $/;"	m	class:PressureCorrect	access:private
+PressureCorrect::Solve	pressureCorrection.h	/^    void Solve();$/;"	p	class:PressureCorrect	access:public	signature:()
+PressureCorrect::b	pressureCorrection.h	/^    VECTOR_double x, b;$/;"	m	class:PressureCorrect	access:private
+PressureCorrect::col2	pressureCorrection.h	/^    int *col2;$/;"	m	class:PressureCorrect	access:private
+PressureCorrect::elements	pressureCorrection.h	/^    int elements; $/;"	m	class:PressureCorrect	access:private
+PressureCorrect::maxit	pressureCorrection.h	/^    int maxit, restart;$/;"	m	class:PressureCorrect	access:private
 PressureCorrect::pressure	pressureCorrection.h	/^    const Array<real,2>& pressure; $/;"	m	class:PressureCorrect	access:private
-PressureCorrect::row	pressureCorrection.h	/^    real *row;$/;"	m	class:PressureCorrect	access:private
+PressureCorrect::restart	pressureCorrection.h	/^    int maxit, restart;$/;"	m	class:PressureCorrect	access:private
+PressureCorrect::row2	pressureCorrection.h	/^    int *row2;$/;"	m	class:PressureCorrect	access:private
+PressureCorrect::tol	pressureCorrection.h	/^    real tol;$/;"	m	class:PressureCorrect	access:private
 PressureCorrect::uBoundary	pressureCorrection.h	/^    const Array<real,2>& uBoundary;    $/;"	m	class:PressureCorrect	access:private
 PressureCorrect::uS	pressureCorrection.h	/^    const Array<real,2>& uS;$/;"	m	class:PressureCorrect	access:private
 PressureCorrect::vBoundary	pressureCorrection.h	/^    const Array<real,2>& vBoundary;    $/;"	m	class:PressureCorrect	access:private
 PressureCorrect::vS	pressureCorrection.h	/^    const Array<real,2>& vS;$/;"	m	class:PressureCorrect	access:private
-PressureCorrect::val	pressureCorrection.h	/^    real *val;$/;"	m	class:PressureCorrect	access:private
+PressureCorrect::val2	pressureCorrection.h	/^    real *val2;$/;"	m	class:PressureCorrect	access:private
+PressureCorrect::x	pressureCorrection.h	/^    VECTOR_double x, b;$/;"	m	class:PressureCorrect	access:private
 QMR	IML++/qmr.h	/^QMR(const Matrix &A, Vector &x, const Vector &b, const Preconditioner1 &M1, $/;"	f	signature:(const Matrix &A, Vector &x, const Vector &b, const Preconditioner1 &M1, const Preconditioner2 &M2, int &max_iter, Real &tol)
 QSort	SparseLib++/qsort_double.h	/^int QSort(VECTOR_double& v, int base_ptr, int total_elems);$/;"	p	signature:(VECTOR_double& v, int base_ptr, int total_elems)
 QSort	SparseLib++/qsort_double.h	/^int QSort(VECTOR_int & v, VECTOR_double& x, int base_ptr, int total_elems);$/;"	p	signature:(VECTOR_int & v, VECTOR_double& x, int base_ptr, int total_elems)
@@ -972,6 +983,7 @@ Resizes	Staggered.h	/^	inline void Resizes(int N);$/;"	p	class:Staggered	access:
 Resizes	Staggered.h	/^inline void Interpolation<Tprec,Zone>::Resizes(int N){$/;"	f	class:Interpolation	signature:(int N)
 SPBLAS_H	SparseLib++/spblas.h	33;"	d
 STAGGERED_H_	Staggered.h	9;"	d
+Solve	pressureCorrection.h	/^    void Solve();$/;"	p	class:PressureCorrect	access:public	signature:()
 Staggered	Staggered.h	/^class Staggered{$/;"	c
 Staggered::Alpha	Staggered.h	/^	Tprec Alpha;$/;"	m	class:Staggered	access:private
 Staggered::Array	Staggered.h	/^	inline void Init_Boundary(typeDim<Zone>(),Array<Tprec,2> );$/;"	m	class:Staggered	access:public
@@ -1012,7 +1024,6 @@ Staggered::typeDim	Staggered.h	/^	inline void Init_Boundary(typeDim<Zone>(),Arra
 Staggered::typeDim	Staggered.h	/^	inline void P_Ground(typeDim<Zone>());$/;"	p	class:Staggered	access:public	signature:()
 UnkBound	Staggered.h	/^	Array<Tprec,2> UnkBound;$/;"	m	class:Staggered	access:private
 Update	IML++/gmres.h	/^Update(Vector &x, int k, Matrix &h, Vector &s, Vector v[])$/;"	f	signature:(Vector &x, int k, Matrix &h, Vector &s, Vector v[])
-Update	pressureCorrection.h	/^    void Update();$/;"	p	class:PressureCorrect	access:public	signature:()
 VECTOR_COMPLEX	Mv++/vecdefs.h	44;"	d
 VECTOR_H	Mv++/vecdefs.h	33;"	d
 VECTOR_double	Mv++/vecdefs.h	34;"	d
@@ -1070,6 +1081,7 @@ all	Mv++/mvvind.h	/^        int all() const { return all_; }$/;"	f	class:MV_VecI
 all_	Mv++/mvvind.h	/^            char all_;      \/\/ true if this index refers to the complete$/;"	m	class:MV_VecIndex	access:private
 alphaBound	Staggered.h	/^	Tprec alphaBound;$/;"	m	class:Staggered	access:private
 b	Staggered.h	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Staggered	access:private
+b	pressureCorrection.h	/^    VECTOR_double x, b;$/;"	m	class:PressureCorrect	access:private
 bandA	Staggered.h	/^	Array<Tprec,1> mainBand, bandA, bandC;$/;"	m	class:Staggered	access:private
 bandC	Staggered.h	/^	Array<Tprec,1> mainBand, bandA, bandC;$/;"	m	class:Staggered	access:private
 base	SparseLib++/compcol_double.h	/^       int          base() const {return base_;}$/;"	f	class:CompCol_Mat_double	access:public	signature:() const
@@ -1083,7 +1095,7 @@ cNx_	Mesh.h	/^    int cNx_; \/\/cell nodes X direction$/;"	m	class:MeshTool::Mes
 cNy	Mesh.h	/^    int &cNy; $/;"	m	class:MeshTool::MeshBlock	access:public
 cNy_	Mesh.h	/^    int cNy_; \/\/cell nodes Y direction$/;"	m	class:MeshTool::MeshBlock	access:private
 cellDifference	Mesh.h	/^    void cellDifference();$/;"	p	class:MeshTool::MeshBlock	access:public	signature:()
-col	pressureCorrection.h	/^    real *col;$/;"	m	class:PressureCorrect	access:private
+col2	pressureCorrection.h	/^    int *col2;$/;"	m	class:PressureCorrect	access:private
 col_ind	SparseLib++/comprow_double.h	/^       const int&         col_ind(int i) const { return colind_(i);}$/;"	f	class:CompRow_Mat_double	access:public	signature:(int i) const
 col_ind	SparseLib++/comprow_double.h	/^       int&         col_ind(int i) { return colind_(i);}$/;"	f	class:CompRow_Mat_double	access:public	signature:(int i)
 col_ind	SparseLib++/coord_double.h	/^       const int&         col_ind(int i) const { return colind_(i);}$/;"	f	class:Coord_Mat_double	access:public	signature:(int i) const
@@ -1157,7 +1169,7 @@ e1	Staggered.h	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Staggered	access:priva
 e2	Staggered.h	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Staggered	access:private
 e3	Staggered.h	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Staggered	access:private
 e4	Staggered.h	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Staggered	access:private
-elements	pressureCorrection.h	/^    unsigned long int elements; $/;"	m	class:PressureCorrect	access:private
+elements	pressureCorrection.h	/^    int elements; $/;"	m	class:PressureCorrect	access:private
 end	Mv++/mvvind.h	/^        int end() const { return (all_ ==1) ? 0 : end_;}$/;"	f	class:MV_VecIndex	access:public	signature:() const
 end_	Mv++/mvvind.h	/^             int end_;       $/;"	m	class:MV_VecIndex	access:private
 getIJ	Staggered.h	/^	inline Array<Tprec,2> getIJ();$/;"	p	class:Staggered	access:public	signature:()
@@ -1195,6 +1207,7 @@ length	Mv++/mvvind.h	/^        int length() const { $/;"	f	class:MV_VecIndex	acc
 lx	Mesh.h	/^    real lx, ly; \/\/longitud X-Axis Y-Axix$/;"	m	class:MeshTool::MeshBlock	access:private
 ly	Mesh.h	/^    real lx, ly; \/\/longitud X-Axis Y-Axix$/;"	m	class:MeshTool::MeshBlock	access:private
 mainBand	Staggered.h	/^	Array<Tprec,1> mainBand, bandA, bandC;$/;"	m	class:Staggered	access:private
+maxit	pressureCorrection.h	/^    int maxit, restart;$/;"	m	class:PressureCorrect	access:private
 newsize	Mv++/mvmc.h	/^    MV_ColMat_COMPLEX&        newsize( int,  int);$/;"	p	class:MV_ColMat_COMPLEX	access:public	signature:( int, int)
 newsize	Mv++/mvmd.h	/^    MV_ColMat_double&        newsize( int,  int);$/;"	p	class:MV_ColMat_double	access:public	signature:( int, int)
 newsize	Mv++/mvmf.h	/^    MV_ColMat_float&        newsize( int,  int);$/;"	p	class:MV_ColMat_float	access:public	signature:( int, int)
@@ -1536,7 +1549,8 @@ ref_	SparseLib++/tmvmat.h	/^           int ref_;   \/\/ true if this is declared
 ref_type	Mv++/mvmrf.h	/^    enum ref_type  { ref = 1};$/;"	g	struct:MV_Matrix_	access:public
 ref_type	Mv++/mvmtp.h	/^    enum ref_type {  ref = 1 };$/;"	g	struct:Matrix_	access:public
 ref_type	Mv++/mvvrf.h	/^    enum ref_type  { ref = 1};$/;"	g	struct:MV_Vector_	access:public
-row	pressureCorrection.h	/^    real *row;$/;"	m	class:PressureCorrect	access:private
+restart	pressureCorrection.h	/^    int maxit, restart;$/;"	m	class:PressureCorrect	access:private
+row2	pressureCorrection.h	/^    int *row2;$/;"	m	class:PressureCorrect	access:private
 row_ind	SparseLib++/compcol_double.h	/^       const int&         row_ind(int i) const { return rowind_(i); }$/;"	f	class:CompCol_Mat_double	access:public	signature:(int i) const
 row_ind	SparseLib++/compcol_double.h	/^       int&         row_ind(int i) { return rowind_(i); }$/;"	f	class:CompCol_Mat_double	access:public	signature:(int i)
 row_ind	SparseLib++/coord_double.h	/^       const int&         row_ind(int i) const { return rowind_(i); }$/;"	f	class:Coord_Mat_double	access:public	signature:(int i) const
@@ -1588,6 +1602,7 @@ substr	SparseLib++/minstr.h	/^char* substr(char * S, int pos, int len);$/;"	p	si
 substr_after	SparseLib++/minstr.h	/^char* substr_after(char * S, char M);$/;"	p	signature:(char * S, char M)
 substr_before	SparseLib++/minstr.h	/^char* substr_before(char * S, char M);$/;"	p	signature:(char * S, char M)
 substr_through	SparseLib++/minstr.h	/^char* substr_through(char * S, char M);$/;"	p	signature:(char * S, char M)
+tol	pressureCorrection.h	/^    real tol;$/;"	m	class:PressureCorrect	access:private
 trans_mult	SparseLib++/compcol_double.h	/^       VECTOR_double trans_mult(const VECTOR_double &x) const;$/;"	p	class:CompCol_Mat_double	access:public	signature:(const VECTOR_double &x) const
 trans_mult	SparseLib++/comprow_double.h	/^       VECTOR_double trans_mult(const VECTOR_double &x) const;$/;"	p	class:CompRow_Mat_double	access:public	signature:(const VECTOR_double &x) const
 trans_mult	SparseLib++/coord_double.h	/^       VECTOR_double trans_mult(const VECTOR_double &x) const;$/;"	p	class:Coord_Mat_double	access:public	signature:(const VECTOR_double &x) const
@@ -1627,7 +1642,7 @@ val	SparseLib++/comprow_double.h	/^       const double&      val(int i) const { 
 val	SparseLib++/comprow_double.h	/^       double&      val(int i) { return val_(i); }$/;"	f	class:CompRow_Mat_double	access:public	signature:(int i)
 val	SparseLib++/coord_double.h	/^       const double&      val(int i) const { return val_(i); }$/;"	f	class:Coord_Mat_double	access:public	signature:(int i) const
 val	SparseLib++/coord_double.h	/^       double&      val(int i) { return val_(i); }$/;"	f	class:Coord_Mat_double	access:public	signature:(int i)
-val	pressureCorrection.h	/^    real *val;$/;"	m	class:PressureCorrect	access:private
+val2	pressureCorrection.h	/^    real *val2;$/;"	m	class:PressureCorrect	access:private
 val_	SparseLib++/compcol_double.h	/^       VECTOR_double     val_;       \/\/ data values (nz_ elements)$/;"	m	class:CompCol_Mat_double	access:private
 val_	SparseLib++/comprow_double.h	/^       VECTOR_double val_;       \/\/ data values (nz_ elements)$/;"	m	class:CompRow_Mat_double	access:private
 val_	SparseLib++/coord_double.h	/^       VECTOR_double     val_;       \/\/ data values (nz_ elements)$/;"	m	class:Coord_Mat_double	access:private
@@ -1648,6 +1663,7 @@ writetxtfile_vec	Mv++/iotext.h	/^int writetxtfile_vec(const char *filename, cons
 writetxtfile_vec	Mv++/iotext.h	/^int writetxtfile_vec(const char *filename, const MV_Vector_int &A);$/;"	p	signature:(const char *filename, const MV_Vector_int &A)
 writetxtfile_vec	SparseLib++/iotext.h	/^int writetxtfile_vec(const char *filename, const MV_Vector_double &A);$/;"	p	signature:(const char *filename, const MV_Vector_double &A)
 writetxtfile_vec	SparseLib++/iotext.h	/^int writetxtfile_vec(const char *filename, const MV_Vector_int &A);$/;"	p	signature:(const char *filename, const MV_Vector_int &A)
+x	pressureCorrection.h	/^    VECTOR_double x, b;$/;"	m	class:PressureCorrect	access:private
 zcoomm	SparseLib++/spblas.h	/^void F77NAME(zcoomm)$/;"	p	signature:(const int &transa, const int &m, const int &n, const int &k, const complex &alpha, const int descra[], const complex *val, const int *indx, const int *jndx, const int &nnz, const complex *b, const int &ldb, const complex &beta, complex *c, const int &ldc, complex *work, const int &lwork)
 zcscmm	SparseLib++/spblas.h	/^void F77NAME(zcscmm)$/;"	p	signature:(const int &transa, const int &m, const int &n, const int &k, const complex &alpha, const int descra[], const complex *val, const int *indx, const int *pntr, const complex *b, int &ldb, const complex &beta, complex *c, const int &ldc, complex *work, const int &lwork)
 zcscsm	SparseLib++/spblas.h	/^void F77NAME(zcscsm)$/;"	p	signature:(const int &transa, const int &m, const int &n, const int &unitd, const complex *dv, const complex &alpha, const int descra[], const complex *val, const int *indx, const int *pntr, const complex *b, int &ldb, const complex &beta, complex *c, const int &ldc, complex *work, const int &lwork)

@@ -7,7 +7,10 @@
 //Poisson Equation IML++
 #include "gmres.h"
 #include "coord_double.h"
+#include "compcol_double.h"
 #include "iotext_double.h"
+#include "ilupre_double.h"
+#include "icpre_double.h"
 #include MATRIX_H
 
 //NS++ 
@@ -49,14 +52,23 @@ public:
         val2 = new real[elements];
         row2 = new int[elements];
         col2 = new int[elements];
+        ptr_col = new int[Grid.cNx*Grid.cNy - 1];
+        id = new int[elements];
 
         std::cout << "elements: "<< elements << std::endl;
+        x.newsize(Grid.cNx*Grid.cNy);
+        b.newsize(Grid.cNx*Grid.cNy);
+
+        maxit = 1;
+        restart = Grid.cNx*Grid.cNy;
+        tol = 1.e-6;
 
     }
 
     void Div();
-    void Update();
+    void Make();
     void FillPoisson();
+    void Solve();
 
 private:
     //Velocities located in the staggered place.
@@ -75,8 +87,15 @@ private:
     real *val2;
     int *row2;
     int *col2;
+    int *ptr_col;
+    int *id;
 
     Coord_Mat_double A; 
+    VECTOR_double x, b;
+
+    MATRIX_double H;
+    int maxit, restart;
+    real tol;
 
 
     //Divergence Array

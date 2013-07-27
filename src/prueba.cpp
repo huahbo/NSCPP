@@ -8,7 +8,7 @@ using namespace blitz;
 
 int main(){
 
-    MeshTool::MeshBlock Grid(10.0,10.0,10,10);
+    MeshTool::MeshBlock Grid(10.0,10.0,100,100);
     Grid.cellDifference();
     cout << Grid.Dx << endl;    
     cout << Grid.Dy << endl;    
@@ -25,10 +25,29 @@ int main(){
                    vBoundary(6, Grid.Ny); 
 
 
-     PressureCorrect PressureEq(U, V, Pressure, uBoundary, vBoundary, Grid);
+    for(int  i = 0 ; i < Grid.Nx ; i++){
+        for(int  j = 0 ; j <  Grid.cNy; j++){
+            U(i, j) = 1.0;
+        }
+   }
 
-     PressureEq.Div();
-     PressureEq.Update();
+    
+    for(int  i = 0 ; i < Grid.cNx ; i++){
+        for(int  j = 0 ; j <  Grid.Ny; j++){
+            V(i, j) = 1.0;
+        }
+   }
+
+    
+    for(int  i = 0 ; i < Grid.Nx ; i++){
+        for(int  j = 0 ; j < 6 ; j++){
+            uBoundary(i, j) = 1.0;
+        }
+    }
+
+    PressureCorrect PressureEq(U, V, Pressure, uBoundary, vBoundary, Grid);
+    PressureEq.Make();
+    PressureEq.Solve();
 
 return 0;
 }
