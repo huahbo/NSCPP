@@ -8,9 +8,12 @@
 #include "gmres.h"
 #include "coord_double.h"
 #include "compcol_double.h"
+#include "comprow_double.h"
 #include "iotext_double.h"
 #include "ilupre_double.h"
 #include "icpre_double.h"
+#include "diagpre_double.h"
+#include "mgmres.hpp"
 #include MATRIX_H
 
 //NS++ 
@@ -48,34 +51,34 @@ public:
         D.resize(pressure.shape()); 
         elements = 13*Grid.cNx*Grid.cNy - 12*(Grid.cNx+Grid.cNy);
 
-
         val2 = new real[elements];
+        RHS = new real[Grid.cNx*Grid.cNy];
+        x_estimate = new real[Grid.cNx*Grid.cNy];
         row2 = new int[elements];
         col2 = new int[elements];
-        ptr_col = new int[Grid.cNx*Grid.cNy - 1];
+        ptr_col = new int[Grid.cNx*Grid.cNy + 1];
         id = new int[elements];
 
         std::cout << "elements: "<< elements << std::endl;
-        x.newsize(Grid.cNx*Grid.cNy);
-        b.newsize(Grid.cNx*Grid.cNy);
 
         maxit = 1;
-        restart = Grid.cNx*Grid.cNy;
-        tol = 1.e-6;
+        restart = 32;
+        tol = 1.e-12;
 
     }
 
-    void Div();
+    void Div(real);
     void Make();
     void FillPoisson();
-    void Solve();
+    void Solve(real);
+    //void Update();
 
 private:
     //Velocities located in the staggered place.
     const Array<real,2>& uS;
     const Array<real,2>& vS;
 
-    const Array<real,2>& pressure; 
+    Array<real,2>& pressure; 
 
     //these arrays contain the Ghost Boundary nodes.   
     const Array<real,2>& uBoundary;    
@@ -89,11 +92,9 @@ private:
     int *col2;
     int *ptr_col;
     int *id;
+    real *RHS;
+    real *x_estimate;
 
-    Coord_Mat_double A; 
-    VECTOR_double x, b;
-
-    MATRIX_double H;
     int maxit, restart;
     real tol;
 

@@ -10,6 +10,7 @@ CCFLAGS =  $(CFMATH) -lm
 OBJS = \
 prueba.o \
 pressureCorrection.o \
+mgmres.o\
 Mesh.o
 
 $(EXECS): $(OBJS) /home/cipia/NSCPP/include/*.h
@@ -17,6 +18,8 @@ $(EXECS): $(OBJS) /home/cipia/NSCPP/include/*.h
 prueba.o: prueba.cpp /home/cipia/NSCPP/include/*.h
 	$(CCC) $(CCFLAGS) -I$(INCLUDES) -c $*.cpp
 pressureCorrection.o: pressureCorrection.cpp ../include/pressureCorrection.h
+	$(CCC) $(CCFLAGS) -I$(INCLUDES) -c $*.cpp
+mgmres.o: mgmres.cpp ../include/mgmres.hpp
 	$(CCC) $(CCFLAGS) -I$(INCLUDES) -c $*.cpp
 Mesh.o: Mesh.cpp ../include/Mesh.h
 	$(CCC) $(CCFLAGS) -I$(INCLUDES) -c $*.cpp

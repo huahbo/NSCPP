@@ -35,7 +35,6 @@ void insertionSort(int a[], int b[], int c[], real d[], int array_size)
 void add_ptr(int a[], int sizeA, int b[], int sizeB)
 {
 
-    int sum = 0;
     for(int i = 0 ; i < sizeB ; i++){
         a[b[i]]++;
     } 
@@ -45,6 +44,15 @@ void add_ptr(int a[], int sizeA, int b[], int sizeB)
         a[i] += a[i-1];
         //sum = a[i];
     } 
+
+    for(int i = sizeA-1; i >= 0 ; i--){
+         a[i+1] = a[i];
+        //sum = a[i];
+    } 
+    
+    a[0] = 0; // start value 
+
+
 
 }
 

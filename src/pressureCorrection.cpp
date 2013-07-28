@@ -2,7 +2,7 @@
 #include "MathCore.h"
 #include <iostream>
 
-void PressureCorrect::Div()
+void PressureCorrect::Div(real stage)
 {
     real inverseConst = 1.0 / 24.0;
 
@@ -20,7 +20,7 @@ void PressureCorrect::Div()
 
 
              int offset = i + j*Grid.cNx;
-             b(offset) = D(i,j);  
+             RHS[offset] = D(i,j) / stage;  
   
          }
      }
@@ -37,7 +37,7 @@ void PressureCorrect::Div()
                       inverseConst*Grid.inverseDy;
 
              int offset = i + j*Grid.cNx;
-             b(offset) = D(i,j);   
+             RHS[offset] = D(i,j) / stage;   
           }
       }
      
@@ -53,13 +53,13 @@ void PressureCorrect::Div()
                  *inverseConst*Grid.inverseDx;
 
          int offset = j*Grid.cNx;
-         b(offset) = D(0,j);
+         RHS[offset]  = D(0,j) / stage;
   
          D(Grid.cNx-1,j) += (-1.0*uBoundary(3,j) + 27.0*uS(Grid.Nx-1,j) - 27.0*uS(Grid.Nx-2,j) +  uS(Grid.Nx-3,j))
                      *inverseConst*Grid.inverseDx; 
 
          offset = Grid.cNx-1 + j*Grid.cNx;
-         b(offset) = D(Grid.cNx-1,j);
+         RHS[offset] = D(Grid.cNx-1,j) / stage;
 
   
      }
@@ -74,23 +74,18 @@ void PressureCorrect::Div()
                  *inverseConst*Grid.inverseDy;
 
           int offset = i;
-          b(offset) = D(i,0);
+          RHS[offset] = D(i,0) / stage;
 
   
          D(i,Grid.cNy-1) +=(-1.0*vBoundary(i,3) + 27.0*vS(i,Grid.Ny-1) - 27.0*vS(i,Grid.Ny-2)+ vS(i,Grid.Ny-3))
                       *inverseConst*Grid.inverseDy;
 
           offset = i + (Grid.cNy-1)*Grid.cNx;
-          b(offset) = D(i,Grid.cNy-1);
+          RHS[offset] = D(i,Grid.cNy-1) / stage;
   
      }
 
     
-
-  //   std::cout << uS;
-    // std::cout << vS;
-     //  std::cout << D;
-
 }
 
 
@@ -102,6 +97,8 @@ void PressureCorrect::Make()
 {
 
     FillPoisson();
+
+
     
     for(int i = 0; i < elements; i++){
         id[i] = row2[i] + Grid.cNx*Grid.cNy*col2[i];
@@ -111,101 +108,34 @@ void PressureCorrect::Make()
 
     add_ptr(ptr_col, Grid.cNx*Grid.cNy , col2, elements);  
 
-            
-    for(int i = 0; i < elements; i++){
-        std::cout << id[i] << "  " << col2[i] << " " << row2[i] << std::endl;
+}
+
+void PressureCorrect::Solve(real stage)
+{
+    Div(stage);
+    for(int i = 0; i < Grid.cNx*Grid.cNy; i++){
+        x_estimate[i] = (double)1;
     }
+    
+    pmgmres_ilu_cr(Grid.cNx*Grid.cNy, elements, ptr_col,row2,val2,x_estimate,
+                   RHS, 10, 2*Grid.cNx, tol, tol);
 
 
     for(int i = 0; i < Grid.cNx*Grid.cNy; i++){
-
-        std::cout << ptr_col[i] << std::endl;
+       //std::cout << x_estimate[i] << std::endl;
+       std::cout << RHS[i] << std::endl;
     }
-   
-
-    Coord_Mat_double C(
-                       Grid.cNx*Grid.cNy,
-                       Grid.cNx*Grid.cNy,
-                       elements,
-                       val2,
-                       row2,
-                       col2
-                      );
-
-    A = C;
-
-    //Matrix de Hessenberg
-    MATRIX_double Hr(restart+1,restart, 0.0); 
-
-    H = Hr;
-    
-}
-
-void PressureCorrect::Solve()
-{
-    Div();
-    
+       std::cout << D << std::endl;
 
 
-/*
-    CompRow_ILUPreconditioner_double Mr(A);
 
-
-    for(int i= 0; i < x.size(); i++){
-         x(i) = (double)i;
-    } 
-
-
-     double *val = new real[81];
-     int *row = new int[81];
-     int *col = new int[82];
-
-    int checa = 0;
-
-    for(int i= 0; i < Grid.cNx*Grid.cNy; i++){
-
-            val[i] = 2.0;
-            row[i] = i;
-            col[i] = i;
+    for(int i = 0; i < Grid.cNx ; i++){ //Without X - Boundaries
+        for(int j = 0; j < Grid.cNy; j++){
+            int offset = i + j*Grid.cNx;
+            pressure(i,j) += x_estimate[offset];
+        }
     }
-
-    col[Grid.cNx*Grid.cNy] = Grid.cNx*Grid.cNy;
-
-    CompCol_Mat_double PP(
-                       81,
-                       81,
-                       Grid.cNx*Grid.cNy,
-                       val,
-                       row,
-                       col
-                      );
-
-    VECTOR_double XX(Grid.cNx*Grid.cNy), YY(Grid.cNx*Grid.cNy);
-
-    CompCol_ILUPreconditioner_double MM(PP);
-    CompCol_ILUPreconditioner_double M(A);
-
-
-    for(int i= 0; i < x.size(); i++){
-        XX(i) =(double)i* (double)i + (double)i*2.5;
-        std::cout << col[i] << "  " << row[i] << std::endl; 
-    } 
-
-    YY = XX;
     
-    MATRIX_double HH(restart+1,restart, 0.0); 
-     GMRES(PP,YY,XX,MM,HH,restart,maxit,tol);*/
-    
-   /* 
-    std::cout << H << std::endl;
-    std::cout << XX << std::endl;
-    std::cout << YY << std::endl;
-    std::cout << b.size()  << std::endl;
-    std::cout << b  << std::endl;*/
-
-/*    std::cout << YY << std::endl;
-    std::cout << maxit << std::endl;
-*/
 }
  
 

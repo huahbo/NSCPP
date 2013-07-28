@@ -41,13 +41,20 @@ int main(){
     
     for(int  i = 0 ; i < Grid.Nx ; i++){
         for(int  j = 0 ; j < 6 ; j++){
-            uBoundary(i, j) = 1.0;
+            uBoundary(i, j) = -1.0;
         }
     }
 
+    for(int  i = 0 ; i < Grid.cNy ; i++){
+        for(int  j = 0 ; j < 6 ; j++){
+            uBoundary(j, i) = -1.0;
+        }
+    }
+
+
     PressureCorrect PressureEq(U, V, Pressure, uBoundary, vBoundary, Grid);
     PressureEq.Make();
-    PressureEq.Solve();
+    PressureEq.Solve(0.05);
 
 return 0;
 }
