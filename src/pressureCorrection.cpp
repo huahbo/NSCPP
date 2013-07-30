@@ -70,14 +70,14 @@ void PressureCorrect::Div(real stage)
   
      for(int i = 0; i < Grid.cNx; i++){
          
-         D(i,0) += (1.0*vS(i,2) + 27.0*vS(i,1) - 27.0*vS(i,0) + vBoundary(i,0))
+         D(i,0) +=  (-1.0*vS(i,2) + 27.0*vS(i,1) - 27.0*vS(i,0) + vBoundary(0,i))
                  *inverseConst*Grid.inverseDy;
 
           int offset = i;
           RHS[offset] = D(i,0) / stage;
 
   
-         D(i,Grid.cNy-1) +=(-1.0*vBoundary(i,3) + 27.0*vS(i,Grid.Ny-1) - 27.0*vS(i,Grid.Ny-2)+ vS(i,Grid.Ny-3))
+         D(i,Grid.cNy-1) +=(-1.0*vBoundary(3,i) + 27.0*vS(i,Grid.Ny-1) - 27.0*vS(i,Grid.Ny-2)+ vS(i,Grid.Ny-3))
                       *inverseConst*Grid.inverseDy;
 
           offset = i + (Grid.cNy-1)*Grid.cNx;
@@ -120,15 +120,12 @@ void PressureCorrect::Solve(real stage)
     pmgmres_ilu_cr(Grid.cNx*Grid.cNy, elements, ptr_col,row2,val2,x_estimate,
                    RHS, 10, 2*Grid.cNx, tol, tol);
 
-
+/*
     for(int i = 0; i < Grid.cNx*Grid.cNy; i++){
        //std::cout << x_estimate[i] << std::endl;
        std::cout << RHS[i] << std::endl;
     }
-       std::cout << D << std::endl;
-
-
-
+*/
     for(int i = 0; i < Grid.cNx ; i++){ //Without X - Boundaries
         for(int j = 0; j < Grid.cNy; j++){
             int offset = i + j*Grid.cNx;

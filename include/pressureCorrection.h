@@ -4,6 +4,7 @@
 #include<iostream>
 #include <blitz/array.h>
 
+/*
 //Poisson Equation IML++
 #include "gmres.h"
 #include "coord_double.h"
@@ -13,6 +14,9 @@
 #include "ilupre_double.h"
 #include "icpre_double.h"
 #include "diagpre_double.h"
+*/
+
+#include "coord_double.h"
 #include "mgmres.hpp"
 #include MATRIX_H
 
@@ -71,7 +75,6 @@ public:
     void Make();
     void FillPoisson();
     void Solve(real);
-    //void Update();
 
 private:
     //Velocities located in the staggered place.

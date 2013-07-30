@@ -5,7 +5,7 @@ EXECS = tester
 
 #INTERNAL DEFINITIONS
 INCLUDES = /home/cipia/NSCPP/include $(INCLUDEMATH) 
-CCFLAGS =  $(CFMATH) -lm
+CCFLAGS =  $(CFMATH) -lm -Wall
 
 OBJS = \
 prueba.o \
