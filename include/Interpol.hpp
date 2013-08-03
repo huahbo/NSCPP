@@ -52,7 +52,6 @@ private: //This Private is for the Partial Specialization
 		F_IJ(F_IJ.ubound(firstDim),Range::all()) = UnkBound(1,Range::all());
 	}
 
-/*
 	inline void Init_Boundary(typeDim<1>,Array<Tprec,2> Unk_Var){
 		UnkBound.resize(2,Unk_Var.ubound(secondDim) +1 );
 		UnkBound = Unk_Var;
@@ -63,13 +62,13 @@ private: //This Private is for the Partial Specialization
 			UnkBound = Unk_Var;
 	}
 
-*/
+
 public:
 	Interpolation(Array<Tprec,2> &Atemp, Array<Tprec,2> Unk_Var)
-	: F(Atemp), UnkBound(Unk_Var)   //Pass by reference the Field
+	: F(Atemp)     //Pass by reference the Field
 	{
 		setValues();
-		//Init_Boundary(typeDim<Zone>(),Unk_Var);
+		Init_Boundary(typeDim<Zone>(),Unk_Var);
 	}
 
 	inline void setValues();
@@ -83,7 +82,7 @@ public:
 	inline Array<Tprec,2> Cell();
 	inline Array<Tprec,2> getP();
 	inline Array<Tprec,2> getIJ();
-//	inline void Init_Boundary(typeDim<Zone>(),Array<Tprec,2> );
+	inline void Init_Boundary(typeDim<Zone>(),Array<Tprec,2> );
 	inline void setField(Array<Tprec,2> &A)
 	{
         	F = A;
@@ -95,7 +94,7 @@ public:
 private:
 
 	Array<Tprec,2> &F,F_P , F_IJ;
-	Array<Tprec,2> &UnkBound;
+	Array<Tprec,2> UnkBound;
 	Tprec Alpha;
 	Tprec alphaBound;
 	Array<Tprec,1> mainBand, bandA, bandC;
@@ -198,8 +197,10 @@ inline Array<Tprec,2> Interpolation<Tprec,Zone>::I(Array<Tprec,2> &Base){
 
 template<typename Tprec, int Zone>
 inline Array<Tprec,2>Interpolation<Tprec,Zone>::IJ(){
+
+        std::cout << "pueba" << endl;
 	IJ_Ground(typeDim<Zone>());
-	return F_IJ;
+ 	return F_IJ;
 }
 
 template<typename Tprec, int Zone>

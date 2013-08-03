@@ -1,41 +1,49 @@
+#include "MathCore.h"
 
-#include "../include/MathCore.h"
-
-Array<real,2> AxisXtoCell(
-                         Array<real,2> &Field
-                         Array<real,2> &Boundary //Ghost Boundary
-                         )
+void insertionSort(int a[], int b[], int c[], real d[], int array_size)
 {
-    /***
-    Dimension Field (staggered)
-    ***/
-    int sNx = Field.ubound(firstDim) + 1;
-    int sNy = Field.ubound(secondDim) + 1;
+     int i, j, index, index2, index3;
+     real index4;
+     
+     for (i = 1; i < array_size; ++i)
+     {
+          index  = a[i];
+          index2 = b[i];
+          index3 = c[i];
+          index4 = d[i];
+          for (j = i; j > 0 && a[j-1] > index; j--){
+               a[j] = a[j-1];
+               b[j] = b[j-1];
+               c[j] = c[j-1];
+               d[j] = d[j-1];
+          }
+          a[j] = index;
+          b[j] = index2;
+          c[j] = index3;
+          d[j] = index4;
+     }
+}
+
+void add_ptr(int a[], int sizeA, int b[], int sizeB)
+{
+
+    for(int i = 0 ; i < sizeB ; i++){
+        a[b[i]]++;
+    } 
 
 
-    /**
-    Has one dimension more in the Axi-X
-    **/
-    Array<real,2> fixedField(sNx + 1, sNy);
+    for(int i = 1 ; i < sizeA ; i++){
+        a[i] += a[i-1];
+        //sum = a[i];
+    } 
 
-    for(int i = 1; i < sNx ; i++){
-        for(int j = 1; j < sNy ; j++){
- 
-            fixedField(i,j) = (- 1.0*Field(i+2,j) + 9.0*Field(i+1,j) 
-                               + 9.0*Field(i,j) - Field(i-1,j)) / 16.0
-        }                                           
-    }
-
-    /**
-    Compute the Boundaries using Ghost Nodes
-    **/
-    for(int j = 1; j < sNy ; j++){
-        fixedField(0,j) = -1.0*Field(2,j) + 9.0*Field(1,j) 
-                          +9.0*Field(
-    }
-
-        
- 
-    return fixedField;
+    for(int i = sizeA-1; i >= 0 ; i--){
+         a[i+1] = a[i];
+        //sum = a[i];
+    } 
+    
+    a[0] = 0; // start value 
 
 }
+
+

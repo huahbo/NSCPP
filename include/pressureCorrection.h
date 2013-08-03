@@ -16,13 +16,14 @@
 #include "diagpre_double.h"
 */
 
-#include "coord_double.h"
+//#include "coord_double.h"
 #include "mgmres.hpp"
-#include MATRIX_H
 
 //NS++ 
 #include "Mesh.h"
 #include "presicion.h"
+#include "Derivatives.hpp"
+#include "MathCore.h"
 
 using blitz::Array;
 
@@ -53,6 +54,7 @@ public:
     **/
 
         D.resize(pressure.shape()); 
+        DP.resize(pressure.shape()); 
         elements = 13*Grid.cNx*Grid.cNy - 12*(Grid.cNx+Grid.cNy);
 
         val2 = new real[elements];
@@ -75,6 +77,9 @@ public:
     void Make();
     void FillPoisson();
     void Solve(real);
+    Array<real,2> CorrectU(const real);
+    Array<real,2> CorrectV(const real);
+    
 
 private:
     //Velocities located in the staggered place.
@@ -104,6 +109,7 @@ private:
 
     //Divergence Array
     Array<real,2> D;
+    Array<real,2> DP;
 };
 
 #endif

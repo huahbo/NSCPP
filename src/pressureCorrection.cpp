@@ -1,6 +1,4 @@
 #include "pressureCorrection.h"
-#include "MathCore.h"
-#include <iostream>
 
 void PressureCorrect::Div(real stage)
 {
@@ -105,7 +103,6 @@ void PressureCorrect::Make()
     }
          
     insertionSort(id, col2, row2, val2, elements);
-
     add_ptr(ptr_col, Grid.cNx*Grid.cNy , col2, elements);  
 
 }
@@ -130,9 +127,44 @@ void PressureCorrect::Solve(real stage)
         for(int j = 0; j < Grid.cNy; j++){
             int offset = i + j*Grid.cNx;
             pressure(i,j) += x_estimate[offset];
+            DP(i,j) = x_estimate[offset];
         }
     }
     
+}
+
+
+Array<real,2> PressureCorrect::CorrectU(const real constant)
+{
+    Array<real,1> delta(2);
+    Array<real,2> result(pressure.shape());
+
+    delta(0) = Grid.Dx;
+    delta(1) = Grid.Dy;
+
+    Compact<real> deriv(delta);
+
+    result(Range::all(),Range::all()) = 
+                            constant* deriv.xS(DP(Range::all(),Range::all()));
+
+    return result;
+}
+
+
+Array<real,2> PressureCorrect::CorrectV(const real constant)
+{
+    Array<real,1> delta(2);
+    Array<real,2> result(pressure.shape());
+
+    delta(0) = Grid.Dx;
+    delta(1) = Grid.Dy;
+
+    Compact<real> deriv(delta);
+
+    result(Range::all(),Range::all()) = 
+                            constant* deriv.yS(DP(Range::all(),Range::all()));
+
+    return result;
 }
  
 
@@ -157,7 +189,7 @@ void PressureCorrect::FillPoisson()
     int Nx = Grid.cNx;
     int Ny = Grid.cNy;
 
-    MATRIX_double PP(
+/*    MATRIX_double PP(
                      Grid.cNx*Grid.cNy,
                      Grid.cNx*Grid.cNy,
                      0.0
@@ -170,13 +202,13 @@ void PressureCorrect::FillPoisson()
                      0.0
                     );
 
-
+*/
 
     for(int i = 0; i < Nx; i++){
        for(int j =  0; j < Ny; j++){
           int k = i + j*Nx;
           
-          PP(k,k) = Banded; //main banded
+  //        PP(k,k) = Banded; //main banded
 
           val2[memplace] = Banded;
           row2[memplace] = k;
@@ -193,28 +225,28 @@ void PressureCorrect::FillPoisson()
           int k = i + j*Nx;
           
            
-          PP(k,k+1) = C1; //RS-C1
+          //PP(k,k+1) = C1; //RS-C1
 
           val2[memplace] = C1;
           row2[memplace] = k;
           col2[memplace] = k+1;
           memplace++;
 
-          PP(k,k-1) = C1; //LS-C1
+          //PP(k,k-1) = C1; //LS-C1
 
           val2[memplace] = C1;
           row2[memplace] = k;
           col2[memplace] = k-1;
           memplace++;
 
-          PP(k,k+2) = C2; //RS-C2
+         // PP(k,k+2) = C2; //RS-C2
 	
           val2[memplace] = C2;
           row2[memplace] = k;
           col2[memplace] = k+2;
           memplace++;
 
-          PP(k,k-2) = C2; //LS-C2
+          //PP(k,k-2) = C2; //LS-C2
 
           val2[memplace] = C2;
           row2[memplace] = k;
@@ -222,14 +254,14 @@ void PressureCorrect::FillPoisson()
           memplace++;
 
 
-          PP(k,k+3) = C3; //RS-C3
+         // PP(k,k+3) = C3; //RS-C3
 
           val2[memplace] = C3;
           row2[memplace] = k;
           col2[memplace] = k+3;
           memplace++;
 
-          PP(k,k-3) = C3; //LS-C3
+          //PP(k,k-3) = C3; //LS-C3
 
           val2[memplace] = C3;
           row2[memplace] = k;
@@ -251,7 +283,6 @@ void PressureCorrect::FillPoisson()
 
        ///////////////////////////////////////////////////////////
        int k = j*Nx;
-       PP(k,k+1) = C1*2.0;
 
        val2[memplace] = C1*2.0;
        row2[memplace] = k;
@@ -259,7 +290,6 @@ void PressureCorrect::FillPoisson()
        memplace++;
 
 
-       PP(k,k+2) = C2*2.0;
 
         val2[memplace] = C2*2.0;
         row2[memplace] = k;
@@ -267,7 +297,6 @@ void PressureCorrect::FillPoisson()
         memplace++;
 
 
-       PP(k,k+3) = C3*2.0;
 
        val2[memplace] = C3*2.0;
        row2[memplace] = k;
@@ -276,28 +305,24 @@ void PressureCorrect::FillPoisson()
 
        //////////////////////////////////////////////////////////// 
        k = 1 + j*Nx;
-       PP(k,k+1) = C1;
 
        val2[memplace] = C1;
        row2[memplace] = k;
        col2[memplace] = k+1;
        memplace++;
 
-       PP(k,k-1) = C1;
 
        val2[memplace] = C1;
        row2[memplace] = k;
        col2[memplace] = k-1;
        memplace++;
 
-       PP(k,k+2) = C2*2.0;
 
        val2[memplace] = C2*2.0;
        row2[memplace] = k;
        col2[memplace] = k+2;
        memplace++;
 
-       PP(k,k+3) = C3*2.0;
 
        val2[memplace] = C3*2.0;
        row2[memplace] = k;
@@ -306,28 +331,24 @@ void PressureCorrect::FillPoisson()
        
        ////////////////////////////////////////////////////////////
        k = 2 + j*Nx;
-       PP(k,k+1) = C1;
 
        val2[memplace] = C1;
        row2[memplace] = k;
        col2[memplace] = k+1;
        memplace++;
 
-       PP(k,k-1) = C1;
 
        val2[memplace] = C1;
        row2[memplace] = k;
        col2[memplace] = k-1;
        memplace++;
 
-       PP(k,k+2) = C2;
 
        val2[memplace] = C2;
        row2[memplace] = k;
        col2[memplace] = k+2;
        memplace++;
 
-       PP(k,k-2) = C2;
 
        val2[memplace] = C2;
        row2[memplace] = k;
@@ -335,7 +356,6 @@ void PressureCorrect::FillPoisson()
        memplace++;
 
 
-       PP(k,k+3) = C3*2.0;
 
        val2[memplace] = C3*2.0;
        row2[memplace] = k;
@@ -344,7 +364,6 @@ void PressureCorrect::FillPoisson()
     
        ////////////////////////////////////////////////////////////
        k = (Nx-1) + j*Nx;
-       PP(k,k-1) = C1*2.0;
 
        val2[memplace] = C1*2.0;
        row2[memplace] = k;
@@ -352,14 +371,12 @@ void PressureCorrect::FillPoisson()
        memplace++;
 
 
-       PP(k,k-2) = C2*2.0;
 
        val2[memplace] = C2*2.0;
        row2[memplace] = k;
        col2[memplace] = k-2;
        memplace++;
 
-       PP(k,k-3) = C3*2.0;
 
        val2[memplace] = C3*2.0;
        row2[memplace] = k;
@@ -368,28 +385,24 @@ void PressureCorrect::FillPoisson()
        
        //////////////////////////////////////////////////////////// 
        k = (Nx -2)  + j*Nx;
-       PP(k,k+1) = C1;
 
        val2[memplace] = C1;
        row2[memplace] = k;
        col2[memplace] = k+1;
        memplace++;
 
-       PP(k,k-1) = C1;
 
        val2[memplace] = C1;
        row2[memplace] = k;
        col2[memplace] = k-1;
        memplace++;
 
-       PP(k,k-2) = C2*2.0;
 
        val2[memplace] = C2*2.0;
        row2[memplace] = k;
        col2[memplace] = k-2;
        memplace++;
 
-       PP(k,k-3) = C3*2.0;
 
        val2[memplace] = C3*2.0;
        row2[memplace] = k;
@@ -398,35 +411,30 @@ void PressureCorrect::FillPoisson()
        
        /////////////////////////////////////////////////////////////
        k = (Nx - 3) + j*Nx;
-       PP(k,k+1) = C1;
 
        val2[memplace] = C1;
        row2[memplace] = k;
        col2[memplace] = k+1;
        memplace++;
 
-       PP(k,k-1) = C1;
 
        val2[memplace] = C1;
        row2[memplace] = k;
        col2[memplace] = k-1;
        memplace++;
 
-       PP(k,k+2) = C2;
 
        val2[memplace] = C2;
        row2[memplace] = k;
        col2[memplace] = k+2;
        memplace++;
 
-       PP(k,k-2) = C2;
 
        val2[memplace] = C2;
        row2[memplace] = k;
        col2[memplace] = k-2;
        memplace++;
 
-       PP(k,k-3) = C3*2.0;
 
        val2[memplace] = C3*2.0;
        row2[memplace] = k;
@@ -444,42 +452,36 @@ void PressureCorrect::FillPoisson()
        {
 
           int k = i + j*Nx;
-          PP(k,k+1*Nx) = C4; 
 
           val2[memplace] = C4;
           row2[memplace] = k;
           col2[memplace] = k+1*Nx;
           memplace++;
 
-          PP(k,k-1*Nx) = C4; //US-C1
 
           val2[memplace] = C4;
           row2[memplace] = k;
           col2[memplace] = k-1*Nx;
           memplace++;
 
-          PP(k,k+2*Nx) = C5; //DS-C2
 
           val2[memplace] = C5;
           row2[memplace] = k;
           col2[memplace] = k+2*Nx;
           memplace++;
 
-          PP(k,k-2*Nx) = C5; //US-C2
 
           val2[memplace] = C5;
           row2[memplace] = k;
           col2[memplace] = k-2*Nx;
           memplace++;
 
-          PP(k,k+3*Nx) = C6; //DS-C3
 
           val2[memplace] = C6;
           row2[memplace] = k;
           col2[memplace] = k+3*Nx;
           memplace++;
 
-          PP(k,k-3*Nx) = C6; //US-C3
 
           val2[memplace] = C6;
           row2[memplace] = k;
@@ -496,14 +498,12 @@ void PressureCorrect::FillPoisson()
 
       {  
           int k = i;
-          PP(k,k+1*Nx) = C4*2.0; //DS-C1
 
           val2[memplace] = C4*2.0;
           row2[memplace] = k;
           col2[memplace] = k+1*Nx;
           memplace++;
 
-          PP(k,k+2*Nx) = C5*2.0; //DS-C2
 
           val2[memplace] = C5*2.0;
           row2[memplace] = k;
@@ -511,7 +511,6 @@ void PressureCorrect::FillPoisson()
           memplace++;
 
 
-          PP(k,k+3*Nx) = C6*2.0; //DS-C3
 
           val2[memplace] = C6*2.0;
           row2[memplace] = k;
@@ -523,14 +522,12 @@ void PressureCorrect::FillPoisson()
 
       {  
           int k = i + Nx;
-          PP(k,k+1*Nx) = C4; //DS-C1
 
           val2[memplace] = C4;
           row2[memplace] = k;
           col2[memplace] = k+1*Nx;
           memplace++;
 
-          PP(k,k+2*Nx) = C5*2.0; //DS-C2
 
           val2[memplace] = C5*2.0;
           row2[memplace] = k;
@@ -538,7 +535,6 @@ void PressureCorrect::FillPoisson()
           memplace++;
 
 
-          PP(k,k+3*Nx) = C6*2.0; //DS-C3
 
           val2[memplace] = C6*2.0;
           row2[memplace] = k;
@@ -549,14 +545,12 @@ void PressureCorrect::FillPoisson()
 
       {  
           int k = i + 2*Nx;
-          PP(k,k+1*Nx) = C4; //DS-C1
 
           val2[memplace] = C4;
           row2[memplace] = k;
           col2[memplace] = k+1*Nx;
           memplace++;
 
-          PP(k,k+2*Nx) = C5; //DS-C2
 
           val2[memplace] = C5;
           row2[memplace] = k;
@@ -564,7 +558,6 @@ void PressureCorrect::FillPoisson()
           memplace++;
 
 
-          PP(k,k+3*Nx) = C6*2.0; //DS-C3
 
           val2[memplace] = C6*2.0;
           row2[memplace] = k;
@@ -576,7 +569,6 @@ void PressureCorrect::FillPoisson()
 
       {
           int k = i + 1*Nx;
-          PP(k,k-1*Nx) = C4; //DS-C1
 
           val2[memplace] = C4;
           row2[memplace] = k;
@@ -588,14 +580,12 @@ void PressureCorrect::FillPoisson()
 
       {
           int k = i + 2*Nx;
-          PP(k,k-1*Nx) = C4; //DS-C1
 
           val2[memplace] = C4;
           row2[memplace] = k;
           col2[memplace] = k-1*Nx;
           memplace++;
 
-          PP(k,k-2*Nx) = C5; //DS-C2
 
           val2[memplace] = C5;
           row2[memplace] = k;
@@ -613,7 +603,6 @@ void PressureCorrect::FillPoisson()
         {
 
           int k = i + (Ny-3)*Nx;
-          PP(k,k-1*Nx) = C4; //DS-C1
 
           val2[memplace] = C4;
           row2[memplace] = k;
@@ -621,14 +610,12 @@ void PressureCorrect::FillPoisson()
           memplace++;
 
 
-          PP(k,k-2*Nx) = C5; //DS-C2
 
           val2[memplace] = C5;
           row2[memplace] = k;
           col2[memplace] = k-2*Nx;
           memplace++;
 
-          PP(k,k-3*Nx) = C6*2.0; //DS-C3
 
           val2[memplace] = C6*2.0;
           row2[memplace] = k;
@@ -640,7 +627,6 @@ void PressureCorrect::FillPoisson()
         {
 
           int k = i + (Ny-2)*Nx;
-          PP(k,k-1*Nx) = C4; //DS-C1
 
           val2[memplace] = C4;
           row2[memplace] = k;
@@ -648,14 +634,12 @@ void PressureCorrect::FillPoisson()
           memplace++;
 
 
-          PP(k,k-2*Nx) = C5*2.0; //DS-C2
 
           val2[memplace] = C5*2.0;
           row2[memplace] = k;
           col2[memplace] = k-2*Nx;
           memplace++;
 
-          PP(k,k-3*Nx) = C6*2.0; //DS-C3
 
           val2[memplace] = C6*2.0;
           row2[memplace] = k;
@@ -667,7 +651,6 @@ void PressureCorrect::FillPoisson()
         {
 
           int k = i + (Ny-1)*Nx;
-          PP(k,k-1*Nx) = C4*2.0; //DS-C1
 
           val2[memplace] = C4*2.0;
           row2[memplace] = k;
@@ -675,14 +658,12 @@ void PressureCorrect::FillPoisson()
           memplace++;
 
 
-          PP(k,k-2*Nx) = C5*2.0; //DS-C2
 
           val2[memplace] = C5*2.0;
           row2[memplace] = k;
           col2[memplace] = k-2*Nx;
           memplace++;
 
-          PP(k,k-3*Nx) = C6*2.0; //DS-C3
 
           val2[memplace] = C6*2.0;
           row2[memplace] = k;
@@ -693,7 +674,6 @@ void PressureCorrect::FillPoisson()
 
       {
           int k = i + (Ny-2)*Nx;
-          PP(k,k+1*Nx) = C4; //DS-C1
 
           val2[memplace] = C4;
           row2[memplace] = k;
@@ -704,14 +684,12 @@ void PressureCorrect::FillPoisson()
 
       {
           int k = i + (Ny-3)*Nx;
-          PP(k,k+1*Nx) = C4; //DS-C1
 
           val2[memplace] = C4;
           row2[memplace] = k;
           col2[memplace] = k+1*Nx;
           memplace++;
 
-          PP(k,k+2*Nx) = C5; //DS-C2
 
           val2[memplace] = C5;
           row2[memplace] = k;
@@ -721,12 +699,7 @@ void PressureCorrect::FillPoisson()
    }         
 
 
-   for(int i = 0; i < elements; i++){
-      TT(row2[i] , col2[i]) = val2[i]; 
-   }
 
-//    std::cout << PP << std::endl << std::endl;
-//    std::cout << TT << std::endl;
     std::cout << elements << std::endl;
     std::cout << memplace << std::endl;
 
