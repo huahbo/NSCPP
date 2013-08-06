@@ -23,21 +23,29 @@ public:
         **/
         xDim = Field.ubound(firstDim) + 1; 
         yDim = Field.ubound(secondDim) + 1; 
-        setValues();  
+        Field_J(Field.ubound(firstDim)+1,Field.ubound(secondDim));
+        Field_I(Field.ubound(firstDim),Field.ubound(secondDim)+1);
+        setVal();  
 
     }
 
     /*
     Sets the Schemes values (order of interpolation)
     */
-    inline void setValues(); 
-
+    void setVal(); 
+    inline void Resizes(int N);
+    inline void computeInt(Array<real,1> & ,Array<real,1> &);
+    inline Array<real,2> I();
+    inline Array<real,2> J();
 
 private:     
 
-    Array<real,2>& Field;
+    Array<real,2> &Field;
+    Array<real,2> Field_J,
+                  Field_I;
     int xDim, yDim;
     real Alpha, alphaBound, a, b, e1, e2, e3, e4; 
+    Array<real,1> mainBand, bandA, bandC;
 
 };
 

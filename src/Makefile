@@ -13,6 +13,7 @@ pressureCorrection.o \
 mgmres.o\
 Mesh.o\
 MathCore.o\
+MathInterpolation.o\
 RungeKutta.o
 
 $(EXECS): $(OBJS) /home/cipia/NSCPP/include/*.h
@@ -29,5 +30,5 @@ Mesh.o: Mesh.cpp ../include/Mesh.h
 	$(CCC) $(CCFLAGS) -I$(INCLUDES) -c $*.cpp
 RungeKutta.o: RungeKutta.cpp ../include/RungeKutta.h
 	$(CCC) $(CCFLAGS) -I$(INCLUDES) -c $*.cpp
-MathInterpolation.o: Interpolation.cpp ../include/MathInterpolation.h
+MathInterpolation.o: MathInterpolation.cpp ../include/MathInterpolation.h
 	$(CCC) $(CCFLAGS) -I$(INCLUDES) -c $*.cpp

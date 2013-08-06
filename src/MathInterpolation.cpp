@@ -1,25 +1,8 @@
-#include<blitz/array.h>
 #include"thomas_tem.hpp"
-
-using namespace blitz;
-
-	inline void setValues();
-	inline void Resizes(int N);
-	inline void computeInt(Array<Tprec,1> & ,Array<Tprec,1> &);
-
-	inline Array<Tprec,2> J(Array<Tprec,2>& );
-	inline Array<Tprec,2> I(Array<Tprec,2>& );
+#include "MathInterpolation.h"
 
 
-	Array<Tprec,2> &F,F_P , F_IJ;
-	Array<Tprec,2> UnkBound;
-	Tprec Alpha;
-	Tprec alphaBound;
-	Array<Tprec,1> mainBand, bandA, bandC;
-	Tprec a, b, e1, e2, e3, e4;
-
-
-inline MathInterpolation::setValues(){
+void MathInterpolation::setVal(){
 		Alpha = 1.0 / 6.0;
 	 	a = 64.0 / 96.0;
 	 	b = (0.0);
@@ -31,8 +14,7 @@ inline MathInterpolation::setValues(){
 
 }
 
-template<typename Tprec, int Zone>
-inline void Interpolation<Tprec,Zone>::Resizes(int N){
+void MathInterpolation::Resizes(int N){
     mainBand.resize(N);
     bandA.resize(N);
     bandC.resize(N);
@@ -47,8 +29,8 @@ inline void Interpolation<Tprec,Zone>::Resizes(int N){
 	 bandA(N-1) = alphaBound;
 }
 
-template<typename Tprec, int Zone>
-inline void Interpolation<Tprec, Zone>::computeInt(Array<Tprec,1> &A ,Array<Tprec,1> &B){
+
+void MathInterpolation::computeInt(Array<real,1> &A ,Array<real,1> &B){
 
 	int size = B.size() - 1;
 	A.resize(size);
@@ -62,47 +44,41 @@ inline void Interpolation<Tprec, Zone>::computeInt(Array<Tprec,1> &A ,Array<Tpre
  }
 
 
+Array<real,2> MathInterpolation::J(){
+	Array<real,1> A, A_I, B;
 
+	A.resize(Field.ubound(secondDim));
+	A_I.resize(Field.ubound(secondDim));
+	B.resize(Field.ubound(secondDim)+1);
 
-template<typename Tprec, int Zone>
-inline Array<Tprec,2> Interpolation<Tprec,Zone>::J(Array<Tprec,2> &Base){
-	Array<Tprec,2> Base_I(Base.ubound(firstDim)+1,Base.ubound(secondDim));
-	Array<Tprec,1> A, A_I, B;
+	Resizes(Field.ubound(secondDim));
 
-	A.resize(Base.ubound(secondDim));
-	A_I.resize(Base.ubound(secondDim));
-	B.resize(Base.ubound(secondDim)+1);
-
-	Resizes(Base.ubound(secondDim));
-
-	for(int i = 0; i <= Base.ubound(firstDim); i++){
-		B(Range::all()) = Base(i,Range::all());
+	for(int i = 0; i <= Field.ubound(firstDim); i++){
+		B(Range::all()) = Field(i,Range::all());
 		computeInt(A,B);
 		thomas(bandA,mainBand,bandC,A,A_I);
-		Base_I(i,Range::all()) = A_I(Range::all());
+		Field_J(i,Range::all()) = A_I(Range::all());
 	}
 
-	return Base_I;
+	return Field_J;
 }
 
 
 
 
-template<typename Tprec, int Zone>
-inline Array<Tprec,2> Interpolation<Tprec,Zone>::I(Array<Tprec,2> &Base){
-	Array<Tprec,2> Base_I(Base.ubound(firstDim),Base.ubound(secondDim)+1);
-	Array<Tprec,1> A, A_I, B;
+Array<real,2> MathInterpolation::I(){
+	Array<real,1> A, A_I, B;
 
-	A.resize(Base.ubound(firstDim));
-	A_I.resize(Base.ubound(firstDim));
-	B.resize(Base.ubound(firstDim)+1);
+	A.resize(Field.ubound(firstDim));
+	A_I.resize(Field.ubound(firstDim));
+	B.resize(Field.ubound(firstDim)+1);
 
-	Resizes(Base.ubound(firstDim));
-	for(int j = 0; j <= Base.ubound(secondDim); j++){
-		B(Range::all()) = Base(Range::all(),j);
+	Resizes(Field.ubound(firstDim));
+	for(int j = 0; j <= Field.ubound(secondDim); j++){
+		B(Range::all()) = Field(Range::all(),j);
 		computeInt(A,B);
 		thomas(bandA,mainBand,bandC,A,A_I);
-		Base_I(Range::all(),j) = A_I(Range::all());
+		Field_I(Range::all(),j) = A_I(Range::all());
 	}
-	return Base_I;
+	return Field_I;
 }

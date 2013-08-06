@@ -31,9 +31,10 @@ int main(){
                   vGhostB(Grid.cNx, 6), 
                   uGhostB(Grid.cNy, 6); 
 
-    std::cout << U;
     MathInterpolation Us(U);
 
+    std::cout << U << std::endl;
+    Us.J();
 /*
     Array<real,2> uBoundD(2,Grid.Nx),
                   vBoundD(2,Grid.Ny);
