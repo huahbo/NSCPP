@@ -6,24 +6,26 @@
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
 Alpha	Staggered.cpp	/^	Tprec Alpha;$/;"	m	class:Staggered	file:	access:private
 Array	Staggered.cpp	/^	inline void Init_Boundary(typeDim<Zone>(),Array<Tprec,2> );$/;"	m	class:Staggered	file:	access:public
-AxisXtoCell	MathCore.cpp	/^Array<real,2> AxisXtoCell($/;"	f	signature:( Array<real,2> &Field Array<real,2> &Boundary )
 CCC	Makefile	/^CCC = g++$/;"	m
-CCFLAGS	Makefile	/^CCFLAGS =  $(CFMATH) -lm$/;"	m
+CCFLAGS	Makefile	/^CCFLAGS =  -lm -Wall -g$/;"	m
 Cell	Staggered.cpp	/^	inline Array<Tprec,2> Cell();$/;"	p	class:Staggered	file:	access:public	signature:()
 Cell	Staggered.cpp	/^inline Array<Tprec,2>Interpolation<Tprec,Zone>::Cell()$/;"	f	class:Interpolation	signature:()
-Div	pressureCorrection.cpp	/^void PressureCorrect::Div()$/;"	f	class:PressureCorrect	signature:()
+CorrectU	pressureCorrection.cpp	/^Array<real,2> PressureCorrect::CorrectU(const real constant)$/;"	f	class:PressureCorrect	signature:(const real constant)
+CorrectV	pressureCorrection.cpp	/^Array<real,2> PressureCorrect::CorrectV(const real constant)$/;"	f	class:PressureCorrect	signature:(const real constant)
+Div	pressureCorrection.cpp	/^void PressureCorrect::Div(real stage)$/;"	f	class:PressureCorrect	signature:(real stage)
 EXECS	Makefile	/^EXECS = tester$/;"	m
 F	Staggered.cpp	/^	Array<Tprec,2> &F,F_P , F_IJ;$/;"	m	class:Staggered	file:	access:private
 F_IJ	Staggered.cpp	/^	Array<Tprec,2> &F,F_P , F_IJ;$/;"	m	class:Staggered	file:	access:private
 F_P	Staggered.cpp	/^	Array<Tprec,2> &F,F_P , F_IJ;$/;"	m	class:Staggered	file:	access:private
 FillPoisson	pressureCorrection.cpp	/^void PressureCorrect::FillPoisson() $/;"	f	class:PressureCorrect	signature:()
+I	MathInterpolation.cpp	/^Array<real,2> MathInterpolation::I(){$/;"	f	class:MathInterpolation	signature:()
 I	Staggered.cpp	/^	inline Array<Tprec,2> I(Array<Tprec,2>& );$/;"	p	class:Staggered	file:	access:public	signature:(Array<Tprec,2>& )
 I	Staggered.cpp	/^inline Array<Tprec,2> Interpolation<Tprec,Zone>::I(Array<Tprec,2> &Base){$/;"	f	class:Interpolation	signature:(Array<Tprec,2> &Base)
 IJ	Staggered.cpp	/^	inline Array<Tprec,2> IJ();$/;"	p	class:Staggered	file:	access:public	signature:()
 IJ	Staggered.cpp	/^inline Array<Tprec,2>Interpolation<Tprec,Zone>::IJ(){$/;"	f	class:Interpolation	signature:()
 IJ_Ground	Staggered.cpp	/^	inline void IJ_Ground(typeDim<1>){$/;"	f	class:Staggered	file:	access:private	signature:(typeDim<1>)
 IJ_Ground	Staggered.cpp	/^	inline void IJ_Ground(typeDim<2>){$/;"	f	class:Staggered	file:	access:private	signature:(typeDim<2>)
-INCLUDES	Makefile	/^INCLUDES = \/home\/cipia\/NSCPP\/include $(INCLUDEMATH) $/;"	m
+INCLUDES	Makefile	/^INCLUDES = \/home\/cipia\/NSCPP\/include$/;"	m
 Init_Boundary	Staggered.cpp	/^	inline void Init_Boundary(typeDim<1>,Array<Tprec,2> Unk_Var){$/;"	f	class:Staggered	file:	access:private	signature:(typeDim<1>,Array<Tprec,2> Unk_Var)
 Init_Boundary	Staggered.cpp	/^	inline void Init_Boundary(typeDim<2>,Array<Tprec,2> Unk_Var){$/;"	f	class:Staggered	file:	access:private	signature:(typeDim<2>,Array<Tprec,2> Unk_Var)
 Interpolation	Staggered.cpp	/^	Interpolation(Array<Tprec,2> &Atemp, Array<Tprec,2> Unk_Var)$/;"	f	class:Staggered	access:public	signature:(Array<Tprec,2> &Atemp, Array<Tprec,2> Unk_Var)
@@ -37,9 +39,15 @@ Interpolation::computeInt	Staggered.cpp	/^inline void Interpolation<Tprec, Zone>
 Interpolation::getIJ	Staggered.cpp	/^inline Array<Tprec,2>Interpolation<Tprec,Zone>::getIJ(){$/;"	f	class:Interpolation	signature:()
 Interpolation::getP	Staggered.cpp	/^inline Array<Tprec,2>Interpolation<Tprec,Zone>::getP(){$/;"	f	class:Interpolation	signature:()
 Interpolation::setValues	Staggered.cpp	/^inline void Interpolation<Tprec, Zone>::setValues(){$/;"	f	class:Interpolation	signature:()
+J	MathInterpolation.cpp	/^Array<real,2> MathInterpolation::J(){$/;"	f	class:MathInterpolation	signature:()
 J	Staggered.cpp	/^	inline Array<Tprec,2> J(Array<Tprec,2>& );$/;"	p	class:Staggered	file:	access:public	signature:(Array<Tprec,2>& )
 J	Staggered.cpp	/^inline Array<Tprec,2> Interpolation<Tprec,Zone>::J(Array<Tprec,2> &Base){$/;"	f	class:Interpolation	signature:(Array<Tprec,2> &Base)
 Make	pressureCorrection.cpp	/^void PressureCorrect::Make()$/;"	f	class:PressureCorrect	signature:()
+MathInterpolation::I	MathInterpolation.cpp	/^Array<real,2> MathInterpolation::I(){$/;"	f	class:MathInterpolation	signature:()
+MathInterpolation::J	MathInterpolation.cpp	/^Array<real,2> MathInterpolation::J(){$/;"	f	class:MathInterpolation	signature:()
+MathInterpolation::Resizes	MathInterpolation.cpp	/^void MathInterpolation::Resizes(int N){$/;"	f	class:MathInterpolation	signature:(int N)
+MathInterpolation::computeInt	MathInterpolation.cpp	/^void MathInterpolation::computeInt(Array<real,1> &A ,Array<real,1> &B){$/;"	f	class:MathInterpolation	signature:(Array<real,1> &A ,Array<real,1> &B)
+MathInterpolation::setVal	MathInterpolation.cpp	/^void MathInterpolation::setVal(){$/;"	f	class:MathInterpolation	signature:()
 MeshBlock	Mesh.cpp	/^MeshBlock::MeshBlock(real lAxisX, real lAxisY, int nodeX, int nodeY)$/;"	f	class:MeshBlock	signature:(real lAxisX, real lAxisY, int nodeX, int nodeY)
 MeshBlock::MeshBlock	Mesh.cpp	/^MeshBlock::MeshBlock(real lAxisX, real lAxisY, int nodeX, int nodeY)$/;"	f	class:MeshBlock	signature:(real lAxisX, real lAxisY, int nodeX, int nodeY)
 MeshBlock::cellDifference	Mesh.cpp	/^void MeshBlock::cellDifference()$/;"	f	class:MeshBlock	signature:()
@@ -48,13 +56,18 @@ P	Staggered.cpp	/^	inline Array<Tprec,2> P();$/;"	p	class:Staggered	file:	access
 P	Staggered.cpp	/^inline Array<Tprec,2>Interpolation<Tprec,Zone>::P(){$/;"	f	class:Interpolation	signature:()
 P_Ground	Staggered.cpp	/^	inline void P_Ground(typeDim<1>){$/;"	f	class:Staggered	file:	access:private	signature:(typeDim<1>)
 P_Ground	Staggered.cpp	/^	inline void P_Ground(typeDim<2>){$/;"	f	class:Staggered	file:	access:private	signature:(typeDim<2>)
-PressureCorrect::Div	pressureCorrection.cpp	/^void PressureCorrect::Div()$/;"	f	class:PressureCorrect	signature:()
+PressureCorrect::CorrectU	pressureCorrection.cpp	/^Array<real,2> PressureCorrect::CorrectU(const real constant)$/;"	f	class:PressureCorrect	signature:(const real constant)
+PressureCorrect::CorrectV	pressureCorrection.cpp	/^Array<real,2> PressureCorrect::CorrectV(const real constant)$/;"	f	class:PressureCorrect	signature:(const real constant)
+PressureCorrect::Div	pressureCorrection.cpp	/^void PressureCorrect::Div(real stage)$/;"	f	class:PressureCorrect	signature:(real stage)
 PressureCorrect::FillPoisson	pressureCorrection.cpp	/^void PressureCorrect::FillPoisson() $/;"	f	class:PressureCorrect	signature:()
 PressureCorrect::Make	pressureCorrection.cpp	/^void PressureCorrect::Make()$/;"	f	class:PressureCorrect	signature:()
-PressureCorrect::Solve	pressureCorrection.cpp	/^void PressureCorrect::Solve()$/;"	f	class:PressureCorrect	signature:()
+PressureCorrect::Solve	pressureCorrection.cpp	/^void PressureCorrect::Solve(real stage)$/;"	f	class:PressureCorrect	signature:(real stage)
+Resizes	MathInterpolation.cpp	/^void MathInterpolation::Resizes(int N){$/;"	f	class:MathInterpolation	signature:(int N)
 Resizes	Staggered.cpp	/^	inline void Resizes(int N);$/;"	p	class:Staggered	file:	access:public	signature:(int N)
 Resizes	Staggered.cpp	/^inline void Interpolation<Tprec,Zone>::Resizes(int N){$/;"	f	class:Interpolation	signature:(int N)
-Solve	pressureCorrection.cpp	/^void PressureCorrect::Solve()$/;"	f	class:PressureCorrect	signature:()
+RungeKutta::Solve	RungeKutta.cpp	/^Array<real,2> RungeKutta::Solve($/;"	f	class:RungeKutta	signature:( const Array<real,2> A, const Array<real,2> B, real constant )
+Solve	RungeKutta.cpp	/^Array<real,2> RungeKutta::Solve($/;"	f	class:RungeKutta	signature:( const Array<real,2> A, const Array<real,2> B, real constant )
+Solve	pressureCorrection.cpp	/^void PressureCorrect::Solve(real stage)$/;"	f	class:PressureCorrect	signature:(real stage)
 Staggered	Staggered.cpp	/^class Staggered{$/;"	c	file:
 Staggered::Alpha	Staggered.cpp	/^	Tprec Alpha;$/;"	m	class:Staggered	file:	access:private
 Staggered::Array	Staggered.cpp	/^	inline void Init_Boundary(typeDim<Zone>(),Array<Tprec,2> );$/;"	m	class:Staggered	file:	access:public
@@ -93,15 +106,24 @@ Staggered::setValues	Staggered.cpp	/^	inline void setValues();$/;"	p	class:Stagg
 Staggered::typeDim	Staggered.cpp	/^	inline void IJ_Ground(typeDim<Zone>());$/;"	p	class:Staggered	file:	access:public	signature:()
 Staggered::typeDim	Staggered.cpp	/^	inline void Init_Boundary(typeDim<Zone>(),Array<Tprec,2> );$/;"	p	class:Staggered	file:	access:public	signature:()
 Staggered::typeDim	Staggered.cpp	/^	inline void P_Ground(typeDim<Zone>());$/;"	p	class:Staggered	file:	access:public	signature:()
+TIME_SIZE	mgmres.cpp	1644;"	d	file:
+TIME_SIZE	mgmres.cpp	1659;"	d	file:
 UnkBound	Staggered.cpp	/^	Array<Tprec,2> UnkBound;$/;"	m	class:Staggered	file:	access:private
 a	Staggered.cpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Staggered	file:	access:private
+add_ptr	MathCore.cpp	/^void add_ptr(int a[], int sizeA, int b[], int sizeB)$/;"	f	signature:(int a[], int sizeA, int b[], int sizeB)
 alphaBound	Staggered.cpp	/^	Tprec alphaBound;$/;"	m	class:Staggered	file:	access:private
+atx_cr	mgmres.cpp	/^void atx_cr ( int n, int nz_num, int ia[], int ja[], double a[], double x[], $/;"	f	signature:( int n, int nz_num, int ia[], int ja[], double a[], double x[], double w[] )
+atx_st	mgmres.cpp	/^void atx_st ( int n, int nz_num, int ia[], int ja[], double a[], double x[], $/;"	f	signature:( int n, int nz_num, int ia[], int ja[], double a[], double x[], double w[] )
+ax_cr	mgmres.cpp	/^void ax_cr ( int n, int nz_num, int ia[], int ja[], double a[], double x[],$/;"	f	signature:( int n, int nz_num, int ia[], int ja[], double a[], double x[], double w[] )
+ax_st	mgmres.cpp	/^void ax_st ( int n, int nz_num, int ia[], int ja[], double a[], double x[],$/;"	f	signature:( int n, int nz_num, int ia[], int ja[], double a[], double x[], double w[] )
 b	Staggered.cpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Staggered	file:	access:private
 bandA	Staggered.cpp	/^	Array<Tprec,1> mainBand, bandA, bandC;$/;"	m	class:Staggered	file:	access:private
 bandC	Staggered.cpp	/^	Array<Tprec,1> mainBand, bandA, bandC;$/;"	m	class:Staggered	file:	access:private
 cellDifference	Mesh.cpp	/^void MeshBlock::cellDifference()$/;"	f	class:MeshBlock	signature:()
+computeInt	MathInterpolation.cpp	/^void MathInterpolation::computeInt(Array<real,1> &A ,Array<real,1> &B){$/;"	f	class:MathInterpolation	signature:(Array<real,1> &A ,Array<real,1> &B)
 computeInt	Staggered.cpp	/^	inline void computeInt(Array<Tprec,1> & ,Array<Tprec,1> &);$/;"	p	class:Staggered	file:	access:public	signature:(Array<Tprec,1> & ,Array<Tprec,1> &)
 computeInt	Staggered.cpp	/^inline void Interpolation<Tprec, Zone>::computeInt(Array<Tprec,1> &A ,Array<Tprec,1> &B){$/;"	f	class:Interpolation	signature:(Array<Tprec,1> &A ,Array<Tprec,1> &B)
+diagonal_pointer_cr	mgmres.cpp	/^void diagonal_pointer_cr ( int n, int nz_num, int ia[], int ja[], int ua[] )$/;"	f	signature:( int n, int nz_num, int ia[], int ja[], int ua[] )
 e1	Staggered.cpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Staggered	file:	access:private
 e2	Staggered.cpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Staggered	file:	access:private
 e3	Staggered.cpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Staggered	file:	access:private
@@ -110,11 +132,22 @@ getIJ	Staggered.cpp	/^	inline Array<Tprec,2> getIJ();$/;"	p	class:Staggered	file
 getIJ	Staggered.cpp	/^inline Array<Tprec,2>Interpolation<Tprec,Zone>::getIJ(){$/;"	f	class:Interpolation	signature:()
 getP	Staggered.cpp	/^	inline Array<Tprec,2> getP();$/;"	p	class:Staggered	file:	access:public	signature:()
 getP	Staggered.cpp	/^inline Array<Tprec,2>Interpolation<Tprec,Zone>::getP(){$/;"	f	class:Interpolation	signature:()
+ilu_cr	mgmres.cpp	/^void ilu_cr ( int n, int nz_num, int ia[], int ja[], double a[], int ua[],$/;"	f	signature:( int n, int nz_num, int ia[], int ja[], double a[], int ua[], double l[] )
+insertionSort	MathCore.cpp	/^void insertionSort(int a[], int b[], int c[], real d[], int array_size)$/;"	f	signature:(int a[], int b[], int c[], real d[], int array_size)
+lus_cr	mgmres.cpp	/^void lus_cr ( int n, int nz_num, int ia[], int ja[], double l[], int ua[], $/;"	f	signature:( int n, int nz_num, int ia[], int ja[], double l[], int ua[], double r[], double z[] )
 main	prueba.cpp	/^int main(){$/;"	f	signature:()
 mainBand	Staggered.cpp	/^	Array<Tprec,1> mainBand, bandA, bandC;$/;"	m	class:Staggered	file:	access:private
+mgmres_st	mgmres.cpp	/^void mgmres_st ( int n, int nz_num, int ia[], int ja[], double a[], double x[],$/;"	f	signature:( int n, int nz_num, int ia[], int ja[], double a[], double x[], double rhs[], int itr_max, int mr, double tol_abs, double tol_rel )
+mult_givens	mgmres.cpp	/^void mult_givens ( double c, double s, int k, double g[] )$/;"	f	signature:( double c, double s, int k, double g[] )
+pmgmres_ilu_cr	mgmres.cpp	/^void pmgmres_ilu_cr ( int n, int nz_num, int ia[], int ja[], double a[], $/;"	f	signature:( int n, int nz_num, int ia[], int ja[], double a[], double x[], double rhs[], int itr_max, int mr, double tol_abs, double tol_rel )
+r8vec_dot	mgmres.cpp	/^double r8vec_dot ( int n, double a1[], double a2[] )$/;"	f	signature:( int n, double a1[], double a2[] )
+r8vec_uniform_01	mgmres.cpp	/^double *r8vec_uniform_01 ( int n, int *seed )$/;"	f	signature:( int n, int *seed )
+rearrange_cr	mgmres.cpp	/^void rearrange_cr ( int n, int nz_num, int ia[], int ja[], double a[] )$/;"	f	signature:( int n, int nz_num, int ia[], int ja[], double a[] )
 setField	Staggered.cpp	/^	inline void setField(Array<Tprec,2> &A)$/;"	f	class:Staggered	access:public	signature:(Array<Tprec,2> &A)
+setVal	MathInterpolation.cpp	/^void MathInterpolation::setVal(){$/;"	f	class:MathInterpolation	signature:()
 setValues	Staggered.cpp	/^	inline void setValues();$/;"	p	class:Staggered	file:	access:public	signature:()
 setValues	Staggered.cpp	/^inline void Interpolation<Tprec, Zone>::setValues(){$/;"	f	class:Interpolation	signature:()
+timestamp	mgmres.cpp	/^void timestamp ( )$/;"	f	signature:( )
 typeDim	Staggered.cpp	/^	inline void IJ_Ground(typeDim<Zone>());$/;"	p	class:Staggered	file:	access:public	signature:()
 typeDim	Staggered.cpp	/^	inline void Init_Boundary(typeDim<Zone>(),Array<Tprec,2> );$/;"	p	class:Staggered	file:	access:public	signature:()
 typeDim	Staggered.cpp	/^	inline void P_Ground(typeDim<Zone>());$/;"	p	class:Staggered	file:	access:public	signature:()

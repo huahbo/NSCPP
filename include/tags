@@ -7,6 +7,7 @@
 Alpha	CompactSchemes.hpp	/^	Tprec Alpha;$/;"	m	class:Compact	access:protected
 Alpha	Derivatives.hpp	/^	Tprec Alpha;$/;"	m	class:Compact	access:private
 Alpha	Interpol.hpp	/^	Tprec Alpha;$/;"	m	class:Interpolation	access:private
+Alpha	MathInterpolation.h	/^    real Alpha, alphaBound, a, b, e1, e2, e3, e4; $/;"	m	class:MathInterpolation	access:private
 Alpha	Staggered.h	/^	Tprec Alpha;$/;"	m	class:Staggered	access:private
 AlphaMean	CompactSchemes.hpp	/^	Tprec AlphaMean;$/;"	m	class:Centered	access:private
 ApplyPlaneRotation	IML++/gmres.h	/^void ApplyPlaneRotation(Real &dx, Real &dy, Real &cs, Real &sn)$/;"	f	signature:(Real &dx, Real &dy, Real &cs, Real &sn)
@@ -346,14 +347,16 @@ FMV_Vector::operator =	Mv++/mvvtp.h	/^        FMV_Vector<TYPE>& operator=(const 
 FMV_Vector::operator =	Mv++/mvvtp.h	/^        FMV_Vector<TYPE>& operator=(const TYPE& m);$/;"	p	class:FMV_Vector	access:public	signature:(const TYPE& m)
 FMV_Vector::operator =	Mv++/mvvtp.h	/^FMV_Vector<TYPE>& FMV_Vector<TYPE>::operator=( const FMV_Vector<TYPE>& m)$/;"	f	class:FMV_Vector	signature:( const FMV_Vector<TYPE>& m)
 FMV_Vector::operator =	Mv++/mvvtp.h	/^FMV_Vector<TYPE>& FMV_Vector<TYPE>::operator=(const TYPE & m) $/;"	f	class:FMV_Vector	signature:(const TYPE & m)
+F_IJ	Cells.h	/^   Array<real,2> F_IJ; $/;"	m	class:StaggCellX	access:private
 F_IJ	Interpol.hpp	/^	Array<Tprec,2> &F,F_P , F_IJ;$/;"	m	class:Interpolation	access:private
 F_IJ	Staggered.h	/^	Array<Tprec,2> &F,F_P , F_IJ;$/;"	m	class:Staggered	access:private
 F_P	Interpol.hpp	/^	Array<Tprec,2> &F,F_P , F_IJ;$/;"	m	class:Interpolation	access:private
 F_P	Staggered.h	/^	Array<Tprec,2> &F,F_P , F_IJ;$/;"	m	class:Staggered	access:private
-F_Pass	MathCore.h	/^    const Array<real,2>& F_Pass;$/;"	m	class:MathInterpolation	access:private
 Field	CompactSchemes.hpp	/^	Array<Tprec, 3> Field, dX, dY, dZ;$/;"	m	class:Compact	access:protected
+Field	MathInterpolation.h	/^    Array<real,2> &Field;$/;"	m	class:MathInterpolation	access:private
+Field_I	MathInterpolation.h	/^                  Field_I;$/;"	m	class:MathInterpolation	access:private
+Field_J	MathInterpolation.h	/^    Array<real,2> Field_J,$/;"	m	class:MathInterpolation	access:private
 FillPoisson	pressureCorrection.h	/^    void FillPoisson();$/;"	p	class:PressureCorrect	access:public	signature:()
-FirstDim	MathCore.h	/^    int FirstDim, SecondDim;$/;"	m	class:MathInterpolation	access:private
 Fluid	Fluid.hpp	/^	Fluid(Array<Tprec,2> &, \/\/1.-Velocity X-Axis$/;"	p	class:Fluid	access:public	signature:(Array<Tprec,2> &, Array<Tprec,2> &, Array<Tprec,2> &)
 Fluid	Fluid.hpp	/^	Fluid<Tprec>::Fluid(Array<Tprec,2> &A, Array<Tprec,2> &B, Array<Tprec,2> &C){$/;"	f	class:Fluid	signature:(Array<Tprec,2> &A, Array<Tprec,2> &B, Array<Tprec,2> &C)
 Fluid	Fluid.hpp	/^class Fluid{$/;"	c
@@ -399,6 +402,7 @@ Grid	pressureCorrection.h	/^    const MeshTool::MeshBlock & Grid; $/;"	m	class:P
 Gv	Momentum.hpp	/^	Array<Tprec,2> F, G, Fv, Gv;$/;"	m	class:Momentum	access:private
 I	Interpol.hpp	/^	inline Array<Tprec,2> I(Array<Tprec,2>& );$/;"	p	class:Interpolation	access:public	signature:(Array<Tprec,2>& )
 I	Interpol.hpp	/^inline Array<Tprec,2> Interpolation<Tprec,Zone>::I(Array<Tprec,2> &Base){$/;"	f	class:Interpolation	signature:(Array<Tprec,2> &Base)
+I	MathInterpolation.h	/^    Array<real,2> I();$/;"	p	class:MathInterpolation	access:public	signature:()
 I	Staggered.h	/^	inline Array<Tprec,2> I(Array<Tprec,2>& );$/;"	p	class:Staggered	access:public	signature:(Array<Tprec,2>& )
 I	Staggered.h	/^inline Array<Tprec,2> Interpolation<Tprec,Zone>::I(Array<Tprec,2> &Base){$/;"	f	class:Interpolation	signature:(Array<Tprec,2> &Base)
 ICPRE_H	SparseLib++/icpre_double.h	32;"	d
@@ -415,6 +419,7 @@ ICPreconditioner_double::solve	SparseLib++/icpre_double.h	/^  VECTOR_double     
 ICPreconditioner_double::trans_solve	SparseLib++/icpre_double.h	/^  VECTOR_double     trans_solve(const VECTOR_double &x) const;$/;"	p	class:ICPreconditioner_double	access:public	signature:(const VECTOR_double &x) const
 ICPreconditioner_double::val_	SparseLib++/icpre_double.h	/^  VECTOR_double val_;$/;"	m	class:ICPreconditioner_double	access:private
 ICPreconditioner_double::~ICPreconditioner_double	SparseLib++/icpre_double.h	/^  ~ICPreconditioner_double(void){};$/;"	f	class:ICPreconditioner_double	access:public	signature:(void)
+IJ	Cells.h	/^    const Array<real,2>& IJ;$/;"	m	class:StaggCellX	access:public
 IJ	Interpol.hpp	/^	inline Array<Tprec,2> IJ();$/;"	p	class:Interpolation	access:public	signature:()
 IJ	Interpol.hpp	/^inline Array<Tprec,2>Interpolation<Tprec,Zone>::IJ(){$/;"	f	class:Interpolation	signature:()
 IJ	Staggered.h	/^	inline Array<Tprec,2> IJ();$/;"	p	class:Staggered	access:public	signature:()
@@ -492,6 +497,7 @@ Interpolation::typeDim	Interpol.hpp	/^	inline void Init_Boundary(typeDim<Zone>()
 Interpolation::typeDim	Interpol.hpp	/^	inline void P_Ground(typeDim<Zone>());$/;"	p	class:Interpolation	access:public	signature:()
 J	Interpol.hpp	/^	inline Array<Tprec,2> J(Array<Tprec,2>& );$/;"	p	class:Interpolation	access:public	signature:(Array<Tprec,2>& )
 J	Interpol.hpp	/^inline Array<Tprec,2> Interpolation<Tprec,Zone>::J(Array<Tprec,2> &Base){$/;"	f	class:Interpolation	signature:(Array<Tprec,2> &Base)
+J	MathInterpolation.h	/^    Array<real,2> J();$/;"	p	class:MathInterpolation	access:public	signature:()
 J	Staggered.h	/^	inline Array<Tprec,2> J(Array<Tprec,2>& );$/;"	p	class:Staggered	access:public	signature:(Array<Tprec,2>& )
 J	Staggered.h	/^inline Array<Tprec,2> Interpolation<Tprec,Zone>::J(Array<Tprec,2> &Base){$/;"	f	class:Interpolation	signature:(Array<Tprec,2> &Base)
 MATRIX_COMPLEX	Mv++/vecdefs.h	45;"	d
@@ -1164,12 +1170,30 @@ MV_Vector_int::ref_	Mv++/mvvi.h	/^           int ref_;  \/\/ 0 or 1; does this o
 MV_Vector_int::size	Mv++/mvvi.h	/^    inline  int             size() const { return dim_;}$/;"	f	class:MV_Vector_int	access:public	signature:() const
 MV_Vector_int::~MV_Vector_int	Mv++/mvvi.h	/^    ~MV_Vector_int();                              $/;"	p	class:MV_Vector_int	access:public	signature:()
 Make	pressureCorrection.h	/^    void Make();$/;"	p	class:PressureCorrect	access:public	signature:()
-MathInterpolation	MathCore.h	/^    MathInterpolation(const Array<real,2>& F_Pass)$/;"	f	class:MathInterpolation	access:public	signature:(const Array<real,2>& F_Pass)
-MathInterpolation	MathCore.h	/^class MathInterpolation$/;"	c
-MathInterpolation::F_Pass	MathCore.h	/^    const Array<real,2>& F_Pass;$/;"	m	class:MathInterpolation	access:private
-MathInterpolation::FirstDim	MathCore.h	/^    int FirstDim, SecondDim;$/;"	m	class:MathInterpolation	access:private
-MathInterpolation::MathInterpolation	MathCore.h	/^    MathInterpolation(const Array<real,2>& F_Pass)$/;"	f	class:MathInterpolation	access:public	signature:(const Array<real,2>& F_Pass)
-MathInterpolation::SecondDim	MathCore.h	/^    int FirstDim, SecondDim;$/;"	m	class:MathInterpolation	access:private
+MathInterpolation	MathInterpolation.h	/^    MathInterpolation(Array<real,2>& pf)$/;"	f	class:MathInterpolation	access:public	signature:(Array<real,2>& pf)
+MathInterpolation	MathInterpolation.h	/^class MathInterpolation$/;"	c
+MathInterpolation::Alpha	MathInterpolation.h	/^    real Alpha, alphaBound, a, b, e1, e2, e3, e4; $/;"	m	class:MathInterpolation	access:private
+MathInterpolation::Field	MathInterpolation.h	/^    Array<real,2> &Field;$/;"	m	class:MathInterpolation	access:private
+MathInterpolation::Field_I	MathInterpolation.h	/^                  Field_I;$/;"	m	class:MathInterpolation	access:private
+MathInterpolation::Field_J	MathInterpolation.h	/^    Array<real,2> Field_J,$/;"	m	class:MathInterpolation	access:private
+MathInterpolation::I	MathInterpolation.h	/^    Array<real,2> I();$/;"	p	class:MathInterpolation	access:public	signature:()
+MathInterpolation::J	MathInterpolation.h	/^    Array<real,2> J();$/;"	p	class:MathInterpolation	access:public	signature:()
+MathInterpolation::MathInterpolation	MathInterpolation.h	/^    MathInterpolation(Array<real,2>& pf)$/;"	f	class:MathInterpolation	access:public	signature:(Array<real,2>& pf)
+MathInterpolation::Resizes	MathInterpolation.h	/^    inline void Resizes(int N);$/;"	p	class:MathInterpolation	access:public	signature:(int N)
+MathInterpolation::a	MathInterpolation.h	/^    real Alpha, alphaBound, a, b, e1, e2, e3, e4; $/;"	m	class:MathInterpolation	access:private
+MathInterpolation::alphaBound	MathInterpolation.h	/^    real Alpha, alphaBound, a, b, e1, e2, e3, e4; $/;"	m	class:MathInterpolation	access:private
+MathInterpolation::b	MathInterpolation.h	/^    real Alpha, alphaBound, a, b, e1, e2, e3, e4; $/;"	m	class:MathInterpolation	access:private
+MathInterpolation::bandA	MathInterpolation.h	/^    Array<real,1> mainBand, bandA, bandC;$/;"	m	class:MathInterpolation	access:private
+MathInterpolation::bandC	MathInterpolation.h	/^    Array<real,1> mainBand, bandA, bandC;$/;"	m	class:MathInterpolation	access:private
+MathInterpolation::computeInt	MathInterpolation.h	/^    inline void computeInt(Array<real,1> & ,Array<real,1> &);$/;"	p	class:MathInterpolation	access:public	signature:(Array<real,1> & ,Array<real,1> &)
+MathInterpolation::e1	MathInterpolation.h	/^    real Alpha, alphaBound, a, b, e1, e2, e3, e4; $/;"	m	class:MathInterpolation	access:private
+MathInterpolation::e2	MathInterpolation.h	/^    real Alpha, alphaBound, a, b, e1, e2, e3, e4; $/;"	m	class:MathInterpolation	access:private
+MathInterpolation::e3	MathInterpolation.h	/^    real Alpha, alphaBound, a, b, e1, e2, e3, e4; $/;"	m	class:MathInterpolation	access:private
+MathInterpolation::e4	MathInterpolation.h	/^    real Alpha, alphaBound, a, b, e1, e2, e3, e4; $/;"	m	class:MathInterpolation	access:private
+MathInterpolation::mainBand	MathInterpolation.h	/^    Array<real,1> mainBand, bandA, bandC;$/;"	m	class:MathInterpolation	access:private
+MathInterpolation::setVal	MathInterpolation.h	/^    void setVal(); $/;"	p	class:MathInterpolation	access:public	signature:()
+MathInterpolation::xDim	MathInterpolation.h	/^    int xDim, yDim;$/;"	m	class:MathInterpolation	access:private
+MathInterpolation::yDim	MathInterpolation.h	/^    int xDim, yDim;$/;"	m	class:MathInterpolation	access:private
 Matrix	NS_Array.hpp	/^	typedef Array<Tprec, Dim> Matrix;$/;"	t	struct:NS_Solver::NS_Array	access:public
 Matrix_	Mv++/mvmtp.h	/^struct Matrix_ $/;"	s
 Matrix_::ref	Mv++/mvmtp.h	/^    enum ref_type {  ref = 1 };$/;"	e	enum:Matrix_::ref_type
@@ -1343,6 +1367,7 @@ Resizes	Derivatives.hpp	/^	inline void Resizes(int );$/;"	p	class:Compact	access
 Resizes	Derivatives.hpp	/^ inline void Compact<Tprec>::Resizes(int N){$/;"	f	class:Compact	signature:(int N)
 Resizes	Interpol.hpp	/^	inline void Resizes(int N);$/;"	p	class:Interpolation	access:public	signature:(int N)
 Resizes	Interpol.hpp	/^inline void Interpolation<Tprec,Zone>::Resizes(int N){$/;"	f	class:Interpolation	signature:(int N)
+Resizes	MathInterpolation.h	/^    inline void Resizes(int N);$/;"	p	class:MathInterpolation	access:public	signature:(int N)
 Resizes	Staggered.h	/^	inline void Resizes(int N);$/;"	p	class:Staggered	access:public	signature:(int N)
 Resizes	Staggered.h	/^inline void Interpolation<Tprec,Zone>::Resizes(int N){$/;"	f	class:Interpolation	signature:(int N)
 ResizesMean	CompactSchemes.hpp	/^	inline void ResizesMean(int);$/;"	p	class:Centered	access:public	signature:(int)
@@ -1355,11 +1380,17 @@ RungeKutta::RungeKutta	RungeKutta.h	/^    RungeKutta()$/;"	f	class:RungeKutta	ac
 RungeKutta::Solve	RungeKutta.h	/^    Array<real,2> Solve( const Array<real,2> ,const Array<real,2>, real );$/;"	p	class:RungeKutta	access:public	signature:( const Array<real,2> ,const Array<real,2>, real )
 SPBLAS_H	SparseLib++/spblas.h	33;"	d
 STAGGERED_H_	Staggered.h	9;"	d
-SecondDim	MathCore.h	/^    int FirstDim, SecondDim;$/;"	m	class:MathInterpolation	access:private
+Solve	Cells.h	/^    void Solve();$/;"	p	class:StaggCellX	access:public	signature:()
 Solve	Momentum.hpp	/^    inline void Solve();$/;"	p	class:Momentum	access:public	signature:()
 Solve	Momentum.hpp	/^inline void Momentum<Tprec,Axis>::Solve()$/;"	f	class:Momentum	signature:()
 Solve	RungeKutta.h	/^    Array<real,2> Solve( const Array<real,2> ,const Array<real,2>, real );$/;"	p	class:RungeKutta	access:public	signature:( const Array<real,2> ,const Array<real,2>, real )
 Solve	pressureCorrection.h	/^    void Solve(real);$/;"	p	class:PressureCorrect	access:public	signature:(real)
+StaggCellX	Cells.h	/^    StaggCellX(const Array<real,2> &F_tmp)$/;"	f	class:StaggCellX	access:public	signature:(const Array<real,2> &F_tmp)
+StaggCellX	Cells.h	/^class StaggCellX$/;"	c	inherits:MathInterpolation
+StaggCellX::F_IJ	Cells.h	/^   Array<real,2> F_IJ; $/;"	m	class:StaggCellX	access:private
+StaggCellX::IJ	Cells.h	/^    const Array<real,2>& IJ;$/;"	m	class:StaggCellX	access:public
+StaggCellX::Solve	Cells.h	/^    void Solve();$/;"	p	class:StaggCellX	access:public	signature:()
+StaggCellX::StaggCellX	Cells.h	/^    StaggCellX(const Array<real,2> &F_tmp)$/;"	f	class:StaggCellX	access:public	signature:(const Array<real,2> &F_tmp)
 Staggered	CompactSchemes.hpp	/^	Staggered(Array<Tprec, 3> &P, Array<Tprec, 1> &Ds, Tprec Aph)$/;"	f	class:Staggered	access:public	signature:(Array<Tprec, 3> &P, Array<Tprec, 1> &Ds, Tprec Aph)
 Staggered	CompactSchemes.hpp	/^class Staggered:$/;"	c	inherits:Compact
 Staggered	Staggered.h	/^class Staggered{$/;"	c
@@ -1430,6 +1461,7 @@ _IOHB_H_	SparseLib++/iohb.h	33;"	d
 _IOTEXT_H_	Mv++/iotext.h	29;"	d
 _IOTEXT_H_	SparseLib++/iotext.h	35;"	d
 _MATH_CORE_H	MathCore.h	2;"	d
+_MATH_INT_H	MathInterpolation.h	2;"	d
 _MESHTOOLS_H_	Mesh.h	2;"	d
 _MV_BLAS1_$TYPE_H_	Mv++/mvblast.h	26;"	d
 _MV_BLAS1_COMPLEX_H_	Mv++/mvblasc.h	26;"	d
@@ -1468,10 +1500,11 @@ __ProtoGlarp__	SparseLib++/iohb.h	41;"	d
 a	CompactSchemes.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Compact	access:protected
 a	Derivatives.hpp	/^	Tprec a, b, e1, e2, e3, e4, e5;$/;"	m	class:Compact	access:private
 a	Interpol.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Interpolation	access:private
+a	MathInterpolation.h	/^    real Alpha, alphaBound, a, b, e1, e2, e3, e4; $/;"	m	class:MathInterpolation	access:private
 a	Staggered.h	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Staggered	access:private
 aMean	CompactSchemes.hpp	/^	Tprec aMean, bMean, e1Mean, e2Mean, e3Mean, e4Mean;$/;"	m	class:Centered	access:private
 abs	IML++/gmres.h	/^abs(Real x)$/;"	f	signature:(Real x)
-add_ptr	MathCore.h	/^void add_ptr(int a[], int sizeA, int b[], int sizeB)$/;"	f	signature:(int a[], int sizeA, int b[], int sizeB)
+add_ptr	MathCore.h	/^void add_ptr(int a[], int sizeA, int b[], int sizeB);$/;"	p	signature:(int a[], int sizeA, int b[], int sizeB)
 all	Mv++/mvvind.h	/^        int all() const { return all_; }$/;"	f	class:MV_VecIndex	access:public	signature:() const
 all_	Mv++/mvvind.h	/^            char all_;      \/\/ true if this index refers to the complete$/;"	m	class:MV_VecIndex	access:private
 alpha1	Derivatives.hpp	/^	Tprec alphaBound, alpha1, alphaN;$/;"	m	class:Compact	access:private
@@ -1479,6 +1512,7 @@ alpha4	Derivatives.hpp	/^	Tprec alpha4, b4;$/;"	m	class:Compact	access:private
 alphaBound	CompactSchemes.hpp	/^	Tprec alphaBound;$/;"	m	class:Compact	access:protected
 alphaBound	Derivatives.hpp	/^	Tprec alphaBound, alpha1, alphaN;$/;"	m	class:Compact	access:private
 alphaBound	Interpol.hpp	/^	Tprec alphaBound;$/;"	m	class:Interpolation	access:private
+alphaBound	MathInterpolation.h	/^    real Alpha, alphaBound, a, b, e1, e2, e3, e4; $/;"	m	class:MathInterpolation	access:private
 alphaBound	Staggered.h	/^	Tprec alphaBound;$/;"	m	class:Staggered	access:private
 alphaBoundMean	CompactSchemes.hpp	/^	Tprec alphaBoundMean;$/;"	m	class:Centered	access:private
 alphaN	Derivatives.hpp	/^	Tprec alphaBound, alpha1, alphaN;$/;"	m	class:Compact	access:private
@@ -1489,17 +1523,20 @@ ax_st	mgmres.hpp	/^void ax_st ( int n, int nz_num, double a[], int ia[], int ja[
 b	CompactSchemes.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Compact	access:protected
 b	Derivatives.hpp	/^	Tprec a, b, e1, e2, e3, e4, e5;$/;"	m	class:Compact	access:private
 b	Interpol.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Interpolation	access:private
+b	MathInterpolation.h	/^    real Alpha, alphaBound, a, b, e1, e2, e3, e4; $/;"	m	class:MathInterpolation	access:private
 b	Staggered.h	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Staggered	access:private
 b4	Derivatives.hpp	/^	Tprec alpha4, b4;$/;"	m	class:Compact	access:private
 bMean	CompactSchemes.hpp	/^	Tprec aMean, bMean, e1Mean, e2Mean, e3Mean, e4Mean;$/;"	m	class:Centered	access:private
 bandA	CompactSchemes.hpp	/^	Array<Tprec,1> mainBand, bandA,bandC;$/;"	m	class:Compact	access:protected
 bandA	Derivatives.hpp	/^	Array<Tprec,1> mainBand, bandA,bandC;$/;"	m	class:Compact	access:private
 bandA	Interpol.hpp	/^	Array<Tprec,1> mainBand, bandA, bandC;$/;"	m	class:Interpolation	access:private
+bandA	MathInterpolation.h	/^    Array<real,1> mainBand, bandA, bandC;$/;"	m	class:MathInterpolation	access:private
 bandA	Staggered.h	/^	Array<Tprec,1> mainBand, bandA, bandC;$/;"	m	class:Staggered	access:private
 bandAMean	CompactSchemes.hpp	/^	Array<Tprec,1> mainBandMean, bandAMean, bandCMean;$/;"	m	class:Centered	access:private
 bandC	CompactSchemes.hpp	/^	Array<Tprec,1> mainBand, bandA,bandC;$/;"	m	class:Compact	access:protected
 bandC	Derivatives.hpp	/^	Array<Tprec,1> mainBand, bandA,bandC;$/;"	m	class:Compact	access:private
 bandC	Interpol.hpp	/^	Array<Tprec,1> mainBand, bandA, bandC;$/;"	m	class:Interpolation	access:private
+bandC	MathInterpolation.h	/^    Array<real,1> mainBand, bandA, bandC;$/;"	m	class:MathInterpolation	access:private
 bandC	Staggered.h	/^	Array<Tprec,1> mainBand, bandA, bandC;$/;"	m	class:Staggered	access:private
 bandCMean	CompactSchemes.hpp	/^	Array<Tprec,1> mainBandMean, bandAMean, bandCMean;$/;"	m	class:Centered	access:private
 base	SparseLib++/compcol_double.h	/^       int          base() const {return base_;}$/;"	f	class:CompCol_Mat_double	access:public	signature:() const
@@ -1525,6 +1562,7 @@ colind_	SparseLib++/coord_double.h	/^       VECTOR_int    colind_;    \/\/ col_i
 colptr_	SparseLib++/compcol_double.h	/^       VECTOR_int    colptr_;    \/\/ col_ptr (dim_[1]+1 elements)$/;"	m	class:CompCol_Mat_double	access:private
 computeInt	Interpol.hpp	/^	inline void computeInt(Array<Tprec,1> & ,Array<Tprec,1> &);$/;"	p	class:Interpolation	access:public	signature:(Array<Tprec,1> & ,Array<Tprec,1> &)
 computeInt	Interpol.hpp	/^inline void Interpolation<Tprec, Zone>::computeInt(Array<Tprec,1> &A ,Array<Tprec,1> &B){$/;"	f	class:Interpolation	signature:(Array<Tprec,1> &A ,Array<Tprec,1> &B)
+computeInt	MathInterpolation.h	/^    inline void computeInt(Array<real,1> & ,Array<real,1> &);$/;"	p	class:MathInterpolation	access:public	signature:(Array<real,1> & ,Array<real,1> &)
 computeInt	Staggered.h	/^	inline void computeInt(Array<Tprec,1> & ,Array<Tprec,1> &);$/;"	p	class:Staggered	access:public	signature:(Array<Tprec,1> & ,Array<Tprec,1> &)
 computeInt	Staggered.h	/^inline void Interpolation<Tprec, Zone>::computeInt(Array<Tprec,1> &A ,Array<Tprec,1> &B){$/;"	f	class:Interpolation	signature:(Array<Tprec,1> &A ,Array<Tprec,1> &B)
 convectiveTerm	GeneralEquation.hpp	/^	Array<Tprec,2> temporalTerm, convectiveTerm, diffusiveTerm, pressureTerm;$/;"	m	class:GeneralEquation	access:private
@@ -1602,21 +1640,25 @@ dot	SparseLib++/tblas1.h	/^TYPE dot(const MV_Vector_TYPE &x, const MV_Vector_TYP
 e1	CompactSchemes.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Compact	access:protected
 e1	Derivatives.hpp	/^	Tprec a, b, e1, e2, e3, e4, e5;$/;"	m	class:Compact	access:private
 e1	Interpol.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Interpolation	access:private
+e1	MathInterpolation.h	/^    real Alpha, alphaBound, a, b, e1, e2, e3, e4; $/;"	m	class:MathInterpolation	access:private
 e1	Staggered.h	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Staggered	access:private
 e1Mean	CompactSchemes.hpp	/^	Tprec aMean, bMean, e1Mean, e2Mean, e3Mean, e4Mean;$/;"	m	class:Centered	access:private
 e2	CompactSchemes.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Compact	access:protected
 e2	Derivatives.hpp	/^	Tprec a, b, e1, e2, e3, e4, e5;$/;"	m	class:Compact	access:private
 e2	Interpol.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Interpolation	access:private
+e2	MathInterpolation.h	/^    real Alpha, alphaBound, a, b, e1, e2, e3, e4; $/;"	m	class:MathInterpolation	access:private
 e2	Staggered.h	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Staggered	access:private
 e2Mean	CompactSchemes.hpp	/^	Tprec aMean, bMean, e1Mean, e2Mean, e3Mean, e4Mean;$/;"	m	class:Centered	access:private
 e3	CompactSchemes.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Compact	access:protected
 e3	Derivatives.hpp	/^	Tprec a, b, e1, e2, e3, e4, e5;$/;"	m	class:Compact	access:private
 e3	Interpol.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Interpolation	access:private
+e3	MathInterpolation.h	/^    real Alpha, alphaBound, a, b, e1, e2, e3, e4; $/;"	m	class:MathInterpolation	access:private
 e3	Staggered.h	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Staggered	access:private
 e3Mean	CompactSchemes.hpp	/^	Tprec aMean, bMean, e1Mean, e2Mean, e3Mean, e4Mean;$/;"	m	class:Centered	access:private
 e4	CompactSchemes.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Compact	access:protected
 e4	Derivatives.hpp	/^	Tprec a, b, e1, e2, e3, e4, e5;$/;"	m	class:Compact	access:private
 e4	Interpol.hpp	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Interpolation	access:private
+e4	MathInterpolation.h	/^    real Alpha, alphaBound, a, b, e1, e2, e3, e4; $/;"	m	class:MathInterpolation	access:private
 e4	Staggered.h	/^	Tprec a, b, e1, e2, e3, e4;$/;"	m	class:Staggered	access:private
 e4Mean	CompactSchemes.hpp	/^	Tprec aMean, bMean, e1Mean, e2Mean, e3Mean, e4Mean;$/;"	m	class:Centered	access:private
 e5	Derivatives.hpp	/^	Tprec a, b, e1, e2, e3, e4, e5;$/;"	m	class:Compact	access:private
@@ -1637,7 +1679,7 @@ getP	Staggered.h	/^inline Array<Tprec,2>Interpolation<Tprec,Zone>::getP(){$/;"	f
 id	pressureCorrection.h	/^    int *id;$/;"	m	class:PressureCorrect	access:private
 index	SparseLib++/minstr.h	/^int index(char * S, char M);$/;"	p	signature:(char * S, char M)
 indx_	SparseLib++/icpre_double.h	/^  VECTOR_int    indx_;$/;"	m	class:ICPreconditioner_double	access:private
-insertionSort	MathCore.h	/^void insertionSort(int a[], int b[], int c[], real d[], int array_size)$/;"	f	signature:(int a[], int b[], int c[], real d[], int array_size)
+insertionSort	MathCore.h	/^void insertionSort(int a[], int b[], int c[], real d[], int array_size);$/;"	p	signature:(int a[], int b[], int c[], real d[], int array_size)
 inverseDx	Mesh.h	/^    const real &inverseDx;$/;"	m	class:MeshTool::MeshBlock	access:public
 inverseDx_	Mesh.h	/^    real inverseDx_;\/\/Gets the inverse of the delta X$/;"	m	class:MeshTool::MeshBlock	access:private
 inverseDy	Mesh.h	/^    const real &inverseDy;$/;"	m	class:MeshTool::MeshBlock	access:public
@@ -1670,6 +1712,7 @@ ly	Mesh.h	/^    real lx, ly; \/\/longitud X-Axis Y-Axix$/;"	m	class:MeshTool::Me
 mainBand	CompactSchemes.hpp	/^	Array<Tprec,1> mainBand, bandA,bandC;$/;"	m	class:Compact	access:protected
 mainBand	Derivatives.hpp	/^	Array<Tprec,1> mainBand, bandA,bandC;$/;"	m	class:Compact	access:private
 mainBand	Interpol.hpp	/^	Array<Tprec,1> mainBand, bandA, bandC;$/;"	m	class:Interpolation	access:private
+mainBand	MathInterpolation.h	/^    Array<real,1> mainBand, bandA, bandC;$/;"	m	class:MathInterpolation	access:private
 mainBand	Staggered.h	/^	Array<Tprec,1> mainBand, bandA, bandC;$/;"	m	class:Staggered	access:private
 mainBandMean	CompactSchemes.hpp	/^	Array<Tprec,1> mainBandMean, bandAMean, bandCMean;$/;"	m	class:Centered	access:private
 maxit	pressureCorrection.h	/^    int maxit, restart;$/;"	m	class:PressureCorrect	access:private
@@ -2045,6 +2088,7 @@ set	SparseLib++/comprow_double.h	/^       double&      set(int i, int j);$/;"	p	
 set	SparseLib++/coord_double.h	/^       double&      set(int i, int j);$/;"	p	class:Coord_Mat_double	access:public	signature:(int i, int j)
 setField	Interpol.hpp	/^	inline void setField(Array<Tprec,2> &A)$/;"	f	class:Interpolation	access:public	signature:(Array<Tprec,2> &A)
 setField	Staggered.h	/^	inline void setField(Array<Tprec,2> &A)$/;"	f	class:Staggered	access:public	signature:(Array<Tprec,2> &A)
+setVal	MathInterpolation.h	/^    void setVal(); $/;"	p	class:MathInterpolation	access:public	signature:()
 setValues	Interpol.hpp	/^	inline void setValues();$/;"	p	class:Interpolation	access:public	signature:()
 setValues	Interpol.hpp	/^inline void Interpolation<Tprec, Zone>::setValues(){$/;"	f	class:Interpolation	signature:()
 setValues	Staggered.h	/^	inline void setValues();$/;"	p	class:Staggered	access:public	signature:()
@@ -2169,11 +2213,13 @@ writetxtfile_vec	Mv++/iotext.h	/^int writetxtfile_vec(const char *filename, cons
 writetxtfile_vec	Mv++/iotext.h	/^int writetxtfile_vec(const char *filename, const MV_Vector_int &A);$/;"	p	signature:(const char *filename, const MV_Vector_int &A)
 writetxtfile_vec	SparseLib++/iotext.h	/^int writetxtfile_vec(const char *filename, const MV_Vector_double &A);$/;"	p	signature:(const char *filename, const MV_Vector_double &A)
 writetxtfile_vec	SparseLib++/iotext.h	/^int writetxtfile_vec(const char *filename, const MV_Vector_int &A);$/;"	p	signature:(const char *filename, const MV_Vector_int &A)
+xDim	MathInterpolation.h	/^    int xDim, yDim;$/;"	m	class:MathInterpolation	access:private
 xM	Derivatives.hpp	/^	inline Array<Tprec,2> xM(const Array<Tprec,2> &); \/\/Derivatives at the middle points$/;"	p	class:Compact	access:public	signature:(const Array<Tprec,2> &)
 xM	Derivatives.hpp	/^ Array<Tprec,2> Compact<Tprec>::xM(const Array<Tprec,2> &Field){$/;"	f	class:Compact	signature:(const Array<Tprec,2> &Field)
 xS	Derivatives.hpp	/^	inline Array<Tprec,2> xS(const Array<Tprec,2> &); \/\/Derivatives at the Integer points$/;"	p	class:Compact	access:public	signature:(const Array<Tprec,2> &)
 xS	Derivatives.hpp	/^ Array<Tprec,2> Compact<Tprec>::xS(const Array<Tprec,2> &Field){$/;"	f	class:Compact	signature:(const Array<Tprec,2> &Field)
 x_estimate	pressureCorrection.h	/^    real *x_estimate;$/;"	m	class:PressureCorrect	access:private
+yDim	MathInterpolation.h	/^    int xDim, yDim;$/;"	m	class:MathInterpolation	access:private
 yM	Derivatives.hpp	/^	inline Array<Tprec,2> yM(const Array<Tprec,2> &);$/;"	p	class:Compact	access:public	signature:(const Array<Tprec,2> &)
 yM	Derivatives.hpp	/^ Array<Tprec,2> Compact<Tprec>::yM(const Array<Tprec,2> &Field){$/;"	f	class:Compact	signature:(const Array<Tprec,2> &Field)
 yS	Derivatives.hpp	/^	inline Array<Tprec,2> yS(const Array<Tprec,2> &);$/;"	p	class:Compact	access:public	signature:(const Array<Tprec,2> &)

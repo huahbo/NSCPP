@@ -6,12 +6,13 @@
 #include "Momentum.hpp"
 #include "RungeKutta.h"
 #include "MathInterpolation.h"
+#include "Cells.h"
 
 
 using namespace blitz;
 
 int main(){
-    MeshTool::MeshBlock Grid(10.0,10.0,7,7);
+    MeshTool::MeshBlock Grid(10.0,10.0,400,7);
     Grid.cellDifference();
     cout << Grid.Dx << endl;    
     cout << Grid.Dy << endl;    
@@ -31,13 +32,25 @@ int main(){
                   vGhostB(Grid.cNx, 6), 
                   uGhostB(Grid.cNy, 6); 
 
-    MathInterpolation Us(U);
-
-    std::cout << U << std::endl;
-    Us.J();
-/*
     Array<real,2> uBoundD(2,Grid.Nx),
                   vBoundD(2,Grid.Ny);
+
+
+    U(Range::all(),Range::all()) = 1.0;
+
+    for(int j = 0; j < Grid.cNy; j++){
+        U(0,j) = 2.0;
+    }
+
+    MathInterpolation Us(U);
+
+    StaggCellX Ucell(U, uBoundD, Grid);
+
+    Ucell.Solve();
+
+    std::cout << U << std::endl;
+    std::cout << Us.I() << std::endl;
+/*
 
 
     Array<real,2> BoundaryX(Grid.Nx,Grid.Ny),

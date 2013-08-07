@@ -23,8 +23,8 @@ public:
         **/
         xDim = Field.ubound(firstDim) + 1; 
         yDim = Field.ubound(secondDim) + 1; 
-        Field_J(Field.ubound(firstDim)+1,Field.ubound(secondDim));
-        Field_I(Field.ubound(firstDim),Field.ubound(secondDim)+1);
+        Field_J.resize(Field.ubound(firstDim)+1,Field.ubound(secondDim));
+        Field_I.resize(Field.ubound(firstDim),Field.ubound(secondDim)+1);
         setVal();  
 
     }
@@ -35,8 +35,8 @@ public:
     void setVal(); 
     inline void Resizes(int N);
     inline void computeInt(Array<real,1> & ,Array<real,1> &);
-    inline Array<real,2> I();
-    inline Array<real,2> J();
+    Array<real,2> I();
+    Array<real,2> J();
 
 private:     
 
