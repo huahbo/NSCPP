@@ -7,12 +7,13 @@
 #include "RungeKutta.h"
 #include "MathInterpolation.h"
 #include "Cells.h"
+#include "Momento.h"
 
 
 using namespace blitz;
 
 int main(){
-    MeshTool::MeshBlock Grid(10.0,10.0,400,7);
+    MeshTool::MeshBlock Grid(10.0,10.0,100,7);
     Grid.cellDifference();
     cout << Grid.Dx << endl;    
     cout << Grid.Dy << endl;    
@@ -37,19 +38,30 @@ int main(){
 
 
     U(Range::all(),Range::all()) = 1.0;
+    uBoundD(Range::all(),Range::all()) = 3.0;
+
+
+    V(Range::all(),Range::all()) = 1.0;
+    vBoundD(Range::all(),Range::all()) = 3.0;
 
     for(int j = 0; j < Grid.cNy; j++){
-        U(0,j) = 2.0;
+        U(0,j) = 1.0;
     }
 
     MathInterpolation Us(U);
 
     StaggCellX Ucell(U, uBoundD, Grid);
+    StaggCellY Vcell(V, vBoundD, Grid);
 
-    Ucell.Solve();
+    std::cout << V << std::endl;
+    Vcell.Solve();
+    Vcell.Dirichlet();
 
-    std::cout << U << std::endl;
-    std::cout << Us.I() << std::endl;
+    std::cout << Vcell.IJ << std::endl;
+    std::cout << V << std::endl;
+    
+    MomentumX MomentumEqX(Ucell,Vcell,Pressure,Grid);
+
 /*
 
 

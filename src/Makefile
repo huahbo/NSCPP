@@ -15,6 +15,7 @@ Mesh.o\
 MathCore.o\
 MathInterpolation.o\
 Cells.o\
+Momento.o\
 RungeKutta.o
 
 $(EXECS): $(OBJS) /home/cipia/NSCPP/include/*.h
@@ -34,6 +35,8 @@ RungeKutta.o: RungeKutta.cpp ../include/RungeKutta.h
 MathInterpolation.o: MathInterpolation.cpp ../include/MathInterpolation.h
 	$(CCC) $(CCFLAGS) -I$(INCLUDES) -c $*.cpp
 Cells.o: Cells.cpp ../include/Cells.h
+	$(CCC) $(CCFLAGS) -I$(INCLUDES) -c $*.cpp
+Momento.o: Momento.cpp ../include/Momento.h
 	$(CCC) $(CCFLAGS) -I$(INCLUDES) -c $*.cpp
 clean:
 	rm *.o
