@@ -3,7 +3,6 @@
 #include "pressureCorrection.h"
 #include "Mesh.h"
 #include "Interpol.hpp"
-#include "Momentum.hpp"
 #include "RungeKutta.h"
 #include "MathInterpolation.h"
 #include "Cells.h"
@@ -61,6 +60,7 @@ int main(){
     std::cout << V << std::endl;
     
     MomentumX MomentumEqX(Ucell,Vcell,Pressure,Grid);
+    MomentumY MomentumEqY(Ucell,Vcell,Pressure,Grid);
 
 /*
 

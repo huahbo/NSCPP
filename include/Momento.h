@@ -43,43 +43,42 @@ protected:
 
 
 class MomentumX
-: public 
+: public Momentum 
 {
 public:
 
     MomentumX(
+              const StaggCellX&,
+              const StaggCellY&,
+              const Array<real,2>&,
+              const MeshTool::MeshBlock&  
+             );
+
+    Array<real,2> Solve();
+
+};
+
+
+class MomentumY
+: public Momentum 
+{
+public:
+
+    MomentumY(
               const StaggCellX& U_tmp,
               const StaggCellY& V_tmp,
               const Array<real,2>& pressure_tmp,
               const MeshTool::MeshBlock& Grid_tmp  
-             )
-    : Ucell(U_tmp),
-      Vcell(V_tmp),
-      pressure(pressure_tmp),
-      Grid(Grid_tmp)
-    {
-        Divergence.resize(Ucell.Val.shape());
-        FluxF.resize(Ucell.Val.shape());
-        FluxG.resize(Ucell.Val.shape());
-        FluxFv.resize(Ucell.Val.shape());
-        FluxGv.resize(Ucell.Val.shape());
-        DivP.resize(Ucell.Val.shape());
-        std::cout << "Building Momentum Equation Axis X" << std::endl; 
-    }
+            );
+
 
     Array<real,2> Solve();
 
 private:
-    const StaggCellX& Ucell;
-    const StaggCellY& Vcell;
-    const Array<real,2>& pressure;
-    const MeshTool::MeshBlock& Grid;
-    Array<real,2> Divergence,
-                  FluxF,
-                  FluxG,
-                  FluxFv,
-                  FluxGv,
-                  DivP;
+    void SolveFluxF();
+    void SolveFluxG();
+    void SolveDivP();
+
 };
 
 
