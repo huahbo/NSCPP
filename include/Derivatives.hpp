@@ -31,7 +31,9 @@ public:
 	inline void MidPoints_2(Array<Tprec,1> & ,Array<Tprec,1> &, Tprec);
 
 	inline Array<Tprec,2> xS(const Array<Tprec,2> &); //Derivatives at the Integer points
+	inline Array<Tprec,2> dxS(const Array<Tprec,2> &); //Derivatives at the Integer points
 	inline Array<Tprec,2> yS(const Array<Tprec,2> &);
+	inline Array<Tprec,2> dyS(const Array<Tprec,2> &);
 
 	inline Array<Tprec,2> xM(const Array<Tprec,2> &); //Derivatives at the middle points
 	inline Array<Tprec,2> yM(const Array<Tprec,2> &);
